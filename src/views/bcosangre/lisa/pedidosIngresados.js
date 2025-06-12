@@ -192,10 +192,8 @@ const tablePedidosIngresados = {
                                         onchange: (el) => {
                                             PedidosIngresados.fechaDesde = moment(moment(el.target.value, 'YYYY-MM-DD')).format('DD-MM-YYYY');
                                             m.route.set("/bco-sangre/lisa/pedidos/ingresados/?idFiltro=" + PedidosIngresados.idFiltro + "&fechaDesde=" + PedidosIngresados.fechaDesde + "&fechaHasta=" + PedidosIngresados.fechaHasta);
+                                            //window.location.reload();
 
-                                            setTimeout(() => {
-                                                window.location.reload();
-                                            }, 1000);
 
 
                                         },
@@ -226,9 +224,7 @@ const tablePedidosIngresados = {
                                         onchange: (el) => {
                                             PedidosIngresados.fechaHasta = moment(moment(el.target.value, 'YYYY-MM-DD')).format('DD-MM-YYYY');
                                             m.route.set("/bco-sangre/lisa/pedidos/ingresados/?idFiltro=" + PedidosIngresados.idFiltro + "&fechaDesde=" + PedidosIngresados.fechaDesde + "&fechaHasta=" + PedidosIngresados.fechaHasta);
-                                            setTimeout(() => {
-                                                window.location.reload();
-                                            }, 1000);
+                                            //window.location.reload();
 
                                         },
                                         style: {
@@ -998,10 +994,7 @@ const PedidosIngresados = {
                     m("h1.df-title.mg-t-20.mg-b-10",
                         "Pedidos Ingresados:"
                     ),
-                    m("div.row.animated.fadeInUp", [
-
-                        m('p', 'No existe información.')
-                    ]),
+                    m(tablePedidosIngresados)
 
 
 
@@ -1162,22 +1155,7 @@ const PedidosIngresados = {
                     m("h1.df-title.mg-t-20.mg-b-10",
                         "Pedidos Ingresados:"
                     ),
-                    m("div.row.animated.fadeInUp", [
-
-                        m("div.col-12", [
-
-                            m(".alert.alert-danger[role='alert']",
-                                "No existe información disponible."
-                            )
-
-
-                        ])
-                    ]),
-
-
-
-
-
+                    m(tablePedidosIngresados)
 
                 ])
             ),

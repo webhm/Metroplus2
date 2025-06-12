@@ -132,41 +132,41 @@ const tablePedidosBcoSangre = {
                         m("h5.mg-b-0",
                             "Pedidos de Banco de Sangre:",
                             m("span.badge.badge-primary.tx-semibold.pd-l-10.pd-r-10.mg-l-5.tx-15", {
-                                oncreate: (el) => {
-                                    if (PedidosBcoSangre.idFiltro == 1) {
-                                        el.dom.innerHTML = 'Pedidos de Hoy';
-                                    }
-                                    if (PedidosBcoSangre.idFiltro == 2) {
-                                        el.dom.innerHTML = 'Pedidos entre Fechas';
-                                    }
-                                    if (PedidosBcoSangre.idFiltro == 3) {
-                                        el.dom.innerHTML = 'Pedidos de Emergencia';
-                                    }
-                                    if (PedidosBcoSangre.idFiltro == 4) {
-                                        el.dom.innerHTML = 'Pedidos de C. Externa';
-                                    }
-                                    if (PedidosBcoSangre.idFiltro == 5) {
-                                        el.dom.innerHTML = 'Pedidos de Hospitalización';
-                                    }
-                                },
-                                onupdate: (el) => {
-                                    if (PedidosBcoSangre.idFiltro == 1) {
-                                        el.dom.innerHTML = 'Pedidos de Hoy';
-                                    }
-                                    if (PedidosBcoSangre.idFiltro == 2) {
-                                        el.dom.innerHTML = 'Pedidos entre Fechas';
-                                    }
-                                    if (PedidosBcoSangre.idFiltro == 3) {
-                                        el.dom.innerHTML = 'Pedidos de Emergencia';
-                                    }
-                                    if (PedidosBcoSangre.idFiltro == 4) {
-                                        el.dom.innerHTML = 'Pedidos de C. Externa';
-                                    }
-                                    if (PedidosBcoSangre.idFiltro == 5) {
-                                        el.dom.innerHTML = 'Pedidos de Hospitalización';
+                                    oncreate: (el) => {
+                                        if (PedidosBcoSangre.idFiltro == 1) {
+                                            el.dom.innerHTML = 'Pedidos de Hoy';
+                                        }
+                                        if (PedidosBcoSangre.idFiltro == 2) {
+                                            el.dom.innerHTML = 'Pedidos entre Fechas';
+                                        }
+                                        if (PedidosBcoSangre.idFiltro == 3) {
+                                            el.dom.innerHTML = 'Pedidos de Emergencia';
+                                        }
+                                        if (PedidosBcoSangre.idFiltro == 4) {
+                                            el.dom.innerHTML = 'Pedidos de C. Externa';
+                                        }
+                                        if (PedidosBcoSangre.idFiltro == 5) {
+                                            el.dom.innerHTML = 'Pedidos de Hospitalización';
+                                        }
+                                    },
+                                    onupdate: (el) => {
+                                        if (PedidosBcoSangre.idFiltro == 1) {
+                                            el.dom.innerHTML = 'Pedidos de Hoy';
+                                        }
+                                        if (PedidosBcoSangre.idFiltro == 2) {
+                                            el.dom.innerHTML = 'Pedidos entre Fechas';
+                                        }
+                                        if (PedidosBcoSangre.idFiltro == 3) {
+                                            el.dom.innerHTML = 'Pedidos de Emergencia';
+                                        }
+                                        if (PedidosBcoSangre.idFiltro == 4) {
+                                            el.dom.innerHTML = 'Pedidos de C. Externa';
+                                        }
+                                        if (PedidosBcoSangre.idFiltro == 5) {
+                                            el.dom.innerHTML = 'Pedidos de Hospitalización';
+                                        }
                                     }
                                 }
-                            }
 
                             )
 
@@ -176,16 +176,16 @@ const tablePedidosBcoSangre = {
                                 class: (PedidosBcoSangre.idFiltro == 1 ? 'd-none' : 'd-flex')
                             }, [
                                 m("div.link-03", {
-                                    title: "Desde"
-                                },
+                                        title: "Desde"
+                                    },
                                     m(".tx-10.pd-r-0", {
                                         style: { "padding-top": "10px" }
                                     }, 'Desde:')
                                 ),
                                 m("div.link-03", {
-                                    style: { "cursor": "pointer" },
-                                    title: "Desde"
-                                },
+                                        style: { "cursor": "pointer" },
+                                        title: "Desde"
+                                    },
 
                                     m("input.tx-light.pd-4[type='date'][id='desde']", {
                                         oncreate: (el) => {
@@ -204,16 +204,16 @@ const tablePedidosBcoSangre = {
                                     })
                                 ),
                                 m("div.link-03", {
-                                    title: "Hasta"
-                                },
+                                        title: "Hasta"
+                                    },
                                     m(".tx-10.pd-r-0", {
                                         style: { "padding-top": "10px" }
                                     }, 'Hasta:')
                                 ),
                                 m("div.link-03", {
-                                    style: { "cursor": "pointer" },
-                                    title: "Hasta"
-                                },
+                                        style: { "cursor": "pointer" },
+                                        title: "Hasta"
+                                    },
                                     m("input.tx-light.pd-4[type='date'][id='hasta']", {
                                         oncreate: (el) => {
                                             el.dom.value = (PedidosBcoSangre.idFiltro !== 1 ? moment(moment(PedidosBcoSangre.fechaHasta, 'DD-MM-YYYY')).format('YYYY-MM-DD') : '');
@@ -233,9 +233,9 @@ const tablePedidosBcoSangre = {
                             ]),
                             m("div.dropdown.dropleft", [
                                 m("div.link-03.lh-0.mg-l-5[id='dropdownMenuButton'][data-toggle='dropdown'][aria-haspopup='true'][aria-expanded='false']", {
-                                    style: { "cursor": "pointer" },
-                                    title: "Filtrar"
-                                },
+                                        style: { "cursor": "pointer" },
+                                        title: "Filtrar"
+                                    },
                                     m("i.fas.fa-filter.tx-18.pd-5")
                                 ),
                                 m(".dropdown-menu.tx-13[aria-labelledby='dropdownMenuButton']", [
@@ -269,7 +269,7 @@ const tablePedidosBcoSangre = {
                         m("div.search-form",
                             m("input.form-control[type='search'][placeholder='Buscar'][id='searchField']", {
 
-                                oninput: function (e) { PedidosBcoSangre.searchField = e.target.value; },
+                                oninput: function(e) { PedidosBcoSangre.searchField = e.target.value; },
                                 value: PedidosBcoSangre.searchField,
                             })
                         ),
@@ -353,84 +353,84 @@ const PedidosBcoSangre = {
             ],
             destroy: true,
             columns: [{
-                title: "Tipo: ",
-            },
-            {
-                title: "Fecha y Hora: ",
-            },
-            {
-                title: "Atención N°: ",
-            },
-            {
-                title: "Paciente: ",
-            },
-            {
-                title: "Médico: ",
-            },
-            {
-                title: "Opciones: ",
-            },
+                    title: "Tipo: ",
+                },
+                {
+                    title: "Fecha y Hora: ",
+                },
+                {
+                    title: "Atención N°: ",
+                },
+                {
+                    title: "Paciente: ",
+                },
+                {
+                    title: "Médico: ",
+                },
+                {
+                    title: "Opciones: ",
+                },
 
 
             ],
             aoColumnDefs: [{
-                mRender: function (data, type, row, meta) {
-                    return meta.row + meta.settings._iDisplayStart + 1;
+                    mRender: function(data, type, row, meta) {
+                        return meta.row + meta.settings._iDisplayStart + 1;
+                    },
+                    visible: true,
+                    aTargets: [0],
+                    orderable: false,
                 },
-                visible: true,
-                aTargets: [0],
-                orderable: false,
-            },
-            {
-                mRender: function (data, type, full) {
-                    return full.CD_PRE_MED;
-                },
-                visible: true,
-                aTargets: [1],
-                orderable: true,
-
-            },
-            {
-                mRender: function (data, type, full) {
-                    return full.CD_PACIENTE;
+                {
+                    mRender: function(data, type, full) {
+                        return full.CD_PRE_MED;
+                    },
+                    visible: true,
+                    aTargets: [1],
+                    orderable: true,
 
                 },
-                visible: true,
-                aTargets: [2],
-                orderable: true,
+                {
+                    mRender: function(data, type, full) {
+                        return full.CD_PACIENTE;
 
-            }, {
-                mRender: function (data, type, full) {
-                    return full.NM_PACIENTE;
+                    },
+                    visible: true,
+                    aTargets: [2],
+                    orderable: true,
+
+                }, {
+                    mRender: function(data, type, full) {
+                        return full.NM_PACIENTE;
+
+                    },
+                    visible: true,
+                    aTargets: [3],
+                    orderable: true,
+
+                }, {
+                    mRender: function(data, type, full) {
+                        return full.MED_MV;
+
+                    },
+                    visible: true,
+                    aTargets: [4],
+                    orderable: true,
+
+                }, {
+                    mRender: function(data, type, full) {
+                        return "";
+
+                    },
+                    visible: false,
+                    aTargets: [5],
+                    orderable: false,
 
                 },
-                visible: true,
-                aTargets: [3],
-                orderable: true,
-
-            }, {
-                mRender: function (data, type, full) {
-                    return full.MED_MV;
-
-                },
-                visible: true,
-                aTargets: [4],
-                orderable: true,
-
-            }, {
-                mRender: function (data, type, full) {
-                    return "";
-
-                },
-                visible: false,
-                aTargets: [5],
-                orderable: false,
-
-            },
 
 
             ],
-            fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+            fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
 
                 m.mount(nRow, {
                     view: () => {
@@ -460,30 +460,30 @@ const PedidosBcoSangre = {
                                 ),
                             ),
                             m("td.tx-14", { "style": {} }, [
-                                m('.d-inline.mg-r-5', {
-                                    class: (aData.SECTOR == 'EMERGENCIA' ? "tx-danger" : "tx-primary")
-                                }, aData.SECTOR),
-                                m('br'),
-                                'Prescripción N°:' + aData.CD_PRE_MED,
-                                m('br'),
-                                'NHC: ' + aData.CD_PACIENTE,
-                                m('br'),
-                                'PTE: ' + aData.NM_PACIENTE,
-                                m('br'),
-                                m('br'),
-                                'EXAMEN:',
-                                m('br'),
-                                aData.EXAMEN,
-                                m('br'),
-
-                                (aData.OBS_EXAMEN == null ? [] : [
                                     m('.d-inline.mg-r-5', {
-                                        class: "tx-danger"
-                                    }, 'Observacion: ',
-                                        m('br'),
-                                        aData.OBS_EXAMEN)
-                                ]),
-                            ]
+                                        class: (aData.SECTOR == 'EMERGENCIA' ? "tx-danger" : "tx-primary")
+                                    }, aData.SECTOR),
+                                    m('br'),
+                                    'Prescripción N°:' + aData.CD_PRE_MED,
+                                    m('br'),
+                                    'NHC: ' + aData.CD_PACIENTE,
+                                    m('br'),
+                                    'PTE: ' + aData.NM_PACIENTE,
+                                    m('br'),
+                                    m('br'),
+                                    'EXAMEN:',
+                                    m('br'),
+                                    aData.EXAMEN,
+                                    m('br'),
+
+                                    (aData.OBS_EXAMEN == null ? [] : [
+                                        m('.d-inline.mg-r-5', {
+                                                class: "tx-danger"
+                                            }, 'Observacion: ',
+                                            m('br'),
+                                            aData.OBS_EXAMEN)
+                                    ]),
+                                ]
 
                             ),
                             m("td.tx-14",
@@ -494,16 +494,16 @@ const PedidosBcoSangre = {
 
 
                             m("td.tx-center.tx-semibold.tx-14", {
-                                onclick: () => {
-                                    m.route.set("/bco-sangre/pedido/", {
-                                        numeroHistoriaClinica: aData.CD_PACIENTE,
-                                        numeroAtencion: aData.AT_MV,
-                                        numeroPedido: aData.CD_PRE_MED,
-                                        track: "view",
-                                    });
+                                    onclick: () => {
+                                        m.route.set("/bco-sangre/pedido/", {
+                                            numeroHistoriaClinica: aData.CD_PACIENTE,
+                                            numeroAtencion: aData.AT_MV,
+                                            numeroPedido: aData.CD_PRE_MED,
+                                            track: "view",
+                                        });
+                                    },
+                                    "style": { "background-color": "rgb(168, 190, 214)", "cursor": "pointer" }
                                 },
-                                "style": { "background-color": "rgb(168, 190, 214)", "cursor": "pointer" }
-                            },
                                 " Ver 005 "
 
                             )
@@ -517,7 +517,7 @@ const PedidosBcoSangre = {
                 });
 
             },
-            drawCallback: function (settings) {
+            drawCallback: function(settings) {
 
                 PedidosBcoSangre.loader = false;
 
@@ -528,7 +528,7 @@ const PedidosBcoSangre = {
             minimumResultsForSearch: Infinity
         });
 
-        $('#searchField').keyup(function (e) {
+        $('#searchField').keyup(function(e) {
 
             table.search($('#searchField').val()).draw();
         });
@@ -546,18 +546,18 @@ const PedidosBcoSangre = {
         }
 
         m.request({
-            method: "GET",
-            url: "https://api.hospitalmetropolitano.org/t/v1/bco-sangre/pedidos" + _queryString,
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (result) {
+                method: "GET",
+                url: "https://api.hospitalmetropolitano.org/t/v1/bco-sangre/pedidos" + _queryString,
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(result) {
                 PedidosBcoSangre.loader = false;
                 PedidosBcoSangre.pedidos = result.data;
             })
-            .catch(function (e) {
-                setTimeout(function () { PedidosBcoSangre.fetchPedidos(); }, 2000);
+            .catch(function(e) {
+                setTimeout(function() { PedidosBcoSangre.fetchPedidos(); }, 2000);
             });
 
 
@@ -600,11 +600,11 @@ const PedidosBcoSangre = {
                         m("div.col-12", [
 
                             m("div.table-loader.wd-100p", [
-                                m("div.placeholder-paragraph", [
-                                    m("div.line"),
-                                    m("div.line")
-                                ])
-                            ]
+                                    m("div.placeholder-paragraph", [
+                                        m("div.line"),
+                                        m("div.line")
+                                    ])
+                                ]
 
 
                             ),
@@ -647,10 +647,7 @@ const PedidosBcoSangre = {
                     m("h1.df-title.mg-t-20.mg-b-10",
                         "Recepción de Pedidos:"
                     ),
-                    m("div.row.animated.fadeInUp", [
-
-                        m('p', 'No existe infrmac dd ncin')
-                    ]),
+                    m(tablePedidosBcoSangre)
 
 
 
@@ -699,7 +696,7 @@ const PedidosBcoSangre = {
                 ),
                 m("div.mg-t-10.bg-white", {
 
-                },
+                    },
 
                     m("div.mg-t-10.bg-white",
                         m("div.card-header.pd-t-20.pd-b-0.bd-b-0", [
@@ -755,23 +752,7 @@ const PedidosBcoSangre = {
                     m("h1.df-title.mg-t-20.mg-b-10",
                         "Recepción de Pedidos:"
                     ),
-                    m("div.row.animated.fadeInUp", [
-
-                        m("div.col-12", [
-
-                            m(".alert.alert-danger[role='alert']",
-                                "No existe información disponible."
-                            )
-
-
-                        ])
-                    ]),
-
-
-
-
-
-
+                    m(tablePedidosBcoSangre)
                 ])
             ),
         ] : [
