@@ -18,10 +18,10 @@ const Uploads = {
         }).then(function(response) {
             return response.json();
         }).then(function(data) {
-            console.log('data = ', data);
+            // console.log('data = ', data);
             alert('Proceso realizado con éxito');
-            alert('Tarjeta Roja N°: HM-' + NuevaTRoja.id);
-            m.route.set('/contabilidad/proceso/tarjeta-roja/status/?tr=' + NuevaTRoja.id + '&track=view');
+            // alert('Tarjeta Roja N°: HM-' + NuevaTRoja.id);
+            // m.route.set('/contabilidad/proceso/tarjeta-roja/status/?tr=' + NuevaTRoja.id + '&track=view');
         }).catch(function(err) {
             console.error(err);
         });
@@ -229,7 +229,7 @@ const NuevaTRoja = {
     },
     sendDataTR: () => {
 
-
+        /*
 
         if (NuevaTRoja.data.accion_sugerida == undefined || NuevaTRoja.data.accion_sugerida.length == 0) {
             alert('Todos los campos son obligatorios (accion_sugerida).');
@@ -299,36 +299,21 @@ const NuevaTRoja = {
             throw 'Es necesario adjuntar la documentación requerida.';
         }
 
+        */
+
         NuevaTRoja.loader = true;
 
         m.request({
                 method: "POST",
                 url: "https://api.hospitalmetropolitano.org/t/v1/procesos/tr/nueva",
-                body: {
-                    fecha: moment().format('DD-MM-YYYY'),
-                    accion_sugerida: NuevaTRoja.data.accion_sugerida,
-                    categoria: NuevaTRoja.data.categoria,
-                    area: NuevaTRoja.data.area,
-                    marca: NuevaTRoja.data.marca,
-                    modelo: NuevaTRoja.data.modelo,
-                    motivo_baja: NuevaTRoja.data.motivo_baja,
-                    nombre: NuevaTRoja.data.nombre,
-                    serie: NuevaTRoja.data.serie,
-                    sub_categoria: NuevaTRoja.data.sub_categoria,
-                    usuario: NuevaTRoja.data.usuario,
-                    email: NuevaTRoja.data.email,
-                    destino_final: NuevaTRoja.data.destino_final,
-                    centro_costo: NuevaTRoja.data.centro_costo,
-                    inf_tec: NuevaTRoja.data.inf_tec,
-                    act_fijo: NuevaTRoja.data.act_fijo
-                },
+                body: {},
                 headers: {
                     "Content-Type": "application/json; charset=utf-8",
                 },
             })
             .then(function(result) {
                 if (result.status) {
-                    NuevaTRoja.id = result.idTR;
+                    //  NuevaTRoja.id = result.idTR;
                     setTimeout(() => {
                         Uploads.uploadService();
                     }, 2000);
@@ -375,14 +360,14 @@ const NuevaTRoja = {
     view: (_data) => {
 
         return [
-            m(HeadPublic),
+
             m("div.content.content-components", {},
                 m("div.container.mg-l-0.mg-r-0", {
                     style: { "max-width": "100%" }
                 }, [
 
                     m("h1.df-title.mg-b-10",
-                        "Nueva Tarjeta Roja: "
+                        "Subir Informe: "
                     ),
 
 
@@ -413,7 +398,7 @@ const NuevaTRoja = {
                                     m("div.bg-white.bd.pd-20.pd-lg-30.d-flex.flex-column.justify-content-end", [
 
 
-                                        m("span.pd-6.wd-100p.wd-md-20p", {
+                                        m("span.pd-6.wd-100p.wd-md-20p.d-none", {
                                             class: "badge badge-danger mg-b-2 mg-r-2",
                                         }, [
                                             m("i.fas.fa-file-alt.mg-r-5"),
@@ -428,7 +413,7 @@ const NuevaTRoja = {
 
                                                         m("tr.bg-litecoin.op-9.tx-white", [
                                                             m("th[scope='col'][colspan='10']",
-                                                                "DATOS SOLICITUD:"
+                                                                "DATOS DE INFORME:"
                                                             ),
 
                                                         ])
@@ -457,29 +442,27 @@ const NuevaTRoja = {
                                                             m("th.tx-semibold.tx-14[colspan='4']", {
                                                                     style: { "background-color": "#a8bed6" }
                                                                 },
-                                                                "Categoría:"
+                                                                "Exámen:"
                                                             ),
                                                             m("td[colspan='6']", {
                                                                     style: { "background-color": "#eaeff5" }
-
                                                                 },
                                                                 m('select.tx-semibold', {
                                                                     onchange: (e) => {
-                                                                        NuevaTRoja.data.categoria = e.target.options[e.target.options.selectedIndex].value;
-                                                                        NuevaTRoja.data.id_categoria = e.target.options[e.target.options.selectedIndex].id;
+                                                                        //  NuevaTRoja.data.categoria = e.target.options[e.target.options.selectedIndex].value;
+                                                                        //  NuevaTRoja.data.id_categoria = e.target.options[e.target.options.selectedIndex].id;
                                                                     },
                                                                     class: "custom-select"
-                                                                }, m('option', 'Seleccione...'), NuevaTRoja.activos.activos.map(x =>
+                                                                }, m('option', 'Seleccione...'), ['HOLTER', 'ERGOMETRIA', 'ELECTROCARDIOGRAMA', 'TILT TEST', 'MAPA', 'TELEMETRIA'].map(x =>
                                                                     m('option', {
-                                                                        id: x.cod_class,
-                                                                        value: x.class,
-                                                                    }, x.class)
+                                                                        value: x,
+                                                                    }, x)
                                                                 ))
                                                             )
 
 
                                                         ]),
-                                                        m("tr", [
+                                                        m("tr.d-none", [
 
                                                             m("th.tx-semibold.tx-14[colspan='4']", {
                                                                     style: { "background-color": "#a8bed6" }
@@ -519,7 +502,7 @@ const NuevaTRoja = {
 
                                                         m("tr.bg-litecoin.op-9.tx-white", [
                                                             m("th[scope='col'][colspan='10']",
-                                                                "DATOS DEL EQUIPO:"
+                                                                "DATOS DEL PACIENTE:"
                                                             ),
 
                                                         ])
@@ -529,7 +512,7 @@ const NuevaTRoja = {
                                                             m("th.tx-semibold.tx-14[colspan='1']", {
                                                                     style: { "background-color": "#a8bed6" }
                                                                 },
-                                                                "Nombre:"
+                                                                "Historia Clinica:"
                                                             ),
                                                             m("td[colspan='9']", {
                                                                     style: { "background-color": "#eaeff5" }
@@ -537,9 +520,9 @@ const NuevaTRoja = {
                                                                 m("input", {
                                                                     "class": "form-control tx-semibold tx-14",
                                                                     "type": "text",
-                                                                    "placeholder": "Nombre",
-                                                                    oninput: (e) => {
-                                                                        NuevaTRoja.data.nombre = e.target.value;
+
+                                                                    oncreate: (e) => {
+                                                                        e.dom.value = '712487';
                                                                     }
                                                                 })
                                                             )
@@ -548,7 +531,7 @@ const NuevaTRoja = {
                                                             m("th.tx-semibold.tx-14[colspan='1']", {
                                                                     style: { "background-color": "#a8bed6" }
                                                                 },
-                                                                "Marca:"
+                                                                "Paciente:"
                                                             ),
                                                             m("td[colspan='9']", {
                                                                     style: { "background-color": "#eaeff5" }
@@ -557,9 +540,9 @@ const NuevaTRoja = {
                                                                 m("input", {
                                                                     "class": "form-control tx-semibold tx-14",
                                                                     "type": "text",
-                                                                    "placeholder": "Marca",
-                                                                    oninput: (e) => {
-                                                                        NuevaTRoja.data.marca = e.target.value;
+
+                                                                    oncreate: (e) => {
+                                                                        e.dom.value = 'CHANG CHAVEZ MARTIN FRANCISCO';
                                                                     }
                                                                 })
 
@@ -569,7 +552,7 @@ const NuevaTRoja = {
                                                             m("th.tx-semibold.tx-14[colspan='1']", {
                                                                     style: { "background-color": "#a8bed6" }
                                                                 },
-                                                                "Modelo:"
+                                                                "Médico:"
                                                             ),
                                                             m("td[colspan='9']", {
                                                                     style: { "background-color": "#eaeff5" }
@@ -577,9 +560,9 @@ const NuevaTRoja = {
                                                                 m("input", {
                                                                     "class": "form-control tx-semibold tx-14",
                                                                     "type": "text",
-                                                                    "placeholder": "Modelo",
-                                                                    oninput: (e) => {
-                                                                        NuevaTRoja.data.modelo = e.target.value;
+
+                                                                    oncreate: (e) => {
+                                                                        e.dom.value = 'VLADIMIR ERNESTO ULLAURI SOLORZANO';
                                                                     }
                                                                 })
                                                             )
@@ -587,7 +570,7 @@ const NuevaTRoja = {
 
                                                         ]),
 
-                                                        m("tr", [
+                                                        m("tr.d-none", [
 
                                                             m("th.tx-semibold.tx-14[colspan='1']", {
                                                                     style: { "background-color": "#a8bed6" }
@@ -612,7 +595,7 @@ const NuevaTRoja = {
 
 
                                                         ]),
-                                                        m("tr", [
+                                                        m("tr.d-none", [
 
                                                             m("th.tx-semibold.tx-14[colspan='1']", {
                                                                     style: { "background-color": "#a8bed6" }
@@ -637,7 +620,7 @@ const NuevaTRoja = {
 
 
                                                         ]),
-                                                        m("tr", [
+                                                        m("tr.d-none", [
                                                             m("th.tx-semibold.tx-14[colspan='1']", {
                                                                     style: { "background-color": "#a8bed6" }
                                                                 },
@@ -656,12 +639,12 @@ const NuevaTRoja = {
                                                                 })
                                                             ),
                                                         ]),
-                                                        m("tr.bg-litecoin.op-9.tx-white", [
+                                                        m("tr.bg-litecoin.op-9.tx-white.d-none", [
                                                             m("th[scope='col'][colspan='10']",
                                                                 "MOTIVO DE SOLICITUD:"
                                                             )
                                                         ]),
-                                                        m("tr", [
+                                                        m("tr.d-none", [
                                                             m("th.tx-semibold.tx-14[colspan='3']", {
                                                                     style: { "background-color": "#a8bed6" }
                                                                 },
@@ -695,13 +678,13 @@ const NuevaTRoja = {
 
                                                         ]),
 
-                                                        m("tr.bg-litecoin.op-9.tx-white.", [
+                                                        m("tr.bg-litecoin.op-9.tx-white.d-none", [
                                                             m("th[scope='col'][colspan='10']",
                                                                 "ACCIÓN SUGERIDA:"
                                                             ),
 
                                                         ]),
-                                                        m("tr", [
+                                                        m("tr.d-none", [
                                                             m("th.tx-semibold.tx-14[colspan='3']", {
                                                                     style: { "background-color": "#a8bed6" }
                                                                 },
@@ -727,11 +710,11 @@ const NuevaTRoja = {
                                                         ]),
                                                         m("tr.d-print-none.bg-litecoin.op-9.tx-white.", [
                                                             m("th[scope='col'][colspan='10']",
-                                                                "OBSERVACIÓN:"
+                                                                "RESPONSABLE:"
                                                             ),
 
                                                         ]),
-                                                        m("tr", [
+                                                        m("tr.d-none", [
                                                             m("th.tx-semibold.tx-14[colspan='3']", {
                                                                     style: { "background-color": "#a8bed6" }
                                                                 },
@@ -749,7 +732,7 @@ const NuevaTRoja = {
                                                             ),
                                                         ]),
 
-                                                        m("tr", [
+                                                        m("tr.d-none", [
                                                             m("th.tx-semibold.tx-14[colspan='3']", {
                                                                     style: { "background-color": "#a8bed6" }
                                                                 },
@@ -783,7 +766,7 @@ const NuevaTRoja = {
                                                             m("td[colspan='6']", {
                                                                     style: { "background-color": "#eaeff5" }
                                                                 },
-                                                                m('p.mg-b-0', '*Ingrese Usuario y Contraseña de Directorio Activo (AD), THConmigo etc.'),
+                                                                m('p.mg-b-0', '*Ingrese Usuario y Contraseña de Directorio Activo (AD) - MV.'),
                                                                 (NuevaTRoja.data.usuario !== undefined ? [
                                                                     m("div.input-group", [
 
@@ -803,7 +786,7 @@ const NuevaTRoja = {
 
                                                                                 }
                                                                             },
-                                                                            "Enviar"
+                                                                            "Subir Informe"
                                                                         )
                                                                     )
                                                                 ] : [
@@ -945,7 +928,7 @@ const NuevaTRoja = {
 
                 ])
             ),
-            m("div.section-nav", [
+            m("div.section-nav.d-none", [
                 m("label.nav-label",
                     "Nueva Tarjeta Roja"
                 ),
