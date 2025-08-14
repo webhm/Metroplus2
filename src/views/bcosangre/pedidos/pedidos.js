@@ -196,7 +196,7 @@ const tablePedidosBcoSangre = {
                                             PedidosBcoSangre.loader = true;
                                             PedidosBcoSangre.pedidos = [];
                                             PedidosBcoSangre.fetchPedidos();
-                                            m.route.set("/terapia-respiratoria/pedidos?idFiltro=" + PedidosBcoSangre.idFiltro + "&fechaDesde=" + PedidosBcoSangre.fechaDesde + "&fechaHasta=" + PedidosBcoSangre.fechaHasta);
+                                            m.route.set("/bco-sangre/pedidos?idFiltro=" + PedidosBcoSangre.idFiltro + "&fechaDesde=" + PedidosBcoSangre.fechaDesde + "&fechaHasta=" + PedidosBcoSangre.fechaHasta);
                                         },
                                         style: {
                                             "border": "transparent"
@@ -223,7 +223,7 @@ const tablePedidosBcoSangre = {
                                             PedidosBcoSangre.loader = true;
                                             PedidosBcoSangre.pedidos = [];
                                             PedidosBcoSangre.fetchPedidos();
-                                            m.route.set("/terapia-respiratoria/pedidos?idFiltro=" + PedidosBcoSangre.idFiltro + "&fechaDesde=" + PedidosBcoSangre.fechaDesde + "&fechaHasta=" + PedidosBcoSangre.fechaHasta);
+                                            m.route.set("/bco-sangre/pedidos?idFiltro=" + PedidosBcoSangre.idFiltro + "&fechaDesde=" + PedidosBcoSangre.fechaDesde + "&fechaHasta=" + PedidosBcoSangre.fechaHasta);
                                         },
                                         style: {
                                             "border": "transparent"
@@ -248,13 +248,13 @@ const tablePedidosBcoSangre = {
                                     m(m.route.Link, { class: 'dropdown-item', href: "/bco-sangre/pedidos/?idFiltro=2&fechaDesde=" + PedidosBcoSangre.fechaDesde + "&fechaHasta=" + PedidosBcoSangre.fechaHasta }, [
                                         "Pedidos entre Fechas"
                                     ]),
-                                    m(m.route.Link, { class: 'dropdown-item d-none', href: "/terapia-respiratoria/pedidos/?idFiltro=3&fechaDesde=" + PedidosBcoSangre.fechaDesde + "&fechaHasta=" + PedidosBcoSangre.fechaHasta }, [
+                                    m(m.route.Link, { class: 'dropdown-item d-none', href: "/bco-sangre/pedidos/?idFiltro=3&fechaDesde=" + PedidosBcoSangre.fechaDesde + "&fechaHasta=" + PedidosBcoSangre.fechaHasta }, [
                                         "Pedidos de Emergencia"
                                     ]),
-                                    m(m.route.Link, { class: 'dropdown-item d-none', href: "/terapia-respiratoria/pedidos/?idFiltro=4&fechaDesde=" + PedidosBcoSangre.fechaDesde + "&fechaHasta=" + PedidosBcoSangre.fechaHasta }, [
+                                    m(m.route.Link, { class: 'dropdown-item d-none', href: "/bco-sangre/pedidos/?idFiltro=4&fechaDesde=" + PedidosBcoSangre.fechaDesde + "&fechaHasta=" + PedidosBcoSangre.fechaHasta }, [
                                         "Pedidos de C. Externa"
                                     ]),
-                                    m(m.route.Link, { class: 'dropdown-item d-none', href: "/terapia-respiratoria/pedidos/?idFiltro=5&fechaDesde=" + PedidosBcoSangre.fechaDesde + "&fechaHasta=" + PedidosBcoSangre.fechaHasta }, [
+                                    m(m.route.Link, { class: 'dropdown-item d-none', href: "/bco-sangre/pedidos/?idFiltro=5&fechaDesde=" + PedidosBcoSangre.fechaDesde + "&fechaHasta=" + PedidosBcoSangre.fechaHasta }, [
                                         "Pedidos de Hospitalización"
                                     ]),
 
