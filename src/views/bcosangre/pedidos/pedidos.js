@@ -176,7 +176,7 @@ const tablePedidosBcoSangre = {
                                 class: (PedidosBcoSangre.idFiltro == 1 ? 'd-none' : 'd-flex')
                             }, [
                                 m("div.link-03", {
-                                        title: "Desde"
+                                        title: "Desde "
                                     },
                                     m(".tx-10.pd-r-0", {
                                         style: { "padding-top": "10px" }
@@ -184,7 +184,7 @@ const tablePedidosBcoSangre = {
                                 ),
                                 m("div.link-03", {
                                         style: { "cursor": "pointer" },
-                                        title: "Desde"
+                                        title: "Desde "
                                     },
 
                                     m("input.tx-light.pd-4[type='date'][id='desde']", {
