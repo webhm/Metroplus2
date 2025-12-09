@@ -56,10 +56,6 @@ const iMdodule = {
             _data.children[0].icon = "fas fa-burn";
             _data.children[0].modulo = 'Bco. de Sangre';
             _data.children[0].href = 'bco-sangre';
-        } else if (_data.children[0].modulo !== undefined && _data.children[0].modulo == 'terapia-respiratoria') {
-            _data.children[0].icon = "fas fa-user-md";
-            _data.children[0].modulo = 'Terapia Respiratoria';
-            _data.children[0].href = 'terapia-respiratoria';
         } else if (_data.children[0].modulo !== undefined && _data.children[0].modulo == 'terapia-fisica') {
             _data.children[0].icon = "fas fa-user-md";
             _data.children[0].modulo = 'Terapia Física';
