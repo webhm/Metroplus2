@@ -16,15 +16,15 @@ const FOR005 = {
         let page = 0;
 
         if (Formulario.num == 0) {
-            setTimeout(function () {
+            setTimeout(function() {
                 Formulario.num = Formulario.data.length;
                 Formulario.parseFetch();
                 m.redraw.sync();
             }, 2000);
         }
 
-        return FOR005.secs.length == 0
-            ? [
+        return FOR005.secs.length == 0 ?
+            [
                 m(
                     "div.pd-10.wd-100p",
                     m("div.d-inline.tx-secondary.tx-12", {
@@ -37,9 +37,9 @@ const FOR005 = {
                     }),
                     m("div.placeholder-paragraph", [m("div.line"), m("div.line")])
                 ),
-            ]
-            : [
-                FOR005.secs.map(function (_v, _i, _contentData) {
+            ] :
+            [
+                FOR005.secs.map(function(_v, _i, _contentData) {
                     if (_v.name == "prescripciones_texto") {
                         prescripciones_texto = _v.answer;
                     }
@@ -50,7 +50,7 @@ const FOR005 = {
 
                     if (_v.name == "cd_documento_clinico") {
                         urlFor =
-                            "http://172.16.253.18/mvpep/api/clinical-documents/" +
+                            "http://172.16.253.102/mvpep/api/clinical-documents/" +
                             _v.answer +
                             ".pdf?company=1&department=75";
                     }
@@ -64,13 +64,11 @@ const FOR005 = {
                                 },
                             }),
                             m(
-                                "table.table.table-bordered.wd-100p",
-                                {
+                                "table.table.table-bordered.wd-100p", {
                                     style: {
                                         zoom: Formulario.zoom,
                                     },
-                                },
-                                [
+                                }, [
                                     m("thead", [
                                         m(
                                             "tr",
@@ -93,8 +91,7 @@ const FOR005 = {
                                             m(
                                                 "th.tx-right[colspan='2'][scope='col']",
                                                 m(
-                                                    "a.tx-right.tx-semibold",
-                                                    {
+                                                    "a.tx-right.tx-semibold", {
                                                         href: urlFor,
                                                         target: "_blank",
                                                     },
@@ -107,8 +104,7 @@ const FOR005 = {
                                     m("tbody", [
                                         m("tr", [
                                             m(
-                                                "th[colspan='3'][scope='row']",
-                                                {
+                                                "th[colspan='3'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -117,8 +113,7 @@ const FOR005 = {
                                                 m("div.tx-bold.text-center.", "ESTABLECIMIENTO")
                                             ),
                                             m(
-                                                "th[colspan='3'][scope='row']",
-                                                {
+                                                "th[colspan='3'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -127,8 +122,7 @@ const FOR005 = {
                                                 m("div.tx-bold.text-center.", "NOMBRE")
                                             ),
                                             m(
-                                                "th[colspan='3'][scope='row']",
-                                                {
+                                                "th[colspan='3'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -137,8 +131,7 @@ const FOR005 = {
                                                 m("div.tx-bold.text-center.", "APELLIDO")
                                             ),
                                             m(
-                                                "th[colspan='1'][scope='row']",
-                                                {
+                                                "th[colspan='1'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -147,8 +140,7 @@ const FOR005 = {
                                                 m("div.tx-bold.text-center.", "SEXO (M-F)")
                                             ),
                                             m(
-                                                "th[colspan='1][scope='row']",
-                                                {
+                                                "th[colspan='1][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -157,8 +149,7 @@ const FOR005 = {
                                                 m("div.tx-bold.text-center.", "NHCL.")
                                             ),
                                             m(
-                                                "th[colspan='1'][scope='row']",
-                                                {
+                                                "th[colspan='1'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -198,8 +189,7 @@ const FOR005 = {
                                         ]),
                                         m("tr", [
                                             m(
-                                                "th[colspan='1'][scope='row']",
-                                                {
+                                                "th[colspan='1'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -208,8 +198,7 @@ const FOR005 = {
                                                 m("div.m-0.p-0.tx-bold.text-center.", "EDAD")
                                             ),
                                             m(
-                                                "th[colspan='1'][scope='row']",
-                                                {
+                                                "th[colspan='1'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -221,8 +210,7 @@ const FOR005 = {
                                                 )
                                             ),
                                             m(
-                                                "th[colspan='1'][scope='row']",
-                                                {
+                                                "th[colspan='1'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -234,8 +222,7 @@ const FOR005 = {
                                                 )
                                             ),
                                             m(
-                                                "th[colspan='1'][scope='row']",
-                                                {
+                                                "th[colspan='1'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -244,8 +231,7 @@ const FOR005 = {
                                                 m("div.m-0.p-0.tx-bold.text-center.", "FECHA ALTA")
                                             ),
                                             m(
-                                                "th[colspan='4'][scope='row']",
-                                                {
+                                                "th[colspan='4'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -254,8 +240,7 @@ const FOR005 = {
                                                 m("div.m-0.p-0.tx-bold.text-center.", "UBICACION")
                                             ),
                                             m(
-                                                "th[colspan='4'][scope='row']",
-                                                {
+                                                "th[colspan='4'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -298,8 +283,7 @@ const FOR005 = {
                                         ]),
                                         m("tr", [
                                             m(
-                                                "th[colspan='6'][scope='row']",
-                                                {
+                                                "th[colspan='6'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#eef9c8",
@@ -308,8 +292,7 @@ const FOR005 = {
                                                 m("div.m-0.p-0.tx-bold.text-center.", "1.- EVOLUCIÓN")
                                             ),
                                             m(
-                                                "th[colspan='5'][scope='row']",
-                                                {
+                                                "th[colspan='5'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#eef9c8",
@@ -321,8 +304,7 @@ const FOR005 = {
                                                 )
                                             ),
                                             m(
-                                                "th[colspan='1'][scope='row']",
-                                                {
+                                                "th[colspan='1'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#eef9c8",
@@ -337,8 +319,7 @@ const FOR005 = {
                                         ]),
                                         m("tr", [
                                             m(
-                                                "th[colspan='1'][scope='row']",
-                                                {
+                                                "th[colspan='1'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -351,8 +332,7 @@ const FOR005 = {
                                                 ])
                                             ),
                                             m(
-                                                "th[colspan='1'][scope='row']",
-                                                {
+                                                "th[colspan='1'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -361,8 +341,7 @@ const FOR005 = {
                                                 m("div.m-0.p-0.tx-bold.text-center.", "HORA")
                                             ),
                                             m(
-                                                "th[colspan='4'][scope='row']",
-                                                {
+                                                "th[colspan='4'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -374,8 +353,7 @@ const FOR005 = {
                                                 )
                                             ),
                                             m(
-                                                "th[colspan='4'][scope='row']",
-                                                {
+                                                "th[colspan='4'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -388,8 +366,7 @@ const FOR005 = {
                                                 ])
                                             ),
                                             m(
-                                                "th[colspan='2'][scope='row']",
-                                                {
+                                                "th[colspan='2'][scope='row']", {
                                                     style: {
                                                         padding: "0",
                                                         "background-color": "#edfbf5",
@@ -404,35 +381,33 @@ const FOR005 = {
                                         ]),
                                         m("tr", [
                                             m(
-                                                "td[colspan='6'][scope='row']",
-                                                { style: { padding: "0", width: "50%" } },
+                                                "td[colspan='6'][scope='row']", { style: { padding: "0", width: "50%" } },
                                                 m(
                                                     "div.m-0.p-2.tx-bold.text-justify",
                                                     evolucion_medica_texto !== null &&
-                                                        evolucion_medica_texto.length !== 0
-                                                        ? m.trust(
-                                                            evolucion_medica_texto.replace(
-                                                                /(\r\n|\r|\n)/g,
-                                                                "<br/>"
-                                                            )
+                                                    evolucion_medica_texto.length !== 0 ?
+                                                    m.trust(
+                                                        evolucion_medica_texto.replace(
+                                                            /(\r\n|\r|\n)/g,
+                                                            "<br/>"
                                                         )
-                                                        : ""
+                                                    ) :
+                                                    ""
                                                 )
                                             ),
                                             m(
-                                                "td[colspan='6'][scope='row']",
-                                                { style: { padding: "0", width: "50%" } },
+                                                "td[colspan='6'][scope='row']", { style: { padding: "0", width: "50%" } },
                                                 m(
                                                     "div.m-0.p-2.text-justify",
                                                     prescripciones_texto !== null &&
-                                                        prescripciones_texto.length !== 0
-                                                        ? m.trust(
-                                                            prescripciones_texto.replace(
-                                                                /(\r\n|\r|\n)/g,
-                                                                "<br/>"
-                                                            )
+                                                    prescripciones_texto.length !== 0 ?
+                                                    m.trust(
+                                                        prescripciones_texto.replace(
+                                                            /(\r\n|\r|\n)/g,
+                                                            "<br/>"
                                                         )
-                                                        : ""
+                                                    ) :
+                                                    ""
                                                 )
                                             ),
                                         ]),
@@ -454,11 +429,11 @@ const Formulario = {
     data: [],
     error: "",
     parseDoc: (_data) => {
-        Object.keys(_data.data).map(function (_v, _i, _contentData) {
+        Object.keys(_data.data).map(function(_v, _i, _contentData) {
             FOR005.secs.push(_data.data[_v]);
         });
 
-        return FOR005.secs.map(function (_v, _i, _contentData) {
+        return FOR005.secs.map(function(_v, _i, _contentData) {
             if (_v.name == "nombres") {
                 FOR005.nombres = _v.answer;
             }
@@ -511,7 +486,7 @@ const Formulario = {
     parseFetch: () => {
         FOR005.secs = [];
 
-        return Formulario.data.map(function (_v, _i, _contentData) {
+        return Formulario.data.map(function(_v, _i, _contentData) {
             Formulario.parseDoc(Formulario.data[_i]);
         });
     },
@@ -519,18 +494,17 @@ const Formulario = {
         Formulario.data = [];
         Formulario.error = "";
         m.request({
-            method: "GET",
-            url:
-                "https://api.hospitalmetropolitano.org/t/v1/formulario?nhcl=" +
-                Formulario.nhc +
-                "&adm=" +
-                Formulario.adm,
+                method: "GET",
+                url: "https://api.hospitalmetropolitano.org/t/v1/formulario?nhcl=" +
+                    Formulario.nhc +
+                    "&adm=" +
+                    Formulario.adm,
 
-            headers: {
-                Authorization: localStorage.accessToken,
-            },
-        })
-            .then(function (result) {
+                headers: {
+                    Authorization: localStorage.accessToken,
+                },
+            })
+            .then(function(result) {
                 if (result.length !== 0) {
                     Formulario.data = result;
                     Formulario.num = 0;
@@ -539,29 +513,29 @@ const Formulario = {
                     Formulario.error = "El documento solicitado no esta disponible.";
                 }
             })
-            .catch(function (e) {
-                setTimeout(function () {
+            .catch(function(e) {
+                setTimeout(function() {
                     Formulario.fetch();
                 }, 5000);
             });
     },
 
     view: () => {
-        return Formulario.error
-            ? [m(".alert.alert-danger[role='alert']", Formulario.error)]
-            : Formulario.data.length !== 0
-                ? [m(FOR005)]
-                : [
-                    m("div.d-inline.tx-secondary.tx-12", {
-                        oncreate: (el) => {
-                            el.dom.innerHTML = "Buscando información...";
-                        },
-                    }),
-                    m(
-                        "div.pd-10.wd-100p",
-                        m("div.placeholder-paragraph", [m("div.line"), m("div.line")])
-                    ),
-                ];
+        return Formulario.error ?
+            [m(".alert.alert-danger[role='alert']", Formulario.error)] :
+            Formulario.data.length !== 0 ?
+            [m(FOR005)] :
+            [
+                m("div.d-inline.tx-secondary.tx-12", {
+                    oncreate: (el) => {
+                        el.dom.innerHTML = "Buscando información...";
+                    },
+                }),
+                m(
+                    "div.pd-10.wd-100p",
+                    m("div.placeholder-paragraph", [m("div.line"), m("div.line")])
+                ),
+            ];
     },
 };
 
@@ -575,17 +549,16 @@ const Evoluciones = {
         Evoluciones.data = [];
         Evoluciones.error = "";
         m.request({
-            method: "POST",
-            url: "https://api.hospitalmetropolitano.org/t/v1/ev-paciente",
-            body: {
-                numeroHistoriaClinica:
-                    PedidoLISA.data.PedidoExameLab.paciente.codigoPaciente + "01",
-            },
-            headers: {
-                Authorization: localStorage.accessToken,
-            },
-        })
-            .then(function (result) {
+                method: "POST",
+                url: "https://api.hospitalmetropolitano.org/t/v1/ev-paciente",
+                body: {
+                    numeroHistoriaClinica: PedidoLISA.data.PedidoExameLab.paciente.codigoPaciente + "01",
+                },
+                headers: {
+                    Authorization: localStorage.accessToken,
+                },
+            })
+            .then(function(result) {
                 if (result.status) {
                     Evoluciones.data = result.data;
                     Formulario.adm = Evoluciones.data[0].ADM;
@@ -595,23 +568,23 @@ const Evoluciones = {
                     Evoluciones.error = result.message;
                 }
             })
-            .catch(function (e) {
-                setTimeout(function () {
+            .catch(function(e) {
+                setTimeout(function() {
                     Evoluciones.fetch();
                 }, 5000);
             });
     },
     view: () => {
-        return Evoluciones.error
-            ? [m(".alert.alert-danger[role='alert']", Evoluciones.error)]
-            : Evoluciones.data.length !== 0
-                ? [m(Formulario)]
-                : [
-                    m(
-                        "div.pd-10.wd-100p",
-                        m("div.placeholder-paragraph", [m("div.line"), m("div.line")])
-                    ),
-                ];
+        return Evoluciones.error ?
+            [m(".alert.alert-danger[role='alert']", Evoluciones.error)] :
+            Evoluciones.data.length !== 0 ?
+            [m(Formulario)] :
+            [
+                m(
+                    "div.pd-10.wd-100p",
+                    m("div.placeholder-paragraph", [m("div.line"), m("div.line")])
+                ),
+            ];
     },
 };
 
@@ -620,19 +593,18 @@ const Examenes = {
     medico: null,
     fetch: () => {
         m.request({
-            method: "POST",
-            url:
-                "https://api.hospitalmetropolitano.org/t/v1/itemslab/" +
-                PedidoLISA.numeroPedido,
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (res) {
+                method: "POST",
+                url: "https://api.hospitalmetropolitano.org/t/v1/itemslab/" +
+                    PedidoLISA.numeroPedido,
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(res) {
                 Examenes.data = res.examenes;
                 Examenes.medico = res.medico;
             })
-            .catch(function (e) { });
+            .catch(function(e) {});
     },
     oninit: () => {
         Examenes.fetch();
@@ -643,7 +615,7 @@ const Examenes = {
                 PedidoLISA.examenes.Exame = [PedidoLISA.examenes.Exame];
             }
 
-            return PedidoLISA.examenes.Exame.map(function (_val, _i, _contentData) {
+            return PedidoLISA.examenes.Exame.map(function(_val, _i, _contentData) {
                 console.log(Examenes.data[_val.codigoExame]);
 
                 if (_val.operacao == "E") {
@@ -658,15 +630,15 @@ const Examenes = {
                             _val.codigoExameFaturamento
                         ),
                         Examenes.data[_val.codigoExame] !== undefined &&
-                            Examenes.data[_val.codigoExame].OBS_EXAMEN !== null
-                            ? [
-                                m("br"),
-                                m(".d-inline.tx-danger", "Observaciones:"),
-                                m("br"),
-                                m(".d-inline", Examenes.data[_val.codigoExame].OBS_EXAMEN),
-                                m("br"),
-                            ]
-                            : m("br"),
+                        Examenes.data[_val.codigoExame].OBS_EXAMEN !== null ?
+                        [
+                            m("br"),
+                            m(".d-inline.tx-danger", "Observaciones:"),
+                            m("br"),
+                            m(".d-inline", Examenes.data[_val.codigoExame].OBS_EXAMEN),
+                            m("br"),
+                        ] :
+                        m("br"),
                     ];
                 } else {
                     return [
@@ -680,15 +652,15 @@ const Examenes = {
                             _val.codigoExameFaturamento
                         ),
                         Examenes.data[_val.codigoExame] !== undefined &&
-                            Examenes.data[_val.codigoExame].OBS_EXAMEN !== null
-                            ? [
-                                m("br"),
-                                m(".d-inline.tx-danger", "Observaciones:"),
-                                m("br"),
-                                m(".d-inline", Examenes.data[_val.codigoExame].OBS_EXAMEN),
-                                m("br"),
-                            ]
-                            : m("br"),
+                        Examenes.data[_val.codigoExame].OBS_EXAMEN !== null ?
+                        [
+                            m("br"),
+                            m(".d-inline.tx-danger", "Observaciones:"),
+                            m("br"),
+                            m(".d-inline", Examenes.data[_val.codigoExame].OBS_EXAMEN),
+                            m("br"),
+                        ] :
+                        m("br"),
                     ];
                 }
             });
@@ -713,17 +685,17 @@ const StatusPedido = {
         StatusPedido.documento = [];
 
         m.request({
-            method: "POST",
-            url: "https://lisa.hospitalmetropolitano.org/v1/status-pedido-lisa",
-            body: {
-                numeroPedido: PedidoLISA.numeroPedido,
-                idTimeRecord: PedidoLISA.idTimeRecord,
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (result) {
+                method: "POST",
+                url: "https://lisa.hospitalmetropolitano.org/v1/status-pedido-lisa",
+                body: {
+                    numeroPedido: PedidoLISA.numeroPedido,
+                    idTimeRecord: PedidoLISA.idTimeRecord,
+                },
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(result) {
                 if (result.status) {
                     PedidoLISA.loader = false;
                     PedidoLISA.data = result.data.pedido;
@@ -741,7 +713,7 @@ const StatusPedido = {
                     PedidoLISA.error = result.message;
                 }
             })
-            .catch(function (e) { });
+            .catch(function(e) {});
     },
 };
 
@@ -764,12 +736,10 @@ const Observaciones = {
     loadObservaciones: () => {
         // MOMMENT
         moment.lang("es", {
-            months:
-                "Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre".split(
-                    "_"
-                ),
-            monthsShort:
-                "Enero._Feb._Mar_Abr._May_Jun_Jul._Ago_Sept._Oct._Nov._Dec.".split("_"),
+            months: "Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre".split(
+                "_"
+            ),
+            monthsShort: "Enero._Feb._Mar_Abr._May_Jun_Jul._Ago_Sept._Oct._Nov._Dec.".split("_"),
             weekdays: "Domingo_Lunes_Martes_Miércoles_Jueves_Viernes_Sábado".split(
                 "_"
             ),
@@ -788,8 +758,7 @@ const Observaciones = {
                 sProcessing: "Procesando...",
                 sZeroRecords: "Sin Notificaciones",
                 sEmptyTable: "Sin Notificaciones",
-                sInfo:
-                    "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                sInfo: "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
                 sInfoEmpty: "Mostrando registros del 0 al 0 de un total de 0 registros",
                 sInfoFiltered: "(filtrado de un total de _MAX_ registros)",
                 sInfoPostFix: "",
@@ -803,10 +772,8 @@ const Observaciones = {
                     sPrevious: "Anterior",
                 },
                 oAria: {
-                    sSortAscending:
-                        ": Activar para ordenar la columna de manera ascendente",
-                    sSortDescending:
-                        ": Activar para ordenar la columna de manera descendente",
+                    sSortAscending: ": Activar para ordenar la columna de manera ascendente",
+                    sSortDescending: ": Activar para ordenar la columna de manera descendente",
                 },
             },
             cache: false,
@@ -814,36 +781,32 @@ const Observaciones = {
             destroy: true,
 
             columns: false,
-            aoColumnDefs: [
-                {
-                    mRender: function (data, type, row, meta) {
-                        return "";
-                    },
-                    visible: true,
-                    width: "100%",
-                    aTargets: [0],
-                    orderable: false,
+            aoColumnDefs: [{
+                mRender: function(data, type, row, meta) {
+                    return "";
                 },
-            ],
-            fnRowCallback: function (
+                visible: true,
+                width: "100%",
+                aTargets: [0],
+                orderable: false,
+            }, ],
+            fnRowCallback: function(
                 nRow,
                 aData,
                 iDisplayIndex,
                 iDisplayIndexFull
-            ) { },
-            drawCallback: function (settings) {
-                settings.aoData.map(function (_v, _i) {
+            ) {},
+            drawCallback: function(settings) {
+                settings.aoData.map(function(_v, _i) {
                     m.mount(_v.anCells[0], {
-                        view: function () {
+                        view: function() {
                             if (_v._aData.title == "Nuevo Mensaje") {
                                 return m(
                                     "div.demo-static-toast",
                                     m(
-                                        ".toast[role='alert'][aria-live='assertive'][aria-atomic='true']",
-                                        {
+                                        ".toast[role='alert'][aria-live='assertive'][aria-atomic='true']", {
                                             style: { "max-width": "none" },
-                                        },
-                                        [
+                                        }, [
                                             m("div.toast-header.bg-primary", [
                                                 m(
                                                     "small.tx-white.tx-5.mg-b-0.mg-r-auto",
@@ -862,11 +825,9 @@ const Observaciones = {
                                 return m(
                                     "div.demo-static-toast",
                                     m(
-                                        ".toast[role='alert'][aria-live='assertive'][aria-atomic='true']",
-                                        {
+                                        ".toast[role='alert'][aria-live='assertive'][aria-atomic='true']", {
                                             style: { "max-width": "none" },
-                                        },
-                                        [
+                                        }, [
                                             m("div.toast-header.bg-primary", [
                                                 m(
                                                     "small.tx-white.tx-5.mg-b-0.mg-r-auto",
@@ -897,38 +858,36 @@ const Observaciones = {
     },
     fetch: () => {
         m.request({
-            method: "GET",
-            url:
-                "https://api.hospitalmetropolitano.org/t/v1/notificaciones-pedido/" +
-                PedidoLISA.numeroPedido,
-        })
-            .then(function (result) {
+                method: "GET",
+                url: "https://api.hospitalmetropolitano.org/t/v1/notificaciones-pedido/" +
+                    PedidoLISA.numeroPedido,
+            })
+            .then(function(result) {
                 Observaciones.data = result.data;
                 Observaciones.loadObservaciones();
             })
-            .catch(function (e) { });
+            .catch(function(e) {});
     },
     sendNotiLab: () => {
         m.request({
-            method: "POST",
-            url:
-                "https://api.hospitalmetropolitano.org/t/v1/noti-eme/" +
-                PedidoLISA.numeroPedido,
-            body: {
-                message: Observaciones.observaciones,
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (result) {
+                method: "POST",
+                url: "https://api.hospitalmetropolitano.org/t/v1/noti-eme/" +
+                    PedidoLISA.numeroPedido,
+                body: {
+                    message: Observaciones.observaciones,
+                },
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(result) {
                 if (result.status) {
                     Observaciones.observaciones = "";
                     Observaciones.fetch();
                     alert("Observación registrada con éxito.");
                 }
             })
-            .catch(function (e) {
+            .catch(function(e) {
                 EditarPedido.error = e.message;
             });
     },
@@ -941,7 +900,7 @@ const TomaMuestras = {
     seleccionarTodos: (status) => {
         TomaMuestras.checkedAll = status;
         var _fechaToma = moment().format("DD-MM-YYYY HH:mm");
-        return StatusPedido.data.map(function (_val, _i, _contentData) {
+        return StatusPedido.data.map(function(_val, _i, _contentData) {
             if (status) {
                 StatusPedido.data[_i]["STATUS_TOMA"] = "1";
                 StatusPedido.data[_i]["FECHA_TOMA"] = _fechaToma;
@@ -1005,20 +964,20 @@ const TomaMuestras = {
     udpateStatusTomaMuestra: () => {
         StatusPedido.documento.dataTomaMuestra.insumosToma = Insumos;
         m.request({
-            method: "POST",
-            url: "https://lisa.hospitalmetropolitano.org/v1/up-status-pedido-lab",
-            body: {
-                documento: JSON.stringify(StatusPedido.documento),
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (result) {
+                method: "POST",
+                url: "https://lisa.hospitalmetropolitano.org/v1/up-status-pedido-lab",
+                body: {
+                    documento: JSON.stringify(StatusPedido.documento),
+                },
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(result) {
                 StatusPedido.documento = result.data;
                 StatusPedido.data = result.data.dataTomaMuestra.examenesToma;
             })
-            .catch(function (e) { });
+            .catch(function(e) {});
     },
 
     view: () => {
@@ -1027,31 +986,28 @@ const TomaMuestras = {
         } else if (StatusPedido.data.length !== 0) {
             return [
                 m("div.bg-white.bd.d-flex.flex-column.justify-content-end", [
-                    TomaMuestras.disabledToma
-                        ? [
-                            m("p.mg-5.tx-right", [
-                                m(
-                                    "button.btn.btn-xs.btn-outline-secondary[type='button']",
-                                    {
-                                        onclick: () => {
-                                            TomaMuestras.disabledToma = false;
-                                            TomaMuestras.disabledInsumos = false;
-                                        },
+                    TomaMuestras.disabledToma ?
+                    [
+                        m("p.mg-5.tx-right", [
+                            m(
+                                "button.btn.btn-xs.btn-outline-secondary[type='button']", {
+                                    onclick: () => {
+                                        TomaMuestras.disabledToma = false;
+                                        TomaMuestras.disabledInsumos = false;
                                     },
-                                    m("i.fas.fa-edit.mg-r-5"),
-                                    " EDITAR"
-                                ),
-                            ]),
-                        ]
-                        : [],
+                                },
+                                m("i.fas.fa-edit.mg-r-5"),
+                                " EDITAR"
+                            ),
+                        ]),
+                    ] :
+                    [],
                     m(
-                        ".",
-                        {
+                        ".", {
                             style: {
                                 "pointer-events": TomaMuestras.disabledToma ? "none" : "auto",
                             },
-                        },
-                        [
+                        }, [
                             m(
                                 "div.table-responsive.mg-b-10.mg-t-10",
                                 m("table.table.table-dashboard.table-hover.mg-b-0", [
@@ -1074,10 +1030,9 @@ const TomaMuestras = {
                                                 "td.tx-normal",
                                                 m("div.custom-control.custom-checkbox", [
                                                     m(
-                                                        "input.custom-control-input[type='checkbox'][id='selectTomaTodos']",
-                                                        {
+                                                        "input.custom-control-input[type='checkbox'][id='selectTomaTodos']", {
                                                             checked: TomaMuestras.checkedAll,
-                                                            onclick: function (e) {
+                                                            onclick: function(e) {
                                                                 TomaMuestras.seleccionarTodos(this.checked);
                                                             },
                                                         }
@@ -1091,7 +1046,7 @@ const TomaMuestras = {
                                             m("td.tx-medium.text-right"),
                                         ]),
 
-                                        StatusPedido.data.map(function (_val, _i, _contentData) {
+                                        StatusPedido.data.map(function(_val, _i, _contentData) {
                                             return [
                                                 m("tr", [
                                                     m("td.tx-18.tx-medium.text-left", _val.NM_EXA_LAB),
@@ -1102,19 +1057,16 @@ const TomaMuestras = {
                                                             m(
                                                                 "input.custom-control-input.tx-16[type='checkbox'][id='" +
                                                                 _val.CD_EXA_LAB +
-                                                                "']",
-                                                                {
-                                                                    checked:
-                                                                        StatusPedido.data[_i]["customCheked"],
-                                                                    onupdate: function (e) {
+                                                                "']", {
+                                                                    checked: StatusPedido.data[_i]["customCheked"],
+                                                                    onupdate: function(e) {
                                                                         this.checked =
                                                                             StatusPedido.data[_i]["customCheked"];
                                                                     },
-                                                                    onclick: function (e) {
+                                                                    onclick: function(e) {
                                                                         e.preventDefault();
                                                                         var p = this.checked;
-                                                                        StatusPedido.data[_i]["customCheked"] =
-                                                                            !StatusPedido.data[_i]["customCheked"];
+                                                                        StatusPedido.data[_i]["customCheked"] = !StatusPedido.data[_i]["customCheked"];
                                                                         if (p) {
                                                                             this.checked = true;
                                                                             StatusPedido.data[_i]["STATUS_TOMA"] =
@@ -1135,9 +1087,9 @@ const TomaMuestras = {
                                                                 _val.CD_EXA_LAB +
                                                                 "']",
                                                                 StatusPedido.data[_i]["STATUS_TOMA"].length !==
-                                                                    0
-                                                                    ? StatusPedido.data[_i]["FECHA_TOMA"]
-                                                                    : StatusPedido.data[_i]["STATUS_TOMA"]
+                                                                0 ?
+                                                                StatusPedido.data[_i]["FECHA_TOMA"] :
+                                                                StatusPedido.data[_i]["STATUS_TOMA"]
                                                             ),
                                                         ])
                                                     ),
@@ -1170,8 +1122,7 @@ const TomaMuestras = {
                                                 "td.tx-16.tx-normal",
                                                 m("div.custom-control.custom-checkbox.tx-16", [
                                                     m(
-                                                        "input.tx-20.custom-control-input[type='checkbox'][id='tuboLila']",
-                                                        {
+                                                        "input.tx-20.custom-control-input[type='checkbox'][id='tuboLila']", {
                                                             onclick: (el) => {
                                                                 if (el.target.checked) {
                                                                     Insumos.tuboLila = 1;
@@ -1213,8 +1164,7 @@ const TomaMuestras = {
                                                     m(
                                                         "button.btn[type='button']",
                                                         m(
-                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5",
-                                                            {
+                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5", {
                                                                 oncreate: (el) => {
                                                                     if (
                                                                         Insumos.tuboLila !== undefined &&
@@ -1239,8 +1189,7 @@ const TomaMuestras = {
                                                         )
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.tuboLila++;
                                                             },
@@ -1248,8 +1197,7 @@ const TomaMuestras = {
                                                         m("i.fas.fa-plus-circle.tx-22.tx-success")
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.tuboLila--;
                                                                 if (Insumos.tuboLila < 0) {
@@ -1268,8 +1216,7 @@ const TomaMuestras = {
                                                 "td.tx-16.tx-normal",
                                                 m("div.custom-control.custom-checkbox.tx-16", [
                                                     m(
-                                                        "input.tx-20.custom-control-input[type='checkbox'][id='tuboRojo']",
-                                                        {
+                                                        "input.tx-20.custom-control-input[type='checkbox'][id='tuboRojo']", {
                                                             onclick: (el) => {
                                                                 if (el.target.checked) {
                                                                     Insumos.tuboRojo = 1;
@@ -1311,8 +1258,7 @@ const TomaMuestras = {
                                                     m(
                                                         "button.btn[type='button']",
                                                         m(
-                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5",
-                                                            {
+                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5", {
                                                                 oncreate: (el) => {
                                                                     if (
                                                                         Insumos.tuboRojo !== undefined &&
@@ -1337,8 +1283,7 @@ const TomaMuestras = {
                                                         )
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.tuboRojo++;
                                                             },
@@ -1346,8 +1291,7 @@ const TomaMuestras = {
                                                         m("i.fas.fa-plus-circle.tx-22.tx-success")
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.tuboRojo--;
                                                                 if (Insumos.tuboRojo < 0) {
@@ -1365,8 +1309,7 @@ const TomaMuestras = {
                                                 "td.tx-16.tx-normal",
                                                 m("div.custom-control.custom-checkbox.tx-16", [
                                                     m(
-                                                        "input.tx-20.custom-control-input[type='checkbox'][id='tuboCeleste']",
-                                                        {
+                                                        "input.tx-20.custom-control-input[type='checkbox'][id='tuboCeleste']", {
                                                             onclick: (el) => {
                                                                 if (el.target.checked) {
                                                                     Insumos.tuboCeleste = 1;
@@ -1408,8 +1351,7 @@ const TomaMuestras = {
                                                     m(
                                                         "button.btn[type='button']",
                                                         m(
-                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5",
-                                                            {
+                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5", {
                                                                 oncreate: (el) => {
                                                                     if (
                                                                         Insumos.tuboCeleste !== undefined &&
@@ -1434,8 +1376,7 @@ const TomaMuestras = {
                                                         )
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.tuboCeleste++;
                                                             },
@@ -1443,8 +1384,7 @@ const TomaMuestras = {
                                                         m("i.fas.fa-plus-circle.tx-22.tx-success")
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.tuboCeleste--;
                                                             },
@@ -1459,8 +1399,7 @@ const TomaMuestras = {
                                                 "td.tx-16.tx-normal",
                                                 m("div.custom-control.custom-checkbox.tx-16", [
                                                     m(
-                                                        "input.tx-20.custom-control-input[type='checkbox'][id='tuboNegro']",
-                                                        {
+                                                        "input.tx-20.custom-control-input[type='checkbox'][id='tuboNegro']", {
                                                             onclick: (el) => {
                                                                 if (el.target.checked) {
                                                                     Insumos.tuboNegro = 1;
@@ -1502,8 +1441,7 @@ const TomaMuestras = {
                                                     m(
                                                         "button.btn[type='button']",
                                                         m(
-                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5",
-                                                            {
+                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5", {
                                                                 oncreate: (el) => {
                                                                     if (
                                                                         Insumos.tuboNegro !== undefined &&
@@ -1528,8 +1466,7 @@ const TomaMuestras = {
                                                         )
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.tuboNegro++;
                                                             },
@@ -1537,8 +1474,7 @@ const TomaMuestras = {
                                                         m("i.fas.fa-plus-circle.tx-22.tx-success")
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.tuboNegro--;
                                                             },
@@ -1553,8 +1489,7 @@ const TomaMuestras = {
                                                 "td.tx-16.tx-normal",
                                                 m("div.custom-control.custom-checkbox.tx-16", [
                                                     m(
-                                                        "input.tx-20.custom-control-input[type='checkbox'][id='tuboVerde']",
-                                                        {
+                                                        "input.tx-20.custom-control-input[type='checkbox'][id='tuboVerde']", {
                                                             onclick: (el) => {
                                                                 if (el.target.checked) {
                                                                     Insumos.tuboVerde = 1;
@@ -1596,8 +1531,7 @@ const TomaMuestras = {
                                                     m(
                                                         "button.btn[type='button']",
                                                         m(
-                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5",
-                                                            {
+                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5", {
                                                                 oncreate: (el) => {
                                                                     if (
                                                                         Insumos.tuboVerde !== undefined &&
@@ -1622,8 +1556,7 @@ const TomaMuestras = {
                                                         )
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.tuboVerde++;
                                                             },
@@ -1631,8 +1564,7 @@ const TomaMuestras = {
                                                         m("i.fas.fa-plus-circle.tx-22.tx-success")
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.tuboVerde--;
                                                             },
@@ -1647,8 +1579,7 @@ const TomaMuestras = {
                                                 "td.tx-16.tx-normal",
                                                 m("div.custom-control.custom-checkbox.tx-16", [
                                                     m(
-                                                        "input.tx-20.custom-control-input[type='checkbox'][id='gsav']",
-                                                        {
+                                                        "input.tx-20.custom-control-input[type='checkbox'][id='gsav']", {
                                                             onclick: (el) => {
                                                                 if (el.target.checked) {
                                                                     Insumos.gsav = 1;
@@ -1690,8 +1621,7 @@ const TomaMuestras = {
                                                     m(
                                                         "button.btn[type='button']",
                                                         m(
-                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5",
-                                                            {
+                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5", {
                                                                 oncreate: (el) => {
                                                                     if (
                                                                         Insumos.gsav !== undefined &&
@@ -1716,8 +1646,7 @@ const TomaMuestras = {
                                                         )
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.gsav++;
                                                             },
@@ -1725,8 +1654,7 @@ const TomaMuestras = {
                                                         m("i.fas.fa-plus-circle.tx-22.tx-success")
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.gsav--;
                                                             },
@@ -1741,8 +1669,7 @@ const TomaMuestras = {
                                                 "td.tx-16.tx-normal",
                                                 m("div.custom-control.custom-checkbox.tx-16", [
                                                     m(
-                                                        "input.tx-20.custom-control-input[type='checkbox'][id='hemocultivo']",
-                                                        {
+                                                        "input.tx-20.custom-control-input[type='checkbox'][id='hemocultivo']", {
                                                             onclick: (el) => {
                                                                 if (el.target.checked) {
                                                                     Insumos.hemocultivo = 1;
@@ -1784,8 +1711,7 @@ const TomaMuestras = {
                                                     m(
                                                         "button.btn[type='button']",
                                                         m(
-                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5",
-                                                            {
+                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5", {
                                                                 oncreate: (el) => {
                                                                     if (
                                                                         Insumos.hemocultivo !== undefined &&
@@ -1810,8 +1736,7 @@ const TomaMuestras = {
                                                         )
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.hemocultivo++;
                                                             },
@@ -1819,8 +1744,7 @@ const TomaMuestras = {
                                                         m("i.fas.fa-plus-circle.tx-22.tx-success")
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.hemocultivo--;
                                                             },
@@ -1835,8 +1759,7 @@ const TomaMuestras = {
                                                 "td.tx-16.tx-normal",
                                                 m("div.custom-control.custom-checkbox.tx-16", [
                                                     m(
-                                                        "input.tx-20.custom-control-input[type='checkbox'][id='qtb']",
-                                                        {
+                                                        "input.tx-20.custom-control-input[type='checkbox'][id='qtb']", {
                                                             onclick: (el) => {
                                                                 if (el.target.checked) {
                                                                     Insumos.qtb = 1;
@@ -1878,8 +1801,7 @@ const TomaMuestras = {
                                                     m(
                                                         "button.btn[type='button']",
                                                         m(
-                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5",
-                                                            {
+                                                            "div.tx-20.tx-semibold.bg-gray-300.pd-l-5.pd-r-5", {
                                                                 oncreate: (el) => {
                                                                     if (
                                                                         Insumos.qtb !== undefined &&
@@ -1904,8 +1826,7 @@ const TomaMuestras = {
                                                         )
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.qtb++;
                                                             },
@@ -1913,8 +1834,7 @@ const TomaMuestras = {
                                                         m("i.fas.fa-plus-circle.tx-22.tx-success")
                                                     ),
                                                     m(
-                                                        "button.btn.btn[type='button']",
-                                                        {
+                                                        "button.btn.btn[type='button']", {
                                                             onclick: () => {
                                                                 Insumos.qtb--;
                                                             },
@@ -1926,44 +1846,42 @@ const TomaMuestras = {
                                         ]),
                                     ]),
                                 ])
-                            ),
-                            !TomaMuestras.disabledToma
-                                ? [
-                                    m("div.pd-10", [
-                                        m(
-                                            "button.btn.btn-xs.btn-primary.btn-block.tx-semibold[type='button']",
-                                            {
-                                                disabled: TomaMuestras.disabledToma,
-                                                onclick: () => {
-                                                    TomaMuestras.validarUpdateMuestras();
-                                                    var _fechaToma =
-                                                        moment().format("DD-MM-YYYY HH:mm");
-                                                    let _data = Encrypt.getDataUser();
-                                                    StatusPedido.documento.dataTomaMuestra.usuarioToma =
-                                                        _data.user.user.toUpperCase() != undefined
-                                                            ? _data.user.user.toUpperCase()
-                                                            : "";
+                            ), !TomaMuestras.disabledToma ?
+                            [
+                                m("div.pd-10", [
+                                    m(
+                                        "button.btn.btn-xs.btn-primary.btn-block.tx-semibold[type='button']", {
+                                            disabled: TomaMuestras.disabledToma,
+                                            onclick: () => {
+                                                TomaMuestras.validarUpdateMuestras();
+                                                var _fechaToma =
+                                                    moment().format("DD-MM-YYYY HH:mm");
+                                                let _data = Encrypt.getDataUser();
+                                                StatusPedido.documento.dataTomaMuestra.usuarioToma =
+                                                    _data.user.user.toUpperCase() != undefined ?
+                                                    _data.user.user.toUpperCase() :
+                                                    "";
 
-                                                    StatusPedido.documento.dataTomaMuestra.fechaToma =
-                                                        _fechaToma;
-                                                    TomaMuestras.disabledToma = true;
-                                                    TomaMuestras.udpateStatusTomaMuestra();
-                                                },
+                                                StatusPedido.documento.dataTomaMuestra.fechaToma =
+                                                    _fechaToma;
+                                                TomaMuestras.disabledToma = true;
+                                                TomaMuestras.udpateStatusTomaMuestra();
                                             },
-                                            "Guardar Registro"
-                                        ),
-                                    ]),
-                                ]
-                                : [
-                                    m("p.mg-5.", [
-                                        m(
-                                            "span.badge.badge-light.tx-right.wd-100p.tx-14",
-                                            "Toma de Muestra: FLEBOT1 " +
-                                            StatusPedido.documento.pedidoLaboratorio
-                                                .dataTomaMuestra.fechaToma
-                                        ),
-                                    ]),
-                                ],
+                                        },
+                                        "Guardar Registro"
+                                    ),
+                                ]),
+                            ] :
+                            [
+                                m("p.mg-5.", [
+                                    m(
+                                        "span.badge.badge-light.tx-right.wd-100p.tx-14",
+                                        "Toma de Muestra: FLEBOT1 " +
+                                        StatusPedido.documento.pedidoLaboratorio
+                                        .dataTomaMuestra.fechaToma
+                                    ),
+                                ]),
+                            ],
                         ]
                     ),
                 ]),
@@ -1997,14 +1915,14 @@ const ControlLISA = {
     agregarExamen: (exa) => {
         var existe = false;
 
-        ControlLISA.examenes.map(function (_val, _i, _contentData) {
+        ControlLISA.examenes.map(function(_val, _i, _contentData) {
             if (ControlLISA.examenes[_i]["codigoExame"] == exa.CD_EXA_LAB) {
                 existe = true;
             }
         });
 
         if (!existe) {
-            PedidoLISA.examenes.Exame.map(function (_val, _i, _contentData) {
+            PedidoLISA.examenes.Exame.map(function(_val, _i, _contentData) {
                 if (PedidoLISA.examenes.Exame[_i]["codigoExame"] == exa.CD_EXA_LAB) {
                     ControlLISA.examenes.push(PedidoLISA.examenes.Exame[_i]);
                 }
@@ -2017,7 +1935,7 @@ const ControlLISA = {
         var existe = false;
         var _ni = null;
 
-        ControlLISA.examenes.map(function (_val, _i, _contentData) {
+        ControlLISA.examenes.map(function(_val, _i, _contentData) {
             if (ControlLISA.examenes[_i]["codigoExame"] == exa.CD_EXA_LAB) {
                 existe = true;
                 _ni = _i;
@@ -2074,47 +1992,47 @@ const ControlLISA = {
     },
     sendNuevoPedido: (xmlRes, sc, itr) => {
         m.request({
-            method: "POST",
-            url: "https://lisa.hospitalmetropolitano.org/v1/pedidos/send-nuevo-pedido",
-            body: {
-                data: xmlRes,
-                sc: sc,
-                idTimeRecord: itr,
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (result) {
-                setTimeout(function () {
+                method: "POST",
+                url: "https://lisa.hospitalmetropolitano.org/v1/pedidos/send-nuevo-pedido",
+                body: {
+                    data: xmlRes,
+                    sc: sc,
+                    idTimeRecord: itr,
+                },
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(result) {
+                setTimeout(function() {
                     alert("Proceso realizado con éxito.");
                     window.location.reload();
                 }, 2000);
                 console.log("result", result);
             })
-            .catch(function (e) { });
+            .catch(function(e) {});
     },
     sendXML: (xmlRes, sc, itr) => {
         console.log("xmlRes", xmlRes);
         m.request({
-            method: "POST",
-            url: "https://lisa.hospitalmetropolitano.org/v1/pedidos/send-pedido",
-            body: {
-                data: xmlRes,
-                sc: sc,
-                idTimeRecord: itr,
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (result) {
-                setTimeout(function () {
+                method: "POST",
+                url: "https://lisa.hospitalmetropolitano.org/v1/pedidos/send-pedido",
+                body: {
+                    data: xmlRes,
+                    sc: sc,
+                    idTimeRecord: itr,
+                },
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(result) {
+                setTimeout(function() {
                     alert("Proceso realizado con éxito.");
                     window.location.reload();
                 }, 2000);
             })
-            .catch(function (e) { });
+            .catch(function(e) {});
     },
     oninit: () => {
         ControlLISA.examenes = [];
@@ -2129,18 +2047,17 @@ const ControlLISA = {
         RecepMuestras.disabledToma = false;
 
         m.request({
-            method: "GET",
-            url:
-                "https://lisa.hospitalmetropolitano.org/v1/logs-envio-pedido-lisa?numeroPedido=" +
-                PedidoLISA.numeroPedido,
+                method: "GET",
+                url: "https://lisa.hospitalmetropolitano.org/v1/logs-envio-pedido-lisa?numeroPedido=" +
+                    PedidoLISA.numeroPedido,
 
-            headers: {
-                Authorization: localStorage.accessToken,
-            },
-        })
-            .then(function (result) {
+                headers: {
+                    Authorization: localStorage.accessToken,
+                },
+            })
+            .then(function(result) {
                 // Validar control logs para registro
-                result.data.map(function (_val, _i, _contentData) {
+                result.data.map(function(_val, _i, _contentData) {
                     if (_val.PedidoExameLab.listaExame.Exame !== undefined) {
                         ControlLISA.logsEnvio.push(_val);
                     }
@@ -2152,75 +2069,73 @@ const ControlLISA = {
                     RecepMuestras.disabledToma = true;
                 }
             })
-            .catch(function (e) { });
+            .catch(function(e) {});
     },
     view: () => {
         if (ControlLISA.logsEnvio.length !== 0) {
-            return ControlLISA.logsEnvio.map(function (_val, _i, _contentData) {
+            return ControlLISA.logsEnvio.map(function(_val, _i, _contentData) {
                 return [
                     m(
-                        "tr",
-                        {
+                        "tr", {
                             oncreate: () => {
                                 if (_i + 1 === _contentData.length) {
                                     RecepMuestras.impresora =
                                         _val.PedidoExameLab.atendimento.nomeMaquina;
                                 }
                             },
-                        },
-                        [
+                        }, [
                             m(
                                 "td.tx-16.tx-normal.text-left",
                                 _val.PedidoExameLab.listaExame.Exame !== undefined &&
-                                    _val.PedidoExameLab.listaExame.Exame.length !== undefined
-                                    ? [
-                                        _val.PedidoExameLab.codigoPedido > 88000000
-                                            ? [
-                                                _val.PedidoExameLab.listaExame.Exame.map(function (
-                                                    _v,
-                                                    _p,
-                                                    _contentData
-                                                ) {
-                                                    RecepMuestras.examenNuevoPedido(
-                                                        _v,
-                                                        _val.PedidoExameLab,
-                                                        _val.Cabecalho
-                                                    );
-                                                    return [m(".d-inline", _v.descExame), m("br")];
-                                                }),
-                                            ]
-                                            : [
-                                                _val.PedidoExameLab.listaExame.Exame.map(function (
-                                                    _v,
-                                                    _p,
-                                                    _contentData
-                                                ) {
-                                                    return [m(".d-inline", _v.descExame), m("br")];
-                                                }),
-                                            ],
-                                    ]
-                                    : [
-                                        _val.PedidoExameLab.codigoPedido > 88000000
-                                            ? [
-                                                RecepMuestras.examenNuevoPedido(
-                                                    _val.PedidoExameLab.listaExame.Exame,
-                                                    _val.PedidoExameLab,
-                                                    _val.Cabecalho
-                                                ),
-                                                m(
-                                                    ".d-inline",
-                                                    _val.PedidoExameLab.listaExame.Exame.descExame
-                                                ),
-                                                m("br"),
-                                            ]
-                                            : [
-                                                m(
-                                                    ".d-inline",
-                                                    _val.PedidoExameLab.listaExame.Exame.descExame
-                                                ),
-                                                m("br"),
-                                            ],
-                                    ]
+                                _val.PedidoExameLab.listaExame.Exame.length !== undefined ?
+                                [
+                                    _val.PedidoExameLab.codigoPedido > 88000000 ?
+                                    [
+                                        _val.PedidoExameLab.listaExame.Exame.map(function(
+                                            _v,
+                                            _p,
+                                            _contentData
+                                        ) {
+                                            RecepMuestras.examenNuevoPedido(
+                                                _v,
+                                                _val.PedidoExameLab,
+                                                _val.Cabecalho
+                                            );
+                                            return [m(".d-inline", _v.descExame), m("br")];
+                                        }),
+                                    ] :
+                                    [
+                                        _val.PedidoExameLab.listaExame.Exame.map(function(
+                                            _v,
+                                            _p,
+                                            _contentData
+                                        ) {
+                                            return [m(".d-inline", _v.descExame), m("br")];
+                                        }),
+                                    ],
+                                ] :
+                                [
+                                    _val.PedidoExameLab.codigoPedido > 88000000 ?
+                                    [
+                                        RecepMuestras.examenNuevoPedido(
+                                            _val.PedidoExameLab.listaExame.Exame,
+                                            _val.PedidoExameLab,
+                                            _val.Cabecalho
+                                        ),
+                                        m(
+                                            ".d-inline",
+                                            _val.PedidoExameLab.listaExame.Exame.descExame
+                                        ),
+                                        m("br"),
+                                    ] :
+                                    [
+                                        m(
+                                            ".d-inline",
+                                            _val.PedidoExameLab.listaExame.Exame.descExame
+                                        ),
+                                        m("br"),
+                                    ],
+                                ]
                             ),
 
                             m(
@@ -2235,17 +2150,16 @@ const ControlLISA = {
                                 _val.Cabecalho.dataHora
                             ),
                             m("td.tx-16.tx-normal.d-none", [
-                                _val.PedidoExameLab.codigoPedido > 88000000
-                                    ? [
-                                        m(
-                                            "button.btn.btn-xs.btn-block.wd-50p.btn-danger.d-none",
-                                            {
-                                                onclick: () => { },
-                                            },
-                                            " Eliminar "
-                                        ),
-                                    ]
-                                    : [],
+                                _val.PedidoExameLab.codigoPedido > 88000000 ?
+                                [
+                                    m(
+                                        "button.btn.btn-xs.btn-block.wd-50p.btn-danger.d-none", {
+                                            onclick: () => {},
+                                        },
+                                        " Eliminar "
+                                    ),
+                                ] :
+                                [],
                             ]),
                         ]
                     ),
@@ -2266,7 +2180,7 @@ const RecepFacturacion = {
     agregarExamen: (exa) => {
         let existe = false;
 
-        StatusPedido.dataFactMuestras.map(function (_val, _i, _contentData) {
+        StatusPedido.dataFactMuestras.map(function(_val, _i, _contentData) {
             if (StatusPedido.dataFactMuestras[_i]["CD_EXA_LAB"] == exa.CD_EXA_LAB) {
                 existe = true;
             }
@@ -2282,7 +2196,7 @@ const RecepFacturacion = {
         let existe = false;
         let _ni = null;
 
-        RecepFacturacion.dataMuestras.map(function (_val, _i, _contentData) {
+        RecepFacturacion.dataMuestras.map(function(_val, _i, _contentData) {
             if (RecepFacturacion.dataMuestras[_i]["CD_EXA_LAB"] == exa.CD_EXA_LAB) {
                 existe = true;
                 _ni = _i;
@@ -2298,7 +2212,7 @@ const RecepFacturacion = {
     seleccionarTodos: (status) => {
         RecepFacturacion.checkedAll = status;
         var _fechaToma = moment().format("DD-MM-YYYY HH:mm");
-        return StatusPedido.dataFactMuestras.map(function (_val, _i, _contentData) {
+        return StatusPedido.dataFactMuestras.map(function(_val, _i, _contentData) {
             if (status) {
                 StatusPedido.dataFactMuestras[_i]["STATUS_FACT"] = "1";
                 StatusPedido.dataFactMuestras[_i]["FECHA_FACT"] = _fechaToma;
@@ -2356,15 +2270,15 @@ const RecepFacturacion = {
                     "Content-Type": "application/json; charset=utf-8",
                 },
             })
-            .then(function (result) {
+            .then(function(result) {
                 StatusPedido.documento = result.data;
                 StatusPedido.dataFactMuestras =
                     result.data.dataFactMuestras.examenesFact;
             })
-            .catch(function (e) { });
+            .catch(function(e) {});
     },
 
-    view: () => { },
+    view: () => {},
 
     _view: () => {
         if (StatusPedido.error) {
@@ -2373,25 +2287,21 @@ const RecepFacturacion = {
             return [
                 m("div.bg-white.bd.d-flex.flex-column.justify-content-end", [
                     m(
-                        ".",
-                        {
+                        ".", {
                             oncreate: () => {
                                 setTimeout(() => {
                                     RecepFacturacion.validarStatusFact();
                                 }, 100);
                             },
-                        },
-                        [
+                        }, [
                             m(
-                                ".",
-                                {
+                                ".", {
                                     style: {
-                                        "pointer-events": RecepFacturacion.disabledFact
-                                            ? "none"
-                                            : "auto",
+                                        "pointer-events": RecepFacturacion.disabledFact ?
+                                            "none" :
+                                            "auto",
                                     },
-                                },
-                                [
+                                }, [
                                     m(
                                         "div.table-responsive.mg-b-10.mg-t-10",
                                         m("table.table.table-dashboard.table-hover.mg-b-0", [
@@ -2405,23 +2315,20 @@ const RecepFacturacion = {
                                             ),
                                             m("tbody", [
                                                 m(
-                                                    "tr",
-                                                    {
+                                                    "tr", {
                                                         style: {
-                                                            "pointer-events": RecepFacturacion.disabledFact
-                                                                ? "none"
-                                                                : "auto",
+                                                            "pointer-events": RecepFacturacion.disabledFact ?
+                                                                "none" :
+                                                                "auto",
                                                         },
-                                                    },
-                                                    [
+                                                    }, [
                                                         m(
                                                             "td[colspan='2'].tx-normal",
                                                             m("div.custom-control.custom-checkbox", [
                                                                 m(
-                                                                    "input.custom-control-input[type='checkbox'][id='rf_selectTomaTodos']",
-                                                                    {
+                                                                    "input.custom-control-input[type='checkbox'][id='rf_selectTomaTodos']", {
                                                                         checked: RecepFacturacion.checkedAll,
-                                                                        onclick: function (e) {
+                                                                        onclick: function(e) {
                                                                             RecepFacturacion.seleccionarTodos(
                                                                                 this.checked
                                                                             );
@@ -2437,7 +2344,7 @@ const RecepFacturacion = {
                                                     ]
                                                 ),
 
-                                                StatusPedido.dataFactMuestras.map(function (
+                                                StatusPedido.dataFactMuestras.map(function(
                                                     _val,
                                                     _i,
                                                     _contentData
@@ -2455,34 +2362,31 @@ const RecepFacturacion = {
                                                                     m(
                                                                         "input.custom-control-input.tx-16[type='checkbox'][id='r_" +
                                                                         _val.CD_EXA_LAB +
-                                                                        "']",
-                                                                        {
-                                                                            checked:
-                                                                                StatusPedido.dataFactMuestras[_i][
+                                                                        "']", {
+                                                                            checked: StatusPedido.dataFactMuestras[_i][
                                                                                 "customCheked"
-                                                                                ],
-                                                                            onupdate: function (e) {
+                                                                            ],
+                                                                            onupdate: function(e) {
                                                                                 this.checked =
                                                                                     StatusPedido.dataFactMuestras[_i][
-                                                                                    "customCheked"
+                                                                                        "customCheked"
                                                                                     ];
                                                                             },
-                                                                            onclick: function (e) {
+                                                                            onclick: function(e) {
                                                                                 e.preventDefault();
                                                                                 var p = this.checked;
                                                                                 if (p) {
                                                                                     StatusPedido.dataFactMuestras[_i][
                                                                                         "customCheked"
-                                                                                    ] =
-                                                                                        !StatusPedido.dataFactMuestras[_i][
+                                                                                    ] = !StatusPedido.dataFactMuestras[_i][
                                                                                         "customCheked"
-                                                                                        ];
+                                                                                    ];
                                                                                     StatusPedido.dataFactMuestras[_i][
                                                                                         "STATUS_FACT"
                                                                                     ] = "1";
                                                                                     StatusPedido.dataFactMuestras[_i][
-                                                                                        "FECHA_FACT"
-                                                                                    ] =
+                                                                                            "FECHA_FACT"
+                                                                                        ] =
                                                                                         moment().format("DD-MM-YYYY HH:mm");
                                                                                     RecepFacturacion.agregarExamen(
                                                                                         StatusPedido.dataMuestras[_i]
@@ -2497,13 +2401,13 @@ const RecepFacturacion = {
                                                                         "']",
                                                                         StatusPedido.dataFactMuestras[_i][
                                                                             "STATUS_FACT"
-                                                                        ].length !== 0
-                                                                            ? StatusPedido.dataFactMuestras[_i][
+                                                                        ].length !== 0 ?
+                                                                        StatusPedido.dataFactMuestras[_i][
                                                                             "FECHA_FACT"
-                                                                            ]
-                                                                            : StatusPedido.dataFactMuestras[_i][
+                                                                        ] :
+                                                                        StatusPedido.dataFactMuestras[_i][
                                                                             "STATUS_FACT"
-                                                                            ]
+                                                                        ]
                                                                     ),
                                                                 ])
                                                             ),
@@ -2515,17 +2419,16 @@ const RecepFacturacion = {
                                     ),
                                     m("div.pd-10", [
                                         m(
-                                            "button.btn.btn-xs.btn-success.btn-block.tx-semibold[type='button']",
-                                            {
+                                            "button.btn.btn-xs.btn-success.btn-block.tx-semibold[type='button']", {
                                                 disabled: RecepFacturacion.disabledFact,
                                                 onclick: () => {
                                                     RecepFacturacion.validarUpdateMuestras();
                                                     let _fechaToma = moment().format("DD-MM-YYYY HH:mm");
                                                     let _data = Encrypt.getDataUser();
                                                     StatusPedido.documento.dataFacturacion.usuarioFact =
-                                                        _data.user.user.toUpperCase() != undefined
-                                                            ? _data.user.user.toUpperCase()
-                                                            : "";
+                                                        _data.user.user.toUpperCase() != undefined ?
+                                                        _data.user.user.toUpperCase() :
+                                                        "";
                                                     StatusPedido.documento.dataFacturacion.fechaFact =
                                                         _fechaToma;
                                                     RecepFacturacion.disabledFact = true;
@@ -2560,7 +2463,7 @@ const RecepMuestras = {
     disabledInsumos: false,
     impresora: "",
     examenNuevoPedido: (examen, pedido, xml) => {
-        return StatusPedido.dataMuestras.map(function (_val, _i, _contentData) {
+        return StatusPedido.dataMuestras.map(function(_val, _i, _contentData) {
             if (examen.codigoExame === _val.CD_EXA_LAB) {
                 StatusPedido.dataMuestras[_i]["NM_EXA_LAB"] = "";
                 StatusPedido.dataMuestras[_i]["NM_EXA_LAB"] =
@@ -2571,14 +2474,13 @@ const RecepMuestras = {
     seleccionarTodos: (status) => {
         RecepMuestras.checkedAll = status;
         var _fechaToma = moment().format("DD-MM-YYYY HH:mm");
-        return StatusPedido.dataMuestras.map(function (_val, _i, _contentData) {
+        return StatusPedido.dataMuestras.map(function(_val, _i, _contentData) {
             if (
                 StatusPedido.dataMuestras[_i]["CD_EXA_LAB"] == "542" ||
                 StatusPedido.dataMuestras[_i]["CD_EXA_LAB"] == "543" ||
                 StatusPedido.dataMuestras[_i]["CD_EXA_LAB"] == "544" ||
                 StatusPedido.dataMuestras[_i]["CD_EXA_LAB"] == "545"
-            ) {
-            } else {
+            ) {} else {
                 if (status) {
                     StatusPedido.dataMuestras[_i]["STATUS_RECEP"] = "1";
                     StatusPedido.dataMuestras[_i]["FECHA_RECEP"] = _fechaToma;
@@ -2621,20 +2523,20 @@ const RecepMuestras = {
     udpateStatusTomaMuestra: () => {
         StatusPedido.documento.dataRecepcion.insumosRecep = Insumos;
         m.request({
-            method: "POST",
-            url: "https://lisa.hospitalmetropolitano.org/v1/up-status-pedido-lab",
-            body: {
-                documento: JSON.stringify(StatusPedido.documento),
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (result) {
+                method: "POST",
+                url: "https://lisa.hospitalmetropolitano.org/v1/up-status-pedido-lab",
+                body: {
+                    documento: JSON.stringify(StatusPedido.documento),
+                },
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(result) {
                 StatusPedido.documento = result.data;
                 StatusPedido.dataMuestras = result.data.dataRecepcion.examenesRecep;
             })
-            .catch(function (e) { });
+            .catch(function(e) {});
     },
 
     view: () => {
@@ -2645,8 +2547,7 @@ const RecepMuestras = {
                 m("div.bg-white.bd.d-flex.flex-column.justify-content-end", [
                     m("p.mg-5.tx-right", [
                         m(
-                            "button.btn.btn-xs.btn-success.mg-r-5[type='button']",
-                            {
+                            "button.btn.btn-xs.btn-success.mg-r-5[type='button']", {
                                 class: RecepMuestras.disabledToma ? "" : "d-none",
                                 onclick: () => {
                                     RecepMuestras.disabledToma = false;
@@ -2656,8 +2557,7 @@ const RecepMuestras = {
                             " EDITAR "
                         ),
                         m(
-                            "button.btn.btn-xs.btn-primary.mg-r-5[type='button']",
-                            {
+                            "button.btn.btn-xs.btn-primary.mg-r-5[type='button']", {
                                 onclick: () => {
                                     if (
                                         confirm(
@@ -2673,8 +2573,7 @@ const RecepMuestras = {
                             " NUEVO PEDIDO "
                         ),
                         m(
-                            "button.btn.btn-xs.btn-warning[type='button']",
-                            {
+                            "button.btn.btn-xs.btn-warning[type='button']", {
                                 onclick: () => {
                                     if (ControlLISA.showLogs.length == 0) {
                                         ControlLISA.showLogs = "d-none";
@@ -2689,16 +2588,14 @@ const RecepMuestras = {
 
                     m(".", [
                         m(
-                            ".",
-                            {
+                            ".", {
                                 class: ControlLISA.showLogs,
                                 style: {
-                                    "pointer-events": RecepMuestras.disabledToma
-                                        ? "none"
-                                        : "auto",
+                                    "pointer-events": RecepMuestras.disabledToma ?
+                                        "none" :
+                                        "auto",
                                 },
-                            },
-                            [
+                            }, [
                                 m(
                                     "div.table-responsive.mg-b-10.mg-t-10",
                                     m("table.table.table-dashboard.table-hover.mg-b-0", [
@@ -2729,10 +2626,9 @@ const RecepMuestras = {
                                                     "td[colspan='2'].tx-normal",
                                                     m("div.custom-control.custom-checkbox", [
                                                         m(
-                                                            "input.custom-control-input[type='checkbox'][id='r_selectTomaTodos']",
-                                                            {
+                                                            "input.custom-control-input[type='checkbox'][id='r_selectTomaTodos']", {
                                                                 checked: RecepMuestras.checkedAll,
-                                                                onclick: function (e) {
+                                                                onclick: function(e) {
                                                                     RecepMuestras.seleccionarTodos(this.checked);
                                                                 },
                                                             }
@@ -2745,7 +2641,7 @@ const RecepMuestras = {
                                                 ),
                                             ]),
 
-                                            StatusPedido.dataMuestras.map(function (
+                                            StatusPedido.dataMuestras.map(function(
                                                 _val,
                                                 _i,
                                                 _contentData
@@ -2760,16 +2656,14 @@ const RecepMuestras = {
                                                                 m(
                                                                     "input.custom-control-input.tx-16[type='checkbox'][id='r_" +
                                                                     _val.CD_EXA_LAB +
-                                                                    "']",
-                                                                    {
-                                                                        checked:
-                                                                            StatusPedido.dataMuestras[_i][
+                                                                    "']", {
+                                                                        checked: StatusPedido.dataMuestras[_i][
                                                                             "customCheked"
-                                                                            ],
-                                                                        onupdate: function (e) {
+                                                                        ],
+                                                                        onupdate: function(e) {
                                                                             this.checked =
                                                                                 StatusPedido.dataMuestras[_i][
-                                                                                "customCheked"
+                                                                                    "customCheked"
                                                                                 ];
                                                                         },
                                                                         oncreate: (el) => {
@@ -2786,16 +2680,15 @@ const RecepMuestras = {
                                                                                 // el.dom.parentElement.innerHTML = '';
                                                                             }
                                                                         },
-                                                                        onclick: function (e) {
+                                                                        onclick: function(e) {
                                                                             e.preventDefault();
                                                                             var p = this.checked;
                                                                             if (p) {
                                                                                 StatusPedido.dataMuestras[_i][
                                                                                     "customCheked"
-                                                                                ] =
-                                                                                    !StatusPedido.dataMuestras[_i][
+                                                                                ] = !StatusPedido.dataMuestras[_i][
                                                                                     "customCheked"
-                                                                                    ];
+                                                                                ];
                                                                                 StatusPedido.dataMuestras[_i][
                                                                                     "STATUS_RECEP"
                                                                                 ] = "1";
@@ -2808,21 +2701,20 @@ const RecepMuestras = {
                                                                                 // Para Facturación
                                                                                 if (
                                                                                     StatusPedido.dataFactMuestras[_i][
-                                                                                    "STATUS_FACT"
+                                                                                        "STATUS_FACT"
                                                                                     ] == ""
                                                                                 ) {
                                                                                     StatusPedido.dataFactMuestras[_i][
                                                                                         "customCheked"
-                                                                                    ] =
-                                                                                        !StatusPedido.dataFactMuestras[_i][
+                                                                                    ] = !StatusPedido.dataFactMuestras[_i][
                                                                                         "customCheked"
-                                                                                        ];
+                                                                                    ];
                                                                                     StatusPedido.dataFactMuestras[_i][
                                                                                         "STATUS_FACT"
                                                                                     ] = "1";
                                                                                     StatusPedido.dataFactMuestras[_i][
-                                                                                        "FECHA_FACT"
-                                                                                    ] =
+                                                                                            "FECHA_FACT"
+                                                                                        ] =
                                                                                         moment().format("DD-MM-YYYY HH:mm");
                                                                                 }
                                                                             } else {
@@ -2844,10 +2736,9 @@ const RecepMuestras = {
                                                                                     } else {
                                                                                         StatusPedido.dataMuestras[_i][
                                                                                             "customCheked"
-                                                                                        ] =
-                                                                                            !StatusPedido.dataMuestras[_i][
+                                                                                        ] = !StatusPedido.dataMuestras[_i][
                                                                                             "customCheked"
-                                                                                            ];
+                                                                                        ];
                                                                                         RecepMuestras.checkedAll = false;
                                                                                         StatusPedido.dataMuestras[_i][
                                                                                             "STATUS_RECEP"
@@ -2869,13 +2760,13 @@ const RecepMuestras = {
                                                                     _val.CD_EXA_LAB +
                                                                     "']",
                                                                     StatusPedido.dataMuestras[_i]["STATUS_RECEP"]
-                                                                        .length !== 0
-                                                                        ? StatusPedido.dataMuestras[_i][
+                                                                    .length !== 0 ?
+                                                                    StatusPedido.dataMuestras[_i][
                                                                         "FECHA_RECEP"
-                                                                        ]
-                                                                        : StatusPedido.dataMuestras[_i][
+                                                                    ] :
+                                                                    StatusPedido.dataMuestras[_i][
                                                                         "STATUS_RECEP"
-                                                                        ]
+                                                                    ]
                                                                 ),
                                                             ])
                                                         ),
@@ -2887,8 +2778,7 @@ const RecepMuestras = {
                                             "thead",
                                             m("tr", [
                                                 m(
-                                                    "th[colspan='2'].text-primary.text-right.bg-light.tx-semibold",
-                                                    {},
+                                                    "th[colspan='2'].text-primary.text-right.bg-light.tx-semibold", {},
                                                     "IMPRESIÓN ETIQUETAS:"
                                                 ),
                                             ]),
@@ -2896,19 +2786,16 @@ const RecepMuestras = {
                                                 m(
                                                     "th.text-right[colspan='2']",
                                                     m(
-                                                        "select.custom-select.wd-30p.tx-semibold",
-                                                        {
+                                                        "select.custom-select.wd-30p.tx-semibold", {
                                                             onchange: (e) => {
                                                                 RecepMuestras.impresora = e.target.value;
                                                             },
-                                                            disabled:
-                                                                Object.keys(ControlLISA.logsEnvio).length !==
-                                                                    0 && !ControlLISA.nuevoPedido
-                                                                    ? "disabled"
-                                                                    : "",
+                                                            disabled: Object.keys(ControlLISA.logsEnvio).length !==
+                                                                0 && !ControlLISA.nuevoPedido ?
+                                                                "disabled" :
+                                                                "",
                                                             value: RecepMuestras.impresora,
-                                                        },
-                                                        [
+                                                        }, [
                                                             "CAJA1",
                                                             "CAJA2",
                                                             "CAJA3",
@@ -2926,17 +2813,16 @@ const RecepMuestras = {
                                 ),
                                 m("div.pd-10", [
                                     m(
-                                        "button.btn.btn-xs.btn-primary.btn-block.tx-semibold[type='button']",
-                                        {
+                                        "button.btn.btn-xs.btn-primary.btn-block.tx-semibold[type='button']", {
                                             disabled: RecepMuestras.disabledToma,
                                             onclick: () => {
                                                 RecepMuestras.validarUpdateMuestras();
                                                 var _fechaToma = moment().format("DD-MM-YYYY HH:mm");
                                                 let _data = Encrypt.getDataUser();
                                                 StatusPedido.documento.dataRecepcion.usuarioRecep =
-                                                    _data.user.user.toUpperCase() != undefined
-                                                        ? _data.user.user.toUpperCase()
-                                                        : "";
+                                                    _data.user.user.toUpperCase() != undefined ?
+                                                    _data.user.user.toUpperCase() :
+                                                    "";
                                                 StatusPedido.documento.dataRecepcion.fechaRecep = _fechaToma;
                                                 RecepMuestras.disabledToma = true;
                                                 RecepMuestras.udpateStatusTomaMuestra();
@@ -2944,20 +2830,18 @@ const RecepMuestras = {
 
                                             },
                                         },
-                                        ControlLISA.nuevoPedido
-                                            ? "Nuevo Pedido LISA"
-                                            : "Guardar y Enviar"
+                                        ControlLISA.nuevoPedido ?
+                                        "Nuevo Pedido LISA" :
+                                        "Guardar y Enviar"
                                     ),
                                 ]),
                             ]
                         ),
 
                         m(
-                            ".",
-                            {
+                            ".", {
                                 class: ControlLISA.showLogs.length !== 0 ? "" : "d-none",
-                            },
-                            [
+                            }, [
                                 m(
                                     "div.table-responsive.mg-b-10.mg-t-10",
                                     m("table.table.table-dashboard.table-hover.mg-b-0", [
@@ -2965,8 +2849,7 @@ const RecepMuestras = {
                                             "thead",
                                             m("tr", [
                                                 m(
-                                                    "th[colspan='2'].text-primary.text-left",
-                                                    {},
+                                                    "th[colspan='2'].text-primary.text-left", {},
                                                     "Historial de Envios LISA:"
                                                 ),
                                             ]),
@@ -3037,18 +2920,16 @@ const PedidoLISA = {
             );
         }
 
-        return PedidoLISA.loader
-            ? [
+        return PedidoLISA.loader ?
+            [
                 m(HeaderPrivate, { oncreate: HeaderPrivate.setPage("laboratorio") }),
                 m(SidebarLab, { oncreate: SidebarLab.setPage(21) }),
                 m(
                     "div.content.content-components",
                     m(
-                        "div.container.mg-l-0.mg-r-0",
-                        {
+                        "div.container.mg-l-0.mg-r-0", {
                             style: { "max-width": "100%" },
-                        },
-                        [
+                        }, [
                             m("ol.breadcrumb.df-breadcrumbs.mg-b-10", [
                                 m(
                                     "li.breadcrumb-item",
@@ -3081,21 +2962,18 @@ const PedidoLISA = {
                         ]
                     )
                 ),
-            ]
-            : [
+            ] :
+            [
                 m(HeaderPrivate, { oncreate: HeaderPrivate.setPage("laboratorio") }),
                 m(SidebarLab, { oncreate: SidebarLab.setPage(21) }),
                 m(
-                    "div.content.content-components",
-                    {
+                    "div.content.content-components", {
                         style: { "margin-right": "0px" },
                     },
                     m(
-                        "div.container.mg-l-0.mg-r-0",
-                        {
+                        "div.container.mg-l-0.mg-r-0", {
                             style: { "max-width": "100%" },
-                        },
-                        [
+                        }, [
                             m("ol.breadcrumb.df-breadcrumbs.mg-b-10", [
                                 m(
                                     "li.breadcrumb-item",
@@ -3118,8 +2996,7 @@ const PedidoLISA = {
                             m("div.row.animated.fadeInUp", [
                                 m("div.col-12", [
                                     m(
-                                        "div.table-loader.wd-100p",
-                                        {
+                                        "div.table-loader.wd-100p", {
                                             oncreate: (el) => {
                                                 if (PedidoLISA.loader) {
                                                     el.dom.hidden = false;
@@ -3134,8 +3011,7 @@ const PedidoLISA = {
                                                     el.dom.hidden = true;
                                                 }
                                             },
-                                        },
-                                        [
+                                        }, [
                                             m("div.placeholder-paragraph", [
                                                 m("div.line"),
                                                 m("div.line"),
@@ -3144,8 +3020,7 @@ const PedidoLISA = {
                                     ),
 
                                     m(
-                                        "div.table-content.col-12.pd-r-0.pd-l-0.pd-b-20.",
-                                        {
+                                        "div.table-content.col-12.pd-r-0.pd-l-0.pd-b-20.", {
                                             oncreate: (el) => {
                                                 if (PedidoLISA.loader) {
                                                     el.dom.hidden = true;
@@ -3160,11 +3035,9 @@ const PedidoLISA = {
                                                     el.dom.hidden = false;
                                                 }
                                             },
-                                        },
-                                        [
+                                        }, [
                                             m(
-                                                "div.bg-white.bd.pd-20.pd-lg-30.d-flex.flex-column.justify-content-end",
-                                                [
+                                                "div.bg-white.bd.pd-20.pd-lg-30.d-flex.flex-column.justify-content-end", [
                                                     m(
                                                         "h5.tx-right.tx-normal.tx-rubik.tx-color-03.mg-b-0",
                                                         m(
@@ -3180,29 +3053,23 @@ const PedidoLISA = {
                                                     ),
 
                                                     PedidoLISA.data.PedidoExameLab.tipoSolicitacao ==
-                                                        "R"
-                                                        ? [
-                                                            m(
-                                                                "span.pd-6.wd-100p.wd-md-20p",
-                                                                {
-                                                                    class:
-                                                                        "badge badge-primary mg-b-2 mg-r-2",
-                                                                },
-                                                                [m("i.fas.fa-file-alt.mg-r-5")],
-                                                                "Pedido Normal"
-                                                            ),
-                                                        ]
-                                                        : [
-                                                            m(
-                                                                "span.pd-6.wd-100p.wd-md-20p",
-                                                                {
-                                                                    class:
-                                                                        "badge badge-danger mg-b-2 mg-r-2 ",
-                                                                },
-                                                                [m("i.fas.fa-file-alt.mg-r-5")],
-                                                                "Pedido Urgente"
-                                                            ),
-                                                        ],
+                                                    "R" ?
+                                                    [
+                                                        m(
+                                                            "span.pd-6.wd-100p.wd-md-20p", {
+                                                                class: "badge badge-primary mg-b-2 mg-r-2",
+                                                            }, [m("i.fas.fa-file-alt.mg-r-5")],
+                                                            "Pedido Normal"
+                                                        ),
+                                                    ] :
+                                                    [
+                                                        m(
+                                                            "span.pd-6.wd-100p.wd-md-20p", {
+                                                                class: "badge badge-danger mg-b-2 mg-r-2 ",
+                                                            }, [m("i.fas.fa-file-alt.mg-r-5")],
+                                                            "Pedido Urgente"
+                                                        ),
+                                                    ],
                                                     m("div.table-responsive", [
                                                         m("table.table.table-bordered.table-sm.tx-12", [
                                                             m(
@@ -3218,8 +3085,7 @@ const PedidoLISA = {
                                                             m("tbody", [
                                                                 m("tr", [
                                                                     m(
-                                                                        "th",
-                                                                        {
+                                                                        "th", {
                                                                             style: {
                                                                                 "background-color": "#a8bed6",
                                                                             },
@@ -3227,18 +3093,16 @@ const PedidoLISA = {
                                                                         "N° de Pedido:"
                                                                     ),
                                                                     m(
-                                                                        "td",
-                                                                        {
+                                                                        "td", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
                                                                         },
                                                                         PedidoLISA.data.PedidoExameLab
-                                                                            .codigoPedido
+                                                                        .codigoPedido
                                                                     ),
                                                                     m(
-                                                                        "th",
-                                                                        {
+                                                                        "th", {
                                                                             style: {
                                                                                 "background-color": "#a8bed6",
                                                                             },
@@ -3251,8 +3115,7 @@ const PedidoLISA = {
                                                                         )
                                                                     ),
                                                                     m(
-                                                                        "td[colspan='3']",
-                                                                        {
+                                                                        "td[colspan='3']", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
@@ -3260,11 +3123,10 @@ const PedidoLISA = {
                                                                         PedidoLISA.data.PedidoExameLab.dataExame,
                                                                         m("br"),
                                                                         PedidoLISA.data.PedidoExameLab
-                                                                            .dataColetaPedido
+                                                                        .dataColetaPedido
                                                                     ),
                                                                     m(
-                                                                        "th",
-                                                                        {
+                                                                        "th", {
                                                                             style: {
                                                                                 "background-color": "#a8bed6",
                                                                             },
@@ -3272,21 +3134,19 @@ const PedidoLISA = {
                                                                         "Origen:"
                                                                     ),
                                                                     m(
-                                                                        "td[colspan='3']",
-                                                                        {
+                                                                        "td[colspan='3']", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
                                                                         },
                                                                         PedidoLISA.data.PedidoExameLab
-                                                                            .descSetorSolicitante
+                                                                        .descSetorSolicitante
                                                                     ),
                                                                 ]),
 
                                                                 m("tr", [
                                                                     m(
-                                                                        "th",
-                                                                        {
+                                                                        "th", {
                                                                             style: {
                                                                                 "background-color": "#a8bed6",
                                                                             },
@@ -3294,18 +3154,16 @@ const PedidoLISA = {
                                                                         "Médico Solicitante:"
                                                                     ),
                                                                     m(
-                                                                        "td[colspan='4']",
-                                                                        {
+                                                                        "td[colspan='4']", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
                                                                         },
                                                                         PedidoLISA.data.PedidoExameLab
-                                                                            .descPrestadorSolicitante
+                                                                        .descPrestadorSolicitante
                                                                     ),
                                                                     m(
-                                                                        "th",
-                                                                        {
+                                                                        "th", {
                                                                             style: {
                                                                                 "background-color": "#a8bed6",
                                                                             },
@@ -3313,22 +3171,21 @@ const PedidoLISA = {
                                                                         "Médico Tratante:"
                                                                     ),
                                                                     m(
-                                                                        "td[colspan='4']",
-                                                                        {
+                                                                        "td[colspan='4']", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
                                                                         },
                                                                         Examenes.medico !== null &&
-                                                                            Examenes.medico !== false
-                                                                            ? [
-                                                                                m(
-                                                                                    "div.d-inline.tx-semibold.tx-danger",
-                                                                                    Examenes.medico.PRESTADOR
-                                                                                ),
-                                                                            ]
-                                                                            : PedidoLISA.data.PedidoExameLab
-                                                                                .descPrestadorSolicitante
+                                                                        Examenes.medico !== false ?
+                                                                        [
+                                                                            m(
+                                                                                "div.d-inline.tx-semibold.tx-danger",
+                                                                                Examenes.medico.PRESTADOR
+                                                                            ),
+                                                                        ] :
+                                                                        PedidoLISA.data.PedidoExameLab
+                                                                        .descPrestadorSolicitante
                                                                     ),
                                                                 ]),
                                                             ]),
@@ -3345,8 +3202,7 @@ const PedidoLISA = {
                                                             m("tbody", [
                                                                 m("tr", [
                                                                     m(
-                                                                        "th",
-                                                                        {
+                                                                        "th", {
                                                                             style: {
                                                                                 "background-color": "#a8bed6",
                                                                             },
@@ -3354,18 +3210,16 @@ const PedidoLISA = {
                                                                         "Apellidos y Nombres:"
                                                                     ),
                                                                     m(
-                                                                        "td[colspan='5']",
-                                                                        {
+                                                                        "td[colspan='5']", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
                                                                         },
                                                                         PedidoLISA.data.PedidoExameLab.paciente
-                                                                            .nome
+                                                                        .nome
                                                                     ),
                                                                     m(
-                                                                        "th",
-                                                                        {
+                                                                        "th", {
                                                                             style: {
                                                                                 "background-color": "#a8bed6",
                                                                             },
@@ -3373,19 +3227,17 @@ const PedidoLISA = {
                                                                         "Edad:"
                                                                     ),
                                                                     m(
-                                                                        "td",
-                                                                        {
+                                                                        "td", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
                                                                         },
                                                                         PedidoLISA.data.PedidoExameLab.paciente
-                                                                            .anios + " Año(s)"
+                                                                        .anios + " Año(s)"
                                                                     ),
 
                                                                     m(
-                                                                        "th",
-                                                                        {
+                                                                        "th", {
                                                                             style: {
                                                                                 "background-color": "#a8bed6",
                                                                             },
@@ -3393,20 +3245,18 @@ const PedidoLISA = {
                                                                         "NHC:"
                                                                     ),
                                                                     m(
-                                                                        "td",
-                                                                        {
+                                                                        "td", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
                                                                         },
                                                                         PedidoLISA.data.PedidoExameLab.paciente
-                                                                            .codigoPaciente
+                                                                        .codigoPaciente
                                                                     ),
                                                                 ]),
                                                                 m("tr", [
                                                                     m(
-                                                                        "th",
-                                                                        {
+                                                                        "th", {
                                                                             style: {
                                                                                 "background-color": "#a8bed6",
                                                                             },
@@ -3414,18 +3264,16 @@ const PedidoLISA = {
                                                                         "N° Atención:"
                                                                     ),
                                                                     m(
-                                                                        "td",
-                                                                        {
+                                                                        "td", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
                                                                         },
                                                                         PedidoLISA.data.PedidoExameLab.atendimento
-                                                                            .codigoAtendimento
+                                                                        .codigoAtendimento
                                                                     ),
                                                                     m(
-                                                                        "th",
-                                                                        {
+                                                                        "th", {
                                                                             style: {
                                                                                 "background-color": "#a8bed6",
                                                                             },
@@ -3433,20 +3281,18 @@ const PedidoLISA = {
                                                                         "Sexo:"
                                                                     ),
                                                                     m(
-                                                                        "td",
-                                                                        {
+                                                                        "td", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
                                                                         },
                                                                         PedidoLISA.data.PedidoExameLab.paciente
-                                                                            .sexo == "F"
-                                                                            ? "Femenino"
-                                                                            : "Masculino"
+                                                                        .sexo == "F" ?
+                                                                        "Femenino" :
+                                                                        "Masculino"
                                                                     ),
                                                                     m(
-                                                                        "th",
-                                                                        {
+                                                                        "th", {
                                                                             style: {
                                                                                 "background-color": "#a8bed6",
                                                                             },
@@ -3454,18 +3300,16 @@ const PedidoLISA = {
                                                                         "F. de Nac.:"
                                                                     ),
                                                                     m(
-                                                                        "td",
-                                                                        {
+                                                                        "td", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
                                                                         },
                                                                         PedidoLISA.data.PedidoExameLab.paciente
-                                                                            .dataNascimento
+                                                                        .dataNascimento
                                                                     ),
                                                                     m(
-                                                                        "th",
-                                                                        {
+                                                                        "th", {
                                                                             style: {
                                                                                 "background-color": "#a8bed6",
                                                                             },
@@ -3473,26 +3317,25 @@ const PedidoLISA = {
                                                                         "Dg:"
                                                                     ),
                                                                     m(
-                                                                        "td[colspan='3']",
-                                                                        {
+                                                                        "td[colspan='3']", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
                                                                         },
                                                                         (PedidoLISA.data.PedidoExameLab
                                                                             .diagnostico.codigoDiagnostico.length ==
-                                                                            undefined
-                                                                            ? ""
-                                                                            : "CIE: " +
+                                                                            undefined ?
+                                                                            "" :
+                                                                            "CIE: " +
                                                                             PedidoLISA.data.PedidoExameLab
-                                                                                .diagnostico.codigoDiagnostico) +
+                                                                            .diagnostico.codigoDiagnostico) +
                                                                         (PedidoLISA.data.PedidoExameLab
                                                                             .diagnostico.dsDiagostico.length ==
-                                                                            undefined
-                                                                            ? ""
-                                                                            : " - " +
+                                                                            undefined ?
+                                                                            "" :
+                                                                            " - " +
                                                                             PedidoLISA.data.PedidoExameLab
-                                                                                .diagnostico.dsDiagostico)
+                                                                            .diagnostico.dsDiagostico)
                                                                     ),
                                                                 ]),
                                                                 m("tr.bg-litecoin.op-9.tx-white", [
@@ -3503,8 +3346,7 @@ const PedidoLISA = {
                                                                 ]),
                                                                 m("tr", [
                                                                     m(
-                                                                        "th",
-                                                                        {
+                                                                        "th", {
                                                                             style: {
                                                                                 "background-color": "#a8bed6",
                                                                             },
@@ -3512,8 +3354,7 @@ const PedidoLISA = {
                                                                         "Exámenes:"
                                                                     ),
                                                                     m(
-                                                                        "td[colspan='9']",
-                                                                        {
+                                                                        "td[colspan='9']", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
@@ -3523,8 +3364,7 @@ const PedidoLISA = {
                                                                 ]),
 
                                                                 m(
-                                                                    "tr.d-print-none.bg-litecoin.op-9.tx-white.",
-                                                                    [
+                                                                    "tr.d-print-none.bg-litecoin.op-9.tx-white.", [
                                                                         m(
                                                                             "th[scope='col'][colspan='10']",
                                                                             "EVOLUCIONES Y PRESCRIPCIONES:"
@@ -3533,28 +3373,23 @@ const PedidoLISA = {
                                                                 ),
                                                                 m("tr.d-print-none", [
                                                                     m(
-                                                                        "td[colspan='10']",
-                                                                        {
+                                                                        "td[colspan='10']", {
                                                                             style: {
                                                                                 "background-color": "#eaeff5",
                                                                             },
                                                                         },
                                                                         m(
-                                                                            "ul.nav.nav-tabs[id='myTab'][role='tablist']",
-                                                                            {
+                                                                            "ul.nav.nav-tabs[id='myTab'][role='tablist']", {
                                                                                 style: {
-                                                                                    "pointer-events":
-                                                                                        Examenes.data !== null
-                                                                                            ? "auto"
-                                                                                            : "none",
+                                                                                    "pointer-events": Examenes.data !== null ?
+                                                                                        "auto" :
+                                                                                        "none",
                                                                                 },
-                                                                            },
-                                                                            [
+                                                                            }, [
                                                                                 m(
                                                                                     "li.nav-item",
                                                                                     m(
-                                                                                        "a.nav-link[id='home-tab'][data-toggle='tab'][href='#home'][role='tab'][aria-controls='home'][aria-selected='true']",
-                                                                                        {
+                                                                                        "a.nav-link[id='home-tab'][data-toggle='tab'][href='#home'][role='tab'][aria-controls='home'][aria-selected='true']", {
                                                                                             style: { color: "#476ba3" },
                                                                                         },
                                                                                         m(
@@ -3567,8 +3402,7 @@ const PedidoLISA = {
                                                                                 m(
                                                                                     "li.nav-item",
                                                                                     m(
-                                                                                        "a.nav-link[id='home-muestra'][data-toggle='tab'][href='#muestra'][role='tab'][aria-controls='muestra']",
-                                                                                        {
+                                                                                        "a.nav-link[id='home-muestra'][data-toggle='tab'][href='#muestra'][role='tab'][aria-controls='muestra']", {
                                                                                             style: { color: "#476ba3" },
                                                                                         },
                                                                                         m("i.fas.fa-edit.pd-1.mg-r-2"),
@@ -3579,8 +3413,7 @@ const PedidoLISA = {
                                                                                 m(
                                                                                     "li.nav-item",
                                                                                     m(
-                                                                                        "a.nav-link[id='home-recep'][data-toggle='tab'][href='#recep'][role='tab'][aria-controls='recep']",
-                                                                                        {
+                                                                                        "a.nav-link[id='home-recep'][data-toggle='tab'][href='#recep'][role='tab'][aria-controls='recep']", {
                                                                                             style: { color: "#476ba3" },
                                                                                         },
                                                                                         m("i.fas.fa-inbox.pd-1.mg-r-2"),
@@ -3591,8 +3424,7 @@ const PedidoLISA = {
                                                                                 m(
                                                                                     "li.nav-item.d-none",
                                                                                     m(
-                                                                                        "a.nav-link[id='home-facturar'][data-toggle='tab'][href='#facturar'][role='tab'][aria-controls='facturar']",
-                                                                                        {
+                                                                                        "a.nav-link[id='home-facturar'][data-toggle='tab'][href='#facturar'][role='tab'][aria-controls='facturar']", {
                                                                                             style: { color: "#476ba3" },
                                                                                         },
                                                                                         m("i.fas.fa-inbox.pd-1.mg-r-2"),
@@ -3603,8 +3435,7 @@ const PedidoLISA = {
                                                                                 m(
                                                                                     "li.nav-item",
                                                                                     m(
-                                                                                        "a.nav-link[id='home-comment'][data-toggle='tab'][href='#comment'][role='tab'][aria-controls='comment']",
-                                                                                        {
+                                                                                        "a.nav-link[id='home-comment'][data-toggle='tab'][href='#comment'][role='tab'][aria-controls='comment']", {
                                                                                             style: { color: "#476ba3" },
                                                                                         },
                                                                                         m("i.fas.fa-inbox.pd-1.mg-r-2"),
@@ -3620,55 +3451,45 @@ const PedidoLISA = {
                                                                     m(
                                                                         "td[colspan='10']",
                                                                         m(
-                                                                            ".tab-content.bd.bd-gray-300.bd-t-0[id='myTab']",
-                                                                            [
+                                                                            ".tab-content.bd.bd-gray-300.bd-t-0[id='myTab']", [
                                                                                 m(
-                                                                                    ".tab-pane.fade[id='home'][role='tabpanel'][aria-labelledby='home-tab']",
-                                                                                    [m(Evoluciones)]
+                                                                                    ".tab-pane.fade[id='home'][role='tabpanel'][aria-labelledby='home-tab']", [m(Evoluciones)]
                                                                                 ),
                                                                                 m(
-                                                                                    ".tab-pane.fade[id='muestra'][role='tabpanel'][aria-labelledby='home-muestra']",
-                                                                                    [m(TomaMuestras)]
+                                                                                    ".tab-pane.fade[id='muestra'][role='tabpanel'][aria-labelledby='home-muestra']", [m(TomaMuestras)]
                                                                                 ),
 
                                                                                 m(
-                                                                                    ".tab-pane.fade[id='recep'][role='tabpanel'][aria-labelledby='home-recep']",
-                                                                                    [m(RecepMuestras)]
+                                                                                    ".tab-pane.fade[id='recep'][role='tabpanel'][aria-labelledby='home-recep']", [m(RecepMuestras)]
                                                                                 ),
                                                                                 m(
-                                                                                    ".tab-pane.fade.d-none[id='facturar'][role='tabpanel'][aria-labelledby='home-facturar']",
-                                                                                    [m(RecepFacturacion)]
+                                                                                    ".tab-pane.fade.d-none[id='facturar'][role='tabpanel'][aria-labelledby='home-facturar']", [m(RecepFacturacion)]
                                                                                 ),
                                                                                 m(
-                                                                                    ".tab-pane.fade[id='comment'][role='tabpanel'][aria-labelledby='home-comment']",
-                                                                                    [
+                                                                                    ".tab-pane.fade[id='comment'][role='tabpanel'][aria-labelledby='home-comment']", [
                                                                                         m("p.mg-5", [
                                                                                             m(
                                                                                                 "span.badge.badge-light.wd-100p.tx-14",
                                                                                                 "Observaciones"
                                                                                             ),
                                                                                             m(
-                                                                                                "textarea.form-control.mg-t-5[rows='5'][placeholder='Observaciones']",
-                                                                                                {
-                                                                                                    oninput: function (e) {
+                                                                                                "textarea.form-control.mg-t-5[rows='5'][placeholder='Observaciones']", {
+                                                                                                    oninput: function(e) {
                                                                                                         Observaciones.observaciones =
                                                                                                             e.target.value;
                                                                                                     },
-                                                                                                    value:
-                                                                                                        Observaciones.observaciones,
+                                                                                                    value: Observaciones.observaciones,
                                                                                                 }
                                                                                             ),
                                                                                             m(
-                                                                                                "div.mg-0.mg-t-5.text-right",
-                                                                                                [
+                                                                                                "div.mg-0.mg-t-5.text-right", [
                                                                                                     m(
-                                                                                                        "button.btn.btn-xs.btn-primary.mg-l-2.tx-semibold[type='button']",
-                                                                                                        {
-                                                                                                            onclick: function () {
+                                                                                                        "button.btn.btn-xs.btn-primary.mg-l-2.tx-semibold[type='button']", {
+                                                                                                            onclick: function() {
                                                                                                                 if (
                                                                                                                     Observaciones
-                                                                                                                        .observaciones
-                                                                                                                        .length !== 0
+                                                                                                                    .observaciones
+                                                                                                                    .length !== 0
                                                                                                                 ) {
                                                                                                                     Observaciones.sendNotiLab();
                                                                                                                 } else {
@@ -3677,8 +3498,7 @@ const PedidoLISA = {
                                                                                                                     );
                                                                                                                 }
                                                                                                             },
-                                                                                                        },
-                                                                                                        [
+                                                                                                        }, [
                                                                                                             m(
                                                                                                                 "i.fas.fa-paper-plane.mg-r-5"
                                                                                                             ),
