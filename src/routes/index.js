@@ -718,7 +718,7 @@ const Routes = {
     '/hospitalizacion': Hospitalizacion, //Hospitalizacion
     '/hospitalizacion/pasaportes': Pasaportes, //Pasaportes
     '/hospitalizacion/control-camas': ControlCamas, //Control Camas
-    '/terapia-respiratoria/pedidos': {
+    '/terapia-respiratoria/pedidos-': {
         oninit: (_data) => {
             App.isAuth('terapia-respiratoria', 18);
             document.title = "Recepción de Pedidos | " + App.title;
