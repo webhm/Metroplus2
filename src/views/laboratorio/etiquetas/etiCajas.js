@@ -29,24 +29,24 @@ const tableEtiCajas = {
                         ),
 
                         m("button.btn.btn-xs.btn-primary[type='button']", {
-                            onclick: () => {
+                                onclick: () => {
 
 
-                                let usuario = prompt('¿Nombre de Usuario?');
+                                    let usuario = prompt('¿Nombre de Usuario?');
 
-                                if (usuario !== null) {
+                                    if (usuario !== null) {
 
-                                    let caja = prompt('¿Nombre de la Impresora/Caja?');
+                                        let caja = prompt('¿Nombre de la Impresora/Caja?');
 
-                                    if (usuario !== null || caja !== null) {
-                                        EtiCajas.changeUser(caja, usuario);
+                                        if (usuario !== null || caja !== null) {
+                                            EtiCajas.changeUser(caja, usuario);
+                                        }
+
                                     }
 
+
                                 }
-
-
-                            }
-                        },
+                            },
                             m('i.fas.fa-edit.mg-r-5'),
 
                             "Nuevo Usuario"
@@ -60,7 +60,7 @@ const tableEtiCajas = {
                         m("div.search-form",
                             m("input.form-control[type='search'][placeholder='Buscar'][id='searchField']", {
 
-                                oninput: function (e) { EtiCajas.searchField = e.target.value; },
+                                oninput: function(e) { EtiCajas.searchField = e.target.value; },
                                 value: EtiCajas.searchField,
                             })
                         ),
@@ -156,52 +156,62 @@ const EtiCajas = {
 
             destroy: true,
             columns: [{
-                title: "Usuario:",
-            },
+                    title: "Impresion:",
+                },
 
-            {
-                title: "Impresión:",
-            },
+                {
+                    title: "Usuario:",
+                },
 
-            {
-                title: "Opciones:",
-            },
+                {
+                    title: "Modificar:",
+                },
+                {
+                    title: "Eliminar:",
+                },
 
 
             ],
             aoColumnDefs: [{
-                mRender: function (data, type, full) {
-                    return full.impresion;
+                    mRender: function(data, type, full) {
+                        return full.impresion;
+                    },
+                    visible: true,
+                    aTargets: [0],
+                    orderable: false
+
                 },
-                visible: true,
-                aTargets: [0],
-                orderable: false
+                {
+                    mRender: function(data, type, full) {
+                        return full.usuario;
+                    },
+                    visible: true,
+                    aTargets: [1],
+                    orderable: false
 
-            },
-            {
-                mRender: function (data, type, full) {
-                    return full.usuario;
+
                 },
-                visible: true,
-                aTargets: [1],
-                orderable: false
-
-
-            },
-
-            {
-                mRender: function (data, type, full) {
-                    return '';
+                {
+                    mRender: function(data, type, full) {
+                        return '';
+                    },
+                    visible: true,
+                    aTargets: [2],
+                    orderable: false
                 },
-                visible: true,
-                aTargets: [2],
-                orderable: false
-            },
+                {
+                    mRender: function(data, type, full) {
+                        return '';
+                    },
+                    visible: true,
+                    aTargets: [3],
+                    orderable: false
+                },
 
 
 
             ],
-            fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+            fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
 
                 m.mount(nRow, {
                     view: () => {
@@ -218,34 +228,51 @@ const EtiCajas = {
                                 aData.usuario
                             ),
 
-                            m("td.tx-center.tx-18.tx-semibold", {
-                                onclick: () => {
+                            m("td.tx-center.tx-15", {
+                                    onclick: () => {
 
 
-                                    let usuario = prompt('¿Nombre de Usuario?');
+                                        let usuario = prompt('¿Nombre de Usuario?');
 
-                                    if (usuario !== null) {
+                                        if (usuario !== null) {
 
-                                        let caja = prompt('¿Nombre de la Impresora/Caja?');
+                                            let caja = prompt('¿Nombre de la Impresora/Caja?');
 
-                                        if (usuario !== null || caja !== null) {
-                                            EtiCajas.changeUser(caja, usuario);
+                                            if (usuario !== null || caja !== null) {
+                                                EtiCajas.changeUser(caja, usuario);
+                                            }
+
                                         }
 
-                                    }
 
 
 
 
 
 
-
+                                    },
+                                    "style": { "background-color": "rgb(168, 190, 214)", "cursor": "pointer" }
                                 },
-                                "style": { "background-color": "rgb(168, 190, 214)", "cursor": "pointer" }
-                            },
                                 m('i.fas.fa-edit.mg-r-5'),
 
                                 " Modificar "
+
+                            ),
+                            m("td.tx-center.tx-15.tx-danger", {
+                                    onclick: () => {
+
+                                        let deleteUser = confirm('¿Esta seguro de eliminar este Usuario?');
+
+                                        if (deleteUser !== null) {
+                                            EtiCajas.deleteUser(aData.usuario);
+                                        }
+
+                                    },
+                                    "style": { "background-color": "rgb(168, 190, 214)", "cursor": "pointer" }
+                                },
+                                m('i.fas.fa-times-circle.mg-r-5'),
+
+                                " Eliminar "
 
                             )
 
@@ -257,7 +284,7 @@ const EtiCajas = {
                     },
                 });
             },
-            drawCallback: function (settings) {
+            drawCallback: function(settings) {
 
                 EtiCajas.loader = false;
 
@@ -270,7 +297,7 @@ const EtiCajas = {
             minimumResultsForSearch: Infinity
         });
 
-        $('#searchField').keyup(function (e) {
+        $('#searchField').keyup(function(e) {
 
             table.search($('#searchField').val()).draw();
         });
@@ -281,18 +308,18 @@ const EtiCajas = {
 
 
         m.request({
-            method: "GET",
-            url: "https://lisa.hospitalmetropolitano.org/v1/users-etiquetas",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (result) {
+                method: "GET",
+                url: "https://lisa.hospitalmetropolitano.org/v1/users-etiquetas",
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(result) {
                 EtiCajas.loader = false;
                 EtiCajas.pedidos = result.data;
             })
-            .catch(function (e) {
-                setTimeout(function () { EtiCajas.fetchEtiCajas(); }, 2000);
+            .catch(function(e) {
+                setTimeout(function() { EtiCajas.fetchEtiCajas(); }, 2000);
             });
 
 
@@ -305,17 +332,17 @@ const EtiCajas = {
     changeUser: (caja, usuario) => {
 
         m.request({
-            method: "POST",
-            url: "https://lisa.hospitalmetropolitano.org/v1/change-user",
-            body: {
-                impresion: caja,
-                usuario: usuario
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (res) {
+                method: "POST",
+                url: "https://lisa.hospitalmetropolitano.org/v1/change-user",
+                body: {
+                    impresion: caja,
+                    usuario: usuario
+                },
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(res) {
 
                 alert(res.message);
 
@@ -326,7 +353,34 @@ const EtiCajas = {
 
 
             })
-            .catch(function (e) {
+            .catch(function(e) {
+                alert(e);
+            });
+    },
+    deleteUser: (usuario) => {
+
+        m.request({
+                method: "POST",
+                url: "https://lisa.hospitalmetropolitano.org/v1/delete-user",
+                body: {
+                    usuario: usuario
+                },
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(res) {
+
+                alert(res.message);
+
+                if (res.status) {
+                    window.location.reload();
+                }
+
+
+
+            })
+            .catch(function(e) {
                 alert(e);
             });
     },
@@ -363,11 +417,11 @@ const EtiCajas = {
                         m("div.col-12", [
 
                             m("div.table-loader.wd-100p", [
-                                m("div.placeholder-paragraph", [
-                                    m("div.line"),
-                                    m("div.line")
-                                ])
-                            ]
+                                    m("div.placeholder-paragraph", [
+                                        m("div.line"),
+                                        m("div.line")
+                                    ])
+                                ]
 
 
                             ),
