@@ -23,401 +23,399 @@ const FOR005 = {
             }, 2000);
         }
 
-        return FOR005.secs.length == 0 ?
-            [
-                m(
-                    "div.pd-10.wd-100p",
-                    m("div.d-inline.tx-secondary.tx-12", {
-                        oncreate: (el) => {
-                            el.dom.innerHTML =
-                                "Procesando " +
-                                Formulario.data.length +
-                                " formulario(s) encontrado(s)...";
-                        },
-                    }),
-                    m("div.placeholder-paragraph", [m("div.line"), m("div.line")])
-                ),
-            ] :
-            [
-                FOR005.secs.map(function(_v, _i, _contentData) {
-                    if (_v.name == "prescripciones_texto") {
-                        prescripciones_texto = _v.answer;
-                    }
+        return FOR005.secs.length == 0 ? [
+            m(
+                "div.pd-10.wd-100p",
+                m("div.d-inline.tx-secondary.tx-12", {
+                    oncreate: (el) => {
+                        el.dom.innerHTML =
+                            "Procesando " +
+                            Formulario.data.length +
+                            " formulario(s) encontrado(s)...";
+                    },
+                }),
+                m("div.placeholder-paragraph", [m("div.line"), m("div.line")])
+            ),
+        ] : [
+            FOR005.secs.map(function(_v, _i, _contentData) {
+                if (_v.name == "prescripciones_texto") {
+                    prescripciones_texto = _v.answer;
+                }
 
-                    if (_v.name == "evolucion_medica_texto") {
-                        evolucion_medica_texto = _v.answer;
-                    }
+                if (_v.name == "evolucion_medica_texto") {
+                    evolucion_medica_texto = _v.answer;
+                }
 
-                    if (_v.name == "cd_documento_clinico") {
-                        urlFor =
-                            "http://172.16.253.102/mvpep/api/clinical-documents/" +
-                            _v.answer +
-                            ".pdf?company=1&department=75";
-                    }
+                if (_v.name == "cd_documento_clinico") {
+                    urlFor =
+                        "http://172.16.253.102/mvpep/api/clinical-documents/" +
+                        _v.answer +
+                        ".pdf?company=1&department=75";
+                }
 
-                    if (_v.name == "Logotipo_archivo") {
-                        return [
-                            m("div.d-inline.tx-secondary.tx-12", {
-                                oncreate: (el) => {
-                                    el.dom.innerHTML =
-                                        Formulario.data.length + " formulario(s) encontrado(s).";
+                if (_v.name == "Logotipo_archivo") {
+                    return [
+                        m("div.d-inline.tx-secondary.tx-12", {
+                            oncreate: (el) => {
+                                el.dom.innerHTML =
+                                    Formulario.data.length + " formulario(s) encontrado(s).";
+                            },
+                        }),
+                        m(
+                            "table.table.table-bordered.wd-100p", {
+                                style: {
+                                    zoom: Formulario.zoom,
                                 },
-                            }),
-                            m(
-                                "table.table.table-bordered.wd-100p", {
-                                    style: {
-                                        zoom: Formulario.zoom,
-                                    },
-                                }, [
-                                    m("thead", [
+                            }, [
+                                m("thead", [
+                                    m(
+                                        "tr",
+                                        m("th[colspan='12'][scope='col']", [
+                                            m("i.tx-light.fas.fa-file-alt.mg-r-2."),
+                                            m("div.p-0", " SNS - MSP / HCU-form.005 / 2008 "),
+                                        ])
+                                    ),
+                                    m("tr", [
                                         m(
-                                            "tr",
-                                            m("th[colspan='12'][scope='col']", [
-                                                m("i.tx-light.fas.fa-file-alt.mg-r-2."),
-                                                m("div.p-0", " SNS - MSP / HCU-form.005 / 2008 "),
+                                            "th[colspan='10'][scope='col']",
+                                            m(
+                                                "div.m-0.p-0",
+                                                m("img", {
+                                                    width: "100rem",
+                                                    src: "data:image/png;base64," + _v.answer,
+                                                })
+                                            )
+                                        ),
+                                        m(
+                                            "th.tx-right[colspan='2'][scope='col']",
+                                            m(
+                                                "a.tx-right.tx-semibold", {
+                                                    href: urlFor,
+                                                    target: "_blank",
+                                                },
+                                                m("i.fas.fa-print.mg-r-2"),
+                                                " Imprirmir  "
+                                            )
+                                        ),
+                                    ]),
+                                ]),
+                                m("tbody", [
+                                    m("tr", [
+                                        m(
+                                            "th[colspan='3'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
+                                                },
+                                            },
+                                            m("div.tx-bold.text-center.", "ESTABLECIMIENTO")
+                                        ),
+                                        m(
+                                            "th[colspan='3'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
+                                                },
+                                            },
+                                            m("div.tx-bold.text-center.", "NOMBRE")
+                                        ),
+                                        m(
+                                            "th[colspan='3'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
+                                                },
+                                            },
+                                            m("div.tx-bold.text-center.", "APELLIDO")
+                                        ),
+                                        m(
+                                            "th[colspan='1'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
+                                                },
+                                            },
+                                            m("div.tx-bold.text-center.", "SEXO (M-F)")
+                                        ),
+                                        m(
+                                            "th[colspan='1][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
+                                                },
+                                            },
+                                            m("div.tx-bold.text-center.", "NHCL.")
+                                        ),
+                                        m(
+                                            "th[colspan='1'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
+                                                },
+                                            },
+                                            m("div.tx-bold.text-center.", "ADM.")
+                                        ),
+                                    ]),
+                                    m("tr", [
+                                        m(
+                                            "th.text-center[colspan='3'][scope='row']",
+                                            m("div.m-0.p-0.text-center", "HOSPITAL METROPOLITANO")
+                                        ),
+                                        m(
+                                            "td.text-center[colspan='3']",
+                                            m("div.m-0.p-0.text-center", FOR005.nombres)
+                                        ),
+                                        m(
+                                            "td.text-center[colspan='3']",
+                                            m(
+                                                "div.m-0.p-0.text-center",
+                                                FOR005.apellidos_paciente
+                                            )
+                                        ),
+                                        m(
+                                            "td.text-center[colspan='1']",
+                                            m("div.m-0.p-0.text-center", FOR005.sexo)
+                                        ),
+                                        m(
+                                            "td.text-center[colspan='1']",
+                                            m("div.m-0.p-0.text-center", FOR005.nhcl)
+                                        ),
+                                        m(
+                                            "td.text-center[colspan='1']",
+                                            m("div.m-0.p-0.text-center", FOR005.numero_admision)
+                                        ),
+                                    ]),
+                                    m("tr", [
+                                        m(
+                                            "th[colspan='1'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
+                                                },
+                                            },
+                                            m("div.m-0.p-0.tx-bold.text-center.", "EDAD")
+                                        ),
+                                        m(
+                                            "th[colspan='1'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
+                                                },
+                                            },
+                                            m(
+                                                "div.m-0.p-0.tx-bold.text-center.",
+                                                "IDENTIFICACION"
+                                            )
+                                        ),
+                                        m(
+                                            "th[colspan='1'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
+                                                },
+                                            },
+                                            m(
+                                                "div.m-0.p-0.tx-bold.text-center.",
+                                                "FECHA ADMISION"
+                                            )
+                                        ),
+                                        m(
+                                            "th[colspan='1'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
+                                                },
+                                            },
+                                            m("div.m-0.p-0.tx-bold.text-center.", "FECHA ALTA")
+                                        ),
+                                        m(
+                                            "th[colspan='4'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
+                                                },
+                                            },
+                                            m("div.m-0.p-0.tx-bold.text-center.", "UBICACION")
+                                        ),
+                                        m(
+                                            "th[colspan='4'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
+                                                },
+                                            },
+                                            m(
+                                                "div.m-0.p-0.tx-bold.text-center.",
+                                                "MEDICO TRATANTE"
+                                            )
+                                        ),
+                                    ]),
+                                    m("tr", [
+                                        m(
+                                            "td.text-center[colspan='1'][scope='row']",
+                                            m(
+                                                "div.m-0.p-0.text-center",
+                                                FOR005.edad || FOR005.edad_paciente
+                                            )
+                                        ),
+                                        m(
+                                            "td.text-center[colspan='1']",
+                                            m("div.m-0.p-0.text-center", FOR005.identificacion)
+                                        ),
+                                        m(
+                                            "td.text-center[colspan='1']",
+                                            m("div.m-0.p-0.text-center", FOR005.fecha_admision)
+                                        ),
+                                        m(
+                                            "td.text-center[colspan='1']",
+                                            m("div.m-0.p-0.text-center", FOR005.fecha_admision)
+                                        ),
+                                        m(
+                                            "td.text-center[colspan='4']",
+                                            m("div.m-0.p-0.text-center", FOR005.ubicacion)
+                                        ),
+                                        m(
+                                            "td.text-center[colspan='4']",
+                                            m("div.m-0.p-0.text-center", FOR005.medico_tratante)
+                                        ),
+                                    ]),
+                                    m("tr", [
+                                        m(
+                                            "th[colspan='6'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#eef9c8",
+                                                },
+                                            },
+                                            m("div.m-0.p-0.tx-bold.text-center.", "1.- EVOLUCIÓN")
+                                        ),
+                                        m(
+                                            "th[colspan='5'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#eef9c8",
+                                                },
+                                            },
+                                            m(
+                                                "div.m-0.p-0.tx-bold.text-center.",
+                                                "2.- PRESCRIPCIONES"
+                                            )
+                                        ),
+                                        m(
+                                            "th[colspan='1'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#eef9c8",
+                                                },
+                                            },
+                                            m("div.m-0.p-0.tx-bold.text-center.", [
+                                                "FIRMAR AL PIE DE",
+                                                m("br"),
+                                                "CADA PRESCRIPCIÓN",
                                             ])
                                         ),
-                                        m("tr", [
-                                            m(
-                                                "th[colspan='10'][scope='col']",
-                                                m(
-                                                    "div.m-0.p-0",
-                                                    m("img", {
-                                                        width: "100rem",
-                                                        src: "data:image/png;base64," + _v.answer,
-                                                    })
-                                                )
-                                            ),
-                                            m(
-                                                "th.tx-right[colspan='2'][scope='col']",
-                                                m(
-                                                    "a.tx-right.tx-semibold", {
-                                                        href: urlFor,
-                                                        target: "_blank",
-                                                    },
-                                                    m("i.fas.fa-print.mg-r-2"),
-                                                    " Imprirmir  "
-                                                )
-                                            ),
-                                        ]),
                                     ]),
-                                    m("tbody", [
-                                        m("tr", [
-                                            m(
-                                                "th[colspan='3'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
+                                    m("tr", [
+                                        m(
+                                            "th[colspan='1'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
                                                 },
-                                                m("div.tx-bold.text-center.", "ESTABLECIMIENTO")
-                                            ),
-                                            m(
-                                                "th[colspan='3'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
+                                            },
+                                            m("div.m-0.p-0.tx-bold.text-center.", [
+                                                "FECHA",
+                                                m("br"),
+                                                "día/mes/año",
+                                            ])
+                                        ),
+                                        m(
+                                            "th[colspan='1'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
                                                 },
-                                                m("div.tx-bold.text-center.", "NOMBRE")
-                                            ),
-                                            m(
-                                                "th[colspan='3'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
+                                            },
+                                            m("div.m-0.p-0.tx-bold.text-center.", "HORA")
+                                        ),
+                                        m(
+                                            "th[colspan='4'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
                                                 },
-                                                m("div.tx-bold.text-center.", "APELLIDO")
-                                            ),
+                                            },
                                             m(
-                                                "th[colspan='1'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
+                                                "div.m-0.p-0.tx-bold.text-center.",
+                                                "NOTAS DE EVOLUCIÓN"
+                                            )
+                                        ),
+                                        m(
+                                            "th[colspan='4'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
                                                 },
-                                                m("div.tx-bold.text-center.", "SEXO (M-F)")
-                                            ),
-                                            m(
-                                                "th[colspan='1][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
+                                            },
+                                            m("div.m-0.p-0.tx-bold.text-center.", [
+                                                "FARMACOTERAPIA E INDICACIONES",
+                                                m("br"),
+                                                "(PARA ENFERMERÍA Y OTRO PERSONAL)",
+                                            ])
+                                        ),
+                                        m(
+                                            "th[colspan='2'][scope='row']", {
+                                                style: {
+                                                    padding: "0",
+                                                    "background-color": "#edfbf5",
                                                 },
-                                                m("div.tx-bold.text-center.", "NHCL.")
-                                            ),
-                                            m(
-                                                "th[colspan='1'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
-                                                },
-                                                m("div.tx-bold.text-center.", "ADM.")
-                                            ),
-                                        ]),
-                                        m("tr", [
-                                            m(
-                                                "th.text-center[colspan='3'][scope='row']",
-                                                m("div.m-0.p-0.text-center", "HOSPITAL METROPOLITANO")
-                                            ),
-                                            m(
-                                                "td.text-center[colspan='3']",
-                                                m("div.m-0.p-0.text-center", FOR005.nombres)
-                                            ),
-                                            m(
-                                                "td.text-center[colspan='3']",
-                                                m(
-                                                    "div.m-0.p-0.text-center",
-                                                    FOR005.apellidos_paciente
-                                                )
-                                            ),
-                                            m(
-                                                "td.text-center[colspan='1']",
-                                                m("div.m-0.p-0.text-center", FOR005.sexo)
-                                            ),
-                                            m(
-                                                "td.text-center[colspan='1']",
-                                                m("div.m-0.p-0.text-center", FOR005.nhcl)
-                                            ),
-                                            m(
-                                                "td.text-center[colspan='1']",
-                                                m("div.m-0.p-0.text-center", FOR005.numero_admision)
-                                            ),
-                                        ]),
-                                        m("tr", [
-                                            m(
-                                                "th[colspan='1'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
-                                                },
-                                                m("div.m-0.p-0.tx-bold.text-center.", "EDAD")
-                                            ),
-                                            m(
-                                                "th[colspan='1'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
-                                                },
-                                                m(
-                                                    "div.m-0.p-0.tx-bold.text-center.",
-                                                    "IDENTIFICACION"
-                                                )
-                                            ),
-                                            m(
-                                                "th[colspan='1'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
-                                                },
-                                                m(
-                                                    "div.m-0.p-0.tx-bold.text-center.",
-                                                    "FECHA ADMISION"
-                                                )
-                                            ),
-                                            m(
-                                                "th[colspan='1'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
-                                                },
-                                                m("div.m-0.p-0.tx-bold.text-center.", "FECHA ALTA")
-                                            ),
-                                            m(
-                                                "th[colspan='4'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
-                                                },
-                                                m("div.m-0.p-0.tx-bold.text-center.", "UBICACION")
-                                            ),
-                                            m(
-                                                "th[colspan='4'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
-                                                },
-                                                m(
-                                                    "div.m-0.p-0.tx-bold.text-center.",
-                                                    "MEDICO TRATANTE"
-                                                )
-                                            ),
-                                        ]),
-                                        m("tr", [
-                                            m(
-                                                "td.text-center[colspan='1'][scope='row']",
-                                                m(
-                                                    "div.m-0.p-0.text-center",
-                                                    FOR005.edad || FOR005.edad_paciente
-                                                )
-                                            ),
-                                            m(
-                                                "td.text-center[colspan='1']",
-                                                m("div.m-0.p-0.text-center", FOR005.identificacion)
-                                            ),
-                                            m(
-                                                "td.text-center[colspan='1']",
-                                                m("div.m-0.p-0.text-center", FOR005.fecha_admision)
-                                            ),
-                                            m(
-                                                "td.text-center[colspan='1']",
-                                                m("div.m-0.p-0.text-center", FOR005.fecha_admision)
-                                            ),
-                                            m(
-                                                "td.text-center[colspan='4']",
-                                                m("div.m-0.p-0.text-center", FOR005.ubicacion)
-                                            ),
-                                            m(
-                                                "td.text-center[colspan='4']",
-                                                m("div.m-0.p-0.text-center", FOR005.medico_tratante)
-                                            ),
-                                        ]),
-                                        m("tr", [
-                                            m(
-                                                "th[colspan='6'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#eef9c8",
-                                                    },
-                                                },
-                                                m("div.m-0.p-0.tx-bold.text-center.", "1.- EVOLUCIÓN")
-                                            ),
-                                            m(
-                                                "th[colspan='5'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#eef9c8",
-                                                    },
-                                                },
-                                                m(
-                                                    "div.m-0.p-0.tx-bold.text-center.",
-                                                    "2.- PRESCRIPCIONES"
-                                                )
-                                            ),
-                                            m(
-                                                "th[colspan='1'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#eef9c8",
-                                                    },
-                                                },
-                                                m("div.m-0.p-0.tx-bold.text-center.", [
-                                                    "FIRMAR AL PIE DE",
-                                                    m("br"),
-                                                    "CADA PRESCRIPCIÓN",
-                                                ])
-                                            ),
-                                        ]),
-                                        m("tr", [
-                                            m(
-                                                "th[colspan='1'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
-                                                },
-                                                m("div.m-0.p-0.tx-bold.text-center.", [
-                                                    "FECHA",
-                                                    m("br"),
-                                                    "día/mes/año",
-                                                ])
-                                            ),
-                                            m(
-                                                "th[colspan='1'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
-                                                },
-                                                m("div.m-0.p-0.tx-bold.text-center.", "HORA")
-                                            ),
-                                            m(
-                                                "th[colspan='4'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
-                                                },
-                                                m(
-                                                    "div.m-0.p-0.tx-bold.text-center.",
-                                                    "NOTAS DE EVOLUCIÓN"
-                                                )
-                                            ),
-                                            m(
-                                                "th[colspan='4'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
-                                                },
-                                                m("div.m-0.p-0.tx-bold.text-center.", [
-                                                    "FARMACOTERAPIA E INDICACIONES",
-                                                    m("br"),
-                                                    "(PARA ENFERMERÍA Y OTRO PERSONAL)",
-                                                ])
-                                            ),
-                                            m(
-                                                "th[colspan='2'][scope='row']", {
-                                                    style: {
-                                                        padding: "0",
-                                                        "background-color": "#edfbf5",
-                                                    },
-                                                },
-                                                m("div.m-0.p-0.tx-bold.text-center.", [
-                                                    "ADMINISTR.",
-                                                    m("br"),
-                                                    "FÁRMACOS INSUMOS",
-                                                ])
-                                            ),
-                                        ]),
-                                        m("tr", [
-                                            m(
-                                                "td[colspan='6'][scope='row']", { style: { padding: "0", width: "50%" } },
-                                                m(
-                                                    "div.m-0.p-2.tx-bold.text-justify",
-                                                    evolucion_medica_texto !== null &&
-                                                    evolucion_medica_texto.length !== 0 ?
-                                                    m.trust(
-                                                        evolucion_medica_texto.replace(
-                                                            /(\r\n|\r|\n)/g,
-                                                            "<br/>"
-                                                        )
-                                                    ) :
-                                                    ""
-                                                )
-                                            ),
-                                            m(
-                                                "td[colspan='6'][scope='row']", { style: { padding: "0", width: "50%" } },
-                                                m(
-                                                    "div.m-0.p-2.text-justify",
-                                                    prescripciones_texto !== null &&
-                                                    prescripciones_texto.length !== 0 ?
-                                                    m.trust(
-                                                        prescripciones_texto.replace(
-                                                            /(\r\n|\r|\n)/g,
-                                                            "<br/>"
-                                                        )
-                                                    ) :
-                                                    ""
-                                                )
-                                            ),
-                                        ]),
+                                            },
+                                            m("div.m-0.p-0.tx-bold.text-center.", [
+                                                "ADMINISTR.",
+                                                m("br"),
+                                                "FÁRMACOS INSUMOS",
+                                            ])
+                                        ),
                                     ]),
-                                ]
-                            ),
-                        ];
-                    }
-                }),
-            ];
+                                    m("tr", [
+                                        m(
+                                            "td[colspan='6'][scope='row']", { style: { padding: "0", width: "50%" } },
+                                            m(
+                                                "div.m-0.p-2.tx-bold.text-justify",
+                                                evolucion_medica_texto !== null &&
+                                                evolucion_medica_texto.length !== 0 ?
+                                                m.trust(
+                                                    evolucion_medica_texto.replace(
+                                                        /(\r\n|\r|\n)/g,
+                                                        "<br/>"
+                                                    )
+                                                ) :
+                                                ""
+                                            )
+                                        ),
+                                        m(
+                                            "td[colspan='6'][scope='row']", { style: { padding: "0", width: "50%" } },
+                                            m(
+                                                "div.m-0.p-2.text-justify",
+                                                prescripciones_texto !== null &&
+                                                prescripciones_texto.length !== 0 ?
+                                                m.trust(
+                                                    prescripciones_texto.replace(
+                                                        /(\r\n|\r|\n)/g,
+                                                        "<br/>"
+                                                    )
+                                                ) :
+                                                ""
+                                            )
+                                        ),
+                                    ]),
+                                ]),
+                            ]
+                        ),
+                    ];
+                }
+            }),
+        ];
     },
 };
 
@@ -521,11 +519,8 @@ const Formulario = {
     },
 
     view: () => {
-        return Formulario.error ?
-            [m(".alert.alert-danger[role='alert']", Formulario.error)] :
-            Formulario.data.length !== 0 ?
-            [m(FOR005)] :
-            [
+        return Formulario.error ? [m(".alert.alert-danger[role='alert']", Formulario.error)] :
+            Formulario.data.length !== 0 ? [m(FOR005)] : [
                 m("div.d-inline.tx-secondary.tx-12", {
                     oncreate: (el) => {
                         el.dom.innerHTML = "Buscando información...";
@@ -575,11 +570,8 @@ const Evoluciones = {
             });
     },
     view: () => {
-        return Evoluciones.error ?
-            [m(".alert.alert-danger[role='alert']", Evoluciones.error)] :
-            Evoluciones.data.length !== 0 ?
-            [m(Formulario)] :
-            [
+        return Evoluciones.error ? [m(".alert.alert-danger[role='alert']", Evoluciones.error)] :
+            Evoluciones.data.length !== 0 ? [m(Formulario)] : [
                 m(
                     "div.pd-10.wd-100p",
                     m("div.placeholder-paragraph", [m("div.line"), m("div.line")])
@@ -630,8 +622,7 @@ const Examenes = {
                             _val.codigoExameFaturamento
                         ),
                         Examenes.data[_val.codigoExame] !== undefined &&
-                        Examenes.data[_val.codigoExame].OBS_EXAMEN !== null ?
-                        [
+                        Examenes.data[_val.codigoExame].OBS_EXAMEN !== null ? [
                             m("br"),
                             m(".d-inline.tx-danger", "Observaciones:"),
                             m("br"),
@@ -652,8 +643,7 @@ const Examenes = {
                             _val.codigoExameFaturamento
                         ),
                         Examenes.data[_val.codigoExame] !== undefined &&
-                        Examenes.data[_val.codigoExame].OBS_EXAMEN !== null ?
-                        [
+                        Examenes.data[_val.codigoExame].OBS_EXAMEN !== null ? [
                             m("br"),
                             m(".d-inline.tx-danger", "Observaciones:"),
                             m("br"),
@@ -986,8 +976,7 @@ const TomaMuestras = {
         } else if (StatusPedido.data.length !== 0) {
             return [
                 m("div.bg-white.bd.d-flex.flex-column.justify-content-end", [
-                    TomaMuestras.disabledToma ?
-                    [
+                    TomaMuestras.disabledToma ? [
                         m("p.mg-5.tx-right", [
                             m(
                                 "button.btn.btn-xs.btn-outline-secondary[type='button']", {
@@ -1000,8 +989,7 @@ const TomaMuestras = {
                                 " EDITAR"
                             ),
                         ]),
-                    ] :
-                    [],
+                    ] : [],
                     m(
                         ".", {
                             style: {
@@ -1846,8 +1834,7 @@ const TomaMuestras = {
                                         ]),
                                     ]),
                                 ])
-                            ), !TomaMuestras.disabledToma ?
-                            [
+                            ), !TomaMuestras.disabledToma ? [
                                 m("div.pd-10", [
                                     m(
                                         "button.btn.btn-xs.btn-primary.btn-block.tx-semibold[type='button']", {
@@ -1871,8 +1858,7 @@ const TomaMuestras = {
                                         "Guardar Registro"
                                     ),
                                 ]),
-                            ] :
-                            [
+                            ] : [
                                 m("p.mg-5.", [
                                     m(
                                         "span.badge.badge-light.tx-right.wd-100p.tx-14",
@@ -2087,10 +2073,8 @@ const ControlLISA = {
                             m(
                                 "td.tx-16.tx-normal.text-left",
                                 _val.PedidoExameLab.listaExame.Exame !== undefined &&
-                                _val.PedidoExameLab.listaExame.Exame.length !== undefined ?
-                                [
-                                    _val.PedidoExameLab.codigoPedido > 88000000 ?
-                                    [
+                                _val.PedidoExameLab.listaExame.Exame.length !== undefined ? [
+                                    _val.PedidoExameLab.codigoPedido > 88000000 ? [
                                         _val.PedidoExameLab.listaExame.Exame.map(function(
                                             _v,
                                             _p,
@@ -2103,8 +2087,7 @@ const ControlLISA = {
                                             );
                                             return [m(".d-inline", _v.descExame), m("br")];
                                         }),
-                                    ] :
-                                    [
+                                    ] : [
                                         _val.PedidoExameLab.listaExame.Exame.map(function(
                                             _v,
                                             _p,
@@ -2113,10 +2096,8 @@ const ControlLISA = {
                                             return [m(".d-inline", _v.descExame), m("br")];
                                         }),
                                     ],
-                                ] :
-                                [
-                                    _val.PedidoExameLab.codigoPedido > 88000000 ?
-                                    [
+                                ] : [
+                                    _val.PedidoExameLab.codigoPedido > 88000000 ? [
                                         RecepMuestras.examenNuevoPedido(
                                             _val.PedidoExameLab.listaExame.Exame,
                                             _val.PedidoExameLab,
@@ -2127,8 +2108,7 @@ const ControlLISA = {
                                             _val.PedidoExameLab.listaExame.Exame.descExame
                                         ),
                                         m("br"),
-                                    ] :
-                                    [
+                                    ] : [
                                         m(
                                             ".d-inline",
                                             _val.PedidoExameLab.listaExame.Exame.descExame
@@ -2150,16 +2130,14 @@ const ControlLISA = {
                                 _val.Cabecalho.dataHora
                             ),
                             m("td.tx-16.tx-normal.d-none", [
-                                _val.PedidoExameLab.codigoPedido > 88000000 ?
-                                [
+                                _val.PedidoExameLab.codigoPedido > 88000000 ? [
                                     m(
                                         "button.btn.btn-xs.btn-block.wd-50p.btn-danger.d-none", {
                                             onclick: () => {},
                                         },
                                         " Eliminar "
                                     ),
-                                ] :
-                                [],
+                                ] : [],
                             ]),
                         ]
                     ),
@@ -2298,8 +2276,7 @@ const RecepFacturacion = {
                                 ".", {
                                     style: {
                                         "pointer-events": RecepFacturacion.disabledFact ?
-                                            "none" :
-                                            "auto",
+                                            "none" : "auto",
                                     },
                                 }, [
                                     m(
@@ -2318,8 +2295,7 @@ const RecepFacturacion = {
                                                     "tr", {
                                                         style: {
                                                             "pointer-events": RecepFacturacion.disabledFact ?
-                                                                "none" :
-                                                                "auto",
+                                                                "none" : "auto",
                                                         },
                                                     }, [
                                                         m(
@@ -2592,8 +2568,7 @@ const RecepMuestras = {
                                 class: ControlLISA.showLogs,
                                 style: {
                                     "pointer-events": RecepMuestras.disabledToma ?
-                                        "none" :
-                                        "auto",
+                                        "none" : "auto",
                                 },
                             }, [
                                 m(
@@ -2790,10 +2765,13 @@ const RecepMuestras = {
                                                             onchange: (e) => {
                                                                 RecepMuestras.impresora = e.target.value;
                                                             },
+                                                            /*
                                                             disabled: Object.keys(ControlLISA.logsEnvio).length !==
                                                                 0 && !ControlLISA.nuevoPedido ?
                                                                 "disabled" :
                                                                 "",
+                                                                02/02/2026 -lic Gabriela laboratorio
+                                                                */
                                                             value: RecepMuestras.impresora,
                                                         }, [
                                                             "CAJA1",
@@ -2920,624 +2898,618 @@ const PedidoLISA = {
             );
         }
 
-        return PedidoLISA.loader ?
-            [
-                m(HeaderPrivate, { oncreate: HeaderPrivate.setPage("laboratorio") }),
-                m(SidebarLab, { oncreate: SidebarLab.setPage(21) }),
+        return PedidoLISA.loader ? [
+            m(HeaderPrivate, { oncreate: HeaderPrivate.setPage("laboratorio") }),
+            m(SidebarLab, { oncreate: SidebarLab.setPage(21) }),
+            m(
+                "div.content.content-components",
                 m(
-                    "div.content.content-components",
-                    m(
-                        "div.container.mg-l-0.mg-r-0", {
-                            style: { "max-width": "100%" },
-                        }, [
-                            m("ol.breadcrumb.df-breadcrumbs.mg-b-10", [
-                                m(
-                                    "li.breadcrumb-item",
-                                    m(m.route.Link, { href: "/" }, [" MetroPlus "])
-                                ),
-                                m(
-                                    "li.breadcrumb-item",
-                                    m(m.route.Link, { href: "/laboratorio" }, [" Laboratorio "])
-                                ),
-                                m(
-                                    "li.breadcrumb-item.active[aria-current='page']",
-                                    "Detalle de Pedido"
-                                ),
-                            ]),
+                    "div.container.mg-l-0.mg-r-0", {
+                        style: { "max-width": "100%" },
+                    }, [
+                        m("ol.breadcrumb.df-breadcrumbs.mg-b-10", [
                             m(
-                                "h1.df-title.mg-t-20.mg-b-10",
-                                "Detalle de Pedido N°: " + PedidoLISA.numeroPedido
+                                "li.breadcrumb-item",
+                                m(m.route.Link, { href: "/" }, [" MetroPlus "])
                             ),
+                            m(
+                                "li.breadcrumb-item",
+                                m(m.route.Link, { href: "/laboratorio" }, [" Laboratorio "])
+                            ),
+                            m(
+                                "li.breadcrumb-item.active[aria-current='page']",
+                                "Detalle de Pedido"
+                            ),
+                        ]),
+                        m(
+                            "h1.df-title.mg-t-20.mg-b-10",
+                            "Detalle de Pedido N°: " + PedidoLISA.numeroPedido
+                        ),
 
-                            m("div.row.animated.fadeInUp", [
-                                m("div.col-12", [
-                                    m("div.table-loader.wd-100p", [
+                        m("div.row.animated.fadeInUp", [
+                            m("div.col-12", [
+                                m("div.table-loader.wd-100p", [
+                                    m("div.placeholder-paragraph", [
+                                        m("div.line"),
+                                        m("div.line"),
+                                    ]),
+                                ]),
+                            ]),
+                        ]),
+                    ]
+                )
+            ),
+        ] : [
+            m(HeaderPrivate, { oncreate: HeaderPrivate.setPage("laboratorio") }),
+            m(SidebarLab, { oncreate: SidebarLab.setPage(21) }),
+            m(
+                "div.content.content-components", {
+                    style: { "margin-right": "0px" },
+                },
+                m(
+                    "div.container.mg-l-0.mg-r-0", {
+                        style: { "max-width": "100%" },
+                    }, [
+                        m("ol.breadcrumb.df-breadcrumbs.mg-b-10", [
+                            m(
+                                "li.breadcrumb-item",
+                                m(m.route.Link, { href: "/" }, [" MetroPlus "])
+                            ),
+                            m(
+                                "li.breadcrumb-item",
+                                m(m.route.Link, { href: "/laboratorio" }, [" Laboratorio "])
+                            ),
+                            m(
+                                "li.breadcrumb-item.active[aria-current='page']",
+                                "Detalle de Pedido"
+                            ),
+                        ]),
+                        m(
+                            "h1.df-title.mg-t-20.mg-b-10",
+                            "Detalle de Pedido N°: " + PedidoLISA.numeroPedido
+                        ),
+
+                        m("div.row.animated.fadeInUp", [
+                            m("div.col-12", [
+                                m(
+                                    "div.table-loader.wd-100p", {
+                                        oncreate: (el) => {
+                                            if (PedidoLISA.loader) {
+                                                el.dom.hidden = false;
+                                            } else {
+                                                el.dom.hidden = true;
+                                            }
+                                        },
+                                        onupdate: (el) => {
+                                            if (PedidoLISA.loader) {
+                                                el.dom.hidden = false;
+                                            } else {
+                                                el.dom.hidden = true;
+                                            }
+                                        },
+                                    }, [
                                         m("div.placeholder-paragraph", [
                                             m("div.line"),
                                             m("div.line"),
                                         ]),
-                                    ]),
-                                ]),
-                            ]),
-                        ]
-                    )
-                ),
-            ] :
-            [
-                m(HeaderPrivate, { oncreate: HeaderPrivate.setPage("laboratorio") }),
-                m(SidebarLab, { oncreate: SidebarLab.setPage(21) }),
-                m(
-                    "div.content.content-components", {
-                        style: { "margin-right": "0px" },
-                    },
-                    m(
-                        "div.container.mg-l-0.mg-r-0", {
-                            style: { "max-width": "100%" },
-                        }, [
-                            m("ol.breadcrumb.df-breadcrumbs.mg-b-10", [
-                                m(
-                                    "li.breadcrumb-item",
-                                    m(m.route.Link, { href: "/" }, [" MetroPlus "])
+                                    ]
                                 ),
-                                m(
-                                    "li.breadcrumb-item",
-                                    m(m.route.Link, { href: "/laboratorio" }, [" Laboratorio "])
-                                ),
-                                m(
-                                    "li.breadcrumb-item.active[aria-current='page']",
-                                    "Detalle de Pedido"
-                                ),
-                            ]),
-                            m(
-                                "h1.df-title.mg-t-20.mg-b-10",
-                                "Detalle de Pedido N°: " + PedidoLISA.numeroPedido
-                            ),
 
-                            m("div.row.animated.fadeInUp", [
-                                m("div.col-12", [
-                                    m(
-                                        "div.table-loader.wd-100p", {
-                                            oncreate: (el) => {
-                                                if (PedidoLISA.loader) {
-                                                    el.dom.hidden = false;
-                                                } else {
-                                                    el.dom.hidden = true;
-                                                }
-                                            },
-                                            onupdate: (el) => {
-                                                if (PedidoLISA.loader) {
-                                                    el.dom.hidden = false;
-                                                } else {
-                                                    el.dom.hidden = true;
-                                                }
-                                            },
-                                        }, [
-                                            m("div.placeholder-paragraph", [
-                                                m("div.line"),
-                                                m("div.line"),
-                                            ]),
-                                        ]
-                                    ),
-
-                                    m(
-                                        "div.table-content.col-12.pd-r-0.pd-l-0.pd-b-20.", {
-                                            oncreate: (el) => {
-                                                if (PedidoLISA.loader) {
-                                                    el.dom.hidden = true;
-                                                } else {
-                                                    el.dom.hidden = false;
-                                                }
-                                            },
-                                            onupdate: (el) => {
-                                                if (PedidoLISA.loader) {
-                                                    el.dom.hidden = true;
-                                                } else {
-                                                    el.dom.hidden = false;
-                                                }
-                                            },
-                                        }, [
-                                            m(
-                                                "div.bg-white.bd.pd-20.pd-lg-30.d-flex.flex-column.justify-content-end", [
+                                m(
+                                    "div.table-content.col-12.pd-r-0.pd-l-0.pd-b-20.", {
+                                        oncreate: (el) => {
+                                            if (PedidoLISA.loader) {
+                                                el.dom.hidden = true;
+                                            } else {
+                                                el.dom.hidden = false;
+                                            }
+                                        },
+                                        onupdate: (el) => {
+                                            if (PedidoLISA.loader) {
+                                                el.dom.hidden = true;
+                                            } else {
+                                                el.dom.hidden = false;
+                                            }
+                                        },
+                                    }, [
+                                        m(
+                                            "div.bg-white.bd.pd-20.pd-lg-30.d-flex.flex-column.justify-content-end", [
+                                                m(
+                                                    "h5.tx-right.tx-normal.tx-rubik.tx-color-03.mg-b-0",
                                                     m(
-                                                        "h5.tx-right.tx-normal.tx-rubik.tx-color-03.mg-b-0",
-                                                        m(
-                                                            "small.pd-2.tx-20",
-                                                            m("i.fas.fa-times-circle.pd-2", {
-                                                                style: { cursor: "pointer" },
-                                                                title: "Cerrar",
-                                                                onclick: () => {
-                                                                    window.close();
-                                                                },
-                                                            })
-                                                        )
+                                                        "small.pd-2.tx-20",
+                                                        m("i.fas.fa-times-circle.pd-2", {
+                                                            style: { cursor: "pointer" },
+                                                            title: "Cerrar",
+                                                            onclick: () => {
+                                                                window.close();
+                                                            },
+                                                        })
+                                                    )
+                                                ),
+
+                                                PedidoLISA.data.PedidoExameLab.tipoSolicitacao ==
+                                                "R" ? [
+                                                    m(
+                                                        "span.pd-6.wd-100p.wd-md-20p", {
+                                                            class: "badge badge-primary mg-b-2 mg-r-2",
+                                                        }, [m("i.fas.fa-file-alt.mg-r-5")],
+                                                        "Pedido Normal"
                                                     ),
-
-                                                    PedidoLISA.data.PedidoExameLab.tipoSolicitacao ==
-                                                    "R" ?
-                                                    [
+                                                ] : [
+                                                    m(
+                                                        "span.pd-6.wd-100p.wd-md-20p", {
+                                                            class: "badge badge-danger mg-b-2 mg-r-2 ",
+                                                        }, [m("i.fas.fa-file-alt.mg-r-5")],
+                                                        "Pedido Urgente"
+                                                    ),
+                                                ],
+                                                m("div.table-responsive", [
+                                                    m("table.table.table-bordered.table-sm.tx-12", [
                                                         m(
-                                                            "span.pd-6.wd-100p.wd-md-20p", {
-                                                                class: "badge badge-primary mg-b-2 mg-r-2",
-                                                            }, [m("i.fas.fa-file-alt.mg-r-5")],
-                                                            "Pedido Normal"
-                                                        ),
-                                                    ] :
-                                                    [
-                                                        m(
-                                                            "span.pd-6.wd-100p.wd-md-20p", {
-                                                                class: "badge badge-danger mg-b-2 mg-r-2 ",
-                                                            }, [m("i.fas.fa-file-alt.mg-r-5")],
-                                                            "Pedido Urgente"
-                                                        ),
-                                                    ],
-                                                    m("div.table-responsive", [
-                                                        m("table.table.table-bordered.table-sm.tx-12", [
-                                                            m(
-                                                                "thead",
+                                                            "thead",
 
-                                                                m("tr.bg-litecoin.op-9.tx-white", [
-                                                                    m(
-                                                                        "th[scope='col'][colspan='10']",
-                                                                        "DATOS DEL PEDIDO:"
-                                                                    ),
-                                                                ])
-                                                            ),
-                                                            m("tbody", [
-                                                                m("tr", [
-                                                                    m(
-                                                                        "th", {
-                                                                            style: {
-                                                                                "background-color": "#a8bed6",
-                                                                            },
-                                                                        },
-                                                                        "N° de Pedido:"
-                                                                    ),
-                                                                    m(
-                                                                        "td", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
-                                                                        },
-                                                                        PedidoLISA.data.PedidoExameLab
-                                                                        .codigoPedido
-                                                                    ),
-                                                                    m(
-                                                                        "th", {
-                                                                            style: {
-                                                                                "background-color": "#a8bed6",
-                                                                            },
-                                                                        },
-                                                                        "Fecha Pedido:",
-                                                                        m("br"),
-                                                                        m(
-                                                                            ".d-inline.tx-danger",
-                                                                            "Fecha Toma de Muestra:"
-                                                                        )
-                                                                    ),
-                                                                    m(
-                                                                        "td[colspan='3']", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
-                                                                        },
-                                                                        PedidoLISA.data.PedidoExameLab.dataExame,
-                                                                        m("br"),
-                                                                        PedidoLISA.data.PedidoExameLab
-                                                                        .dataColetaPedido
-                                                                    ),
-                                                                    m(
-                                                                        "th", {
-                                                                            style: {
-                                                                                "background-color": "#a8bed6",
-                                                                            },
-                                                                        },
-                                                                        "Origen:"
-                                                                    ),
-                                                                    m(
-                                                                        "td[colspan='3']", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
-                                                                        },
-                                                                        PedidoLISA.data.PedidoExameLab
-                                                                        .descSetorSolicitante
-                                                                    ),
-                                                                ]),
-
-                                                                m("tr", [
-                                                                    m(
-                                                                        "th", {
-                                                                            style: {
-                                                                                "background-color": "#a8bed6",
-                                                                            },
-                                                                        },
-                                                                        "Médico Solicitante:"
-                                                                    ),
-                                                                    m(
-                                                                        "td[colspan='4']", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
-                                                                        },
-                                                                        PedidoLISA.data.PedidoExameLab
-                                                                        .descPrestadorSolicitante
-                                                                    ),
-                                                                    m(
-                                                                        "th", {
-                                                                            style: {
-                                                                                "background-color": "#a8bed6",
-                                                                            },
-                                                                        },
-                                                                        "Médico Tratante:"
-                                                                    ),
-                                                                    m(
-                                                                        "td[colspan='4']", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
-                                                                        },
-                                                                        Examenes.medico !== null &&
-                                                                        Examenes.medico !== false ?
-                                                                        [
-                                                                            m(
-                                                                                "div.d-inline.tx-semibold.tx-danger",
-                                                                                Examenes.medico.PRESTADOR
-                                                                            ),
-                                                                        ] :
-                                                                        PedidoLISA.data.PedidoExameLab
-                                                                        .descPrestadorSolicitante
-                                                                    ),
-                                                                ]),
-                                                            ]),
-                                                            m(
-                                                                "thead",
-
-                                                                m("tr.bg-litecoin.op-9.tx-white", [
-                                                                    m(
-                                                                        "th[scope='col'][colspan='10']",
-                                                                        "DATOS DEL PACIENTE:"
-                                                                    ),
-                                                                ])
-                                                            ),
-                                                            m("tbody", [
-                                                                m("tr", [
-                                                                    m(
-                                                                        "th", {
-                                                                            style: {
-                                                                                "background-color": "#a8bed6",
-                                                                            },
-                                                                        },
-                                                                        "Apellidos y Nombres:"
-                                                                    ),
-                                                                    m(
-                                                                        "td[colspan='5']", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
-                                                                        },
-                                                                        PedidoLISA.data.PedidoExameLab.paciente
-                                                                        .nome
-                                                                    ),
-                                                                    m(
-                                                                        "th", {
-                                                                            style: {
-                                                                                "background-color": "#a8bed6",
-                                                                            },
-                                                                        },
-                                                                        "Edad:"
-                                                                    ),
-                                                                    m(
-                                                                        "td", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
-                                                                        },
-                                                                        PedidoLISA.data.PedidoExameLab.paciente
-                                                                        .anios + " Año(s)"
-                                                                    ),
-
-                                                                    m(
-                                                                        "th", {
-                                                                            style: {
-                                                                                "background-color": "#a8bed6",
-                                                                            },
-                                                                        },
-                                                                        "NHC:"
-                                                                    ),
-                                                                    m(
-                                                                        "td", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
-                                                                        },
-                                                                        PedidoLISA.data.PedidoExameLab.paciente
-                                                                        .codigoPaciente
-                                                                    ),
-                                                                ]),
-                                                                m("tr", [
-                                                                    m(
-                                                                        "th", {
-                                                                            style: {
-                                                                                "background-color": "#a8bed6",
-                                                                            },
-                                                                        },
-                                                                        "N° Atención:"
-                                                                    ),
-                                                                    m(
-                                                                        "td", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
-                                                                        },
-                                                                        PedidoLISA.data.PedidoExameLab.atendimento
-                                                                        .codigoAtendimento
-                                                                    ),
-                                                                    m(
-                                                                        "th", {
-                                                                            style: {
-                                                                                "background-color": "#a8bed6",
-                                                                            },
-                                                                        },
-                                                                        "Sexo:"
-                                                                    ),
-                                                                    m(
-                                                                        "td", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
-                                                                        },
-                                                                        PedidoLISA.data.PedidoExameLab.paciente
-                                                                        .sexo == "F" ?
-                                                                        "Femenino" :
-                                                                        "Masculino"
-                                                                    ),
-                                                                    m(
-                                                                        "th", {
-                                                                            style: {
-                                                                                "background-color": "#a8bed6",
-                                                                            },
-                                                                        },
-                                                                        "F. de Nac.:"
-                                                                    ),
-                                                                    m(
-                                                                        "td", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
-                                                                        },
-                                                                        PedidoLISA.data.PedidoExameLab.paciente
-                                                                        .dataNascimento
-                                                                    ),
-                                                                    m(
-                                                                        "th", {
-                                                                            style: {
-                                                                                "background-color": "#a8bed6",
-                                                                            },
-                                                                        },
-                                                                        "Dg:"
-                                                                    ),
-                                                                    m(
-                                                                        "td[colspan='3']", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
-                                                                        },
-                                                                        (PedidoLISA.data.PedidoExameLab
-                                                                            .diagnostico.codigoDiagnostico.length ==
-                                                                            undefined ?
-                                                                            "" :
-                                                                            "CIE: " +
-                                                                            PedidoLISA.data.PedidoExameLab
-                                                                            .diagnostico.codigoDiagnostico) +
-                                                                        (PedidoLISA.data.PedidoExameLab
-                                                                            .diagnostico.dsDiagostico.length ==
-                                                                            undefined ?
-                                                                            "" :
-                                                                            " - " +
-                                                                            PedidoLISA.data.PedidoExameLab
-                                                                            .diagnostico.dsDiagostico)
-                                                                    ),
-                                                                ]),
-                                                                m("tr.bg-litecoin.op-9.tx-white", [
-                                                                    m(
-                                                                        "th[scope='col'][colspan='10']",
-                                                                        "EXÁMENES:"
-                                                                    ),
-                                                                ]),
-                                                                m("tr", [
-                                                                    m(
-                                                                        "th", {
-                                                                            style: {
-                                                                                "background-color": "#a8bed6",
-                                                                            },
-                                                                        },
-                                                                        "Exámenes:"
-                                                                    ),
-                                                                    m(
-                                                                        "td[colspan='9']", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
-                                                                        },
-                                                                        m(Examenes)
-                                                                    ),
-                                                                ]),
-
+                                                            m("tr.bg-litecoin.op-9.tx-white", [
                                                                 m(
-                                                                    "tr.d-print-none.bg-litecoin.op-9.tx-white.", [
-                                                                        m(
-                                                                            "th[scope='col'][colspan='10']",
-                                                                            "EVOLUCIONES Y PRESCRIPCIONES:"
-                                                                        ),
-                                                                    ]
+                                                                    "th[scope='col'][colspan='10']",
+                                                                    "DATOS DEL PEDIDO:"
                                                                 ),
-                                                                m("tr.d-print-none", [
-                                                                    m(
-                                                                        "td[colspan='10']", {
-                                                                            style: {
-                                                                                "background-color": "#eaeff5",
-                                                                            },
+                                                            ])
+                                                        ),
+                                                        m("tbody", [
+                                                            m("tr", [
+                                                                m(
+                                                                    "th", {
+                                                                        style: {
+                                                                            "background-color": "#a8bed6",
                                                                         },
-                                                                        m(
-                                                                            "ul.nav.nav-tabs[id='myTab'][role='tablist']", {
-                                                                                style: {
-                                                                                    "pointer-events": Examenes.data !== null ?
-                                                                                        "auto" :
-                                                                                        "none",
-                                                                                },
-                                                                            }, [
-                                                                                m(
-                                                                                    "li.nav-item",
-                                                                                    m(
-                                                                                        "a.nav-link[id='home-tab'][data-toggle='tab'][href='#home'][role='tab'][aria-controls='home'][aria-selected='true']", {
-                                                                                            style: { color: "#476ba3" },
-                                                                                        },
-                                                                                        m(
-                                                                                            "i.fas.fa-file-alt.pd-1.mg-r-2"
-                                                                                        ),
-
-                                                                                        " HOJA 005"
-                                                                                    )
-                                                                                ),
-                                                                                m(
-                                                                                    "li.nav-item",
-                                                                                    m(
-                                                                                        "a.nav-link[id='home-muestra'][data-toggle='tab'][href='#muestra'][role='tab'][aria-controls='muestra']", {
-                                                                                            style: { color: "#476ba3" },
-                                                                                        },
-                                                                                        m("i.fas.fa-edit.pd-1.mg-r-2"),
-
-                                                                                        " TOMA DE MUESTRA "
-                                                                                    )
-                                                                                ),
-                                                                                m(
-                                                                                    "li.nav-item",
-                                                                                    m(
-                                                                                        "a.nav-link[id='home-recep'][data-toggle='tab'][href='#recep'][role='tab'][aria-controls='recep']", {
-                                                                                            style: { color: "#476ba3" },
-                                                                                        },
-                                                                                        m("i.fas.fa-inbox.pd-1.mg-r-2"),
-
-                                                                                        " RECEP. DE MUESTRA "
-                                                                                    )
-                                                                                ),
-                                                                                m(
-                                                                                    "li.nav-item.d-none",
-                                                                                    m(
-                                                                                        "a.nav-link[id='home-facturar'][data-toggle='tab'][href='#facturar'][role='tab'][aria-controls='facturar']", {
-                                                                                            style: { color: "#476ba3" },
-                                                                                        },
-                                                                                        m("i.fas.fa-inbox.pd-1.mg-r-2"),
-
-                                                                                        " FACTURACIÓN "
-                                                                                    )
-                                                                                ),
-                                                                                m(
-                                                                                    "li.nav-item",
-                                                                                    m(
-                                                                                        "a.nav-link[id='home-comment'][data-toggle='tab'][href='#comment'][role='tab'][aria-controls='comment']", {
-                                                                                            style: { color: "#476ba3" },
-                                                                                        },
-                                                                                        m("i.fas.fa-inbox.pd-1.mg-r-2"),
-
-                                                                                        " COMENTARIOS "
-                                                                                    )
-                                                                                ),
-                                                                            ]
-                                                                        )
-                                                                    ),
-                                                                ]),
-                                                                m("tr.d-print-none", [
+                                                                    },
+                                                                    "N° de Pedido:"
+                                                                ),
+                                                                m(
+                                                                    "td", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    PedidoLISA.data.PedidoExameLab
+                                                                    .codigoPedido
+                                                                ),
+                                                                m(
+                                                                    "th", {
+                                                                        style: {
+                                                                            "background-color": "#a8bed6",
+                                                                        },
+                                                                    },
+                                                                    "Fecha Pedido:",
+                                                                    m("br"),
                                                                     m(
-                                                                        "td[colspan='10']",
-                                                                        m(
-                                                                            ".tab-content.bd.bd-gray-300.bd-t-0[id='myTab']", [
-                                                                                m(
-                                                                                    ".tab-pane.fade[id='home'][role='tabpanel'][aria-labelledby='home-tab']", [m(Evoluciones)]
-                                                                                ),
-                                                                                m(
-                                                                                    ".tab-pane.fade[id='muestra'][role='tabpanel'][aria-labelledby='home-muestra']", [m(TomaMuestras)]
-                                                                                ),
+                                                                        ".d-inline.tx-danger",
+                                                                        "Fecha Toma de Muestra:"
+                                                                    )
+                                                                ),
+                                                                m(
+                                                                    "td[colspan='3']", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    PedidoLISA.data.PedidoExameLab.dataExame,
+                                                                    m("br"),
+                                                                    PedidoLISA.data.PedidoExameLab
+                                                                    .dataColetaPedido
+                                                                ),
+                                                                m(
+                                                                    "th", {
+                                                                        style: {
+                                                                            "background-color": "#a8bed6",
+                                                                        },
+                                                                    },
+                                                                    "Origen:"
+                                                                ),
+                                                                m(
+                                                                    "td[colspan='3']", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    PedidoLISA.data.PedidoExameLab
+                                                                    .descSetorSolicitante
+                                                                ),
+                                                            ]),
 
-                                                                                m(
-                                                                                    ".tab-pane.fade[id='recep'][role='tabpanel'][aria-labelledby='home-recep']", [m(RecepMuestras)]
-                                                                                ),
-                                                                                m(
-                                                                                    ".tab-pane.fade.d-none[id='facturar'][role='tabpanel'][aria-labelledby='home-facturar']", [m(RecepFacturacion)]
-                                                                                ),
-                                                                                m(
-                                                                                    ".tab-pane.fade[id='comment'][role='tabpanel'][aria-labelledby='home-comment']", [
-                                                                                        m("p.mg-5", [
-                                                                                            m(
-                                                                                                "span.badge.badge-light.wd-100p.tx-14",
-                                                                                                "Observaciones"
-                                                                                            ),
-                                                                                            m(
-                                                                                                "textarea.form-control.mg-t-5[rows='5'][placeholder='Observaciones']", {
-                                                                                                    oninput: function(e) {
-                                                                                                        Observaciones.observaciones =
-                                                                                                            e.target.value;
-                                                                                                    },
-                                                                                                    value: Observaciones.observaciones,
-                                                                                                }
-                                                                                            ),
-                                                                                            m(
-                                                                                                "div.mg-0.mg-t-5.text-right", [
-                                                                                                    m(
-                                                                                                        "button.btn.btn-xs.btn-primary.mg-l-2.tx-semibold[type='button']", {
-                                                                                                            onclick: function() {
-                                                                                                                if (
-                                                                                                                    Observaciones
-                                                                                                                    .observaciones
-                                                                                                                    .length !== 0
-                                                                                                                ) {
-                                                                                                                    Observaciones.sendNotiLab();
-                                                                                                                } else {
-                                                                                                                    alert(
-                                                                                                                        "Observaciones es obligatorio."
-                                                                                                                    );
-                                                                                                                }
-                                                                                                            },
-                                                                                                        }, [
-                                                                                                            m(
-                                                                                                                "i.fas.fa-paper-plane.mg-r-5"
-                                                                                                            ),
-                                                                                                        ],
-                                                                                                        "Guardar"
-                                                                                                    ),
-                                                                                                ]
-                                                                                            ),
-                                                                                            m("hr.wd-100p.mg-t-5.mg-b-5"),
-                                                                                        ]),
-                                                                                        m("p.mg-5", [
-                                                                                            m(
-                                                                                                "span.badge.badge-light.wd-100p.tx-14",
-                                                                                                "Historial de Observaciones"
-                                                                                            ),
-                                                                                            m(
-                                                                                                "table.table.table-sm[id='table-observaciones'][width='100%']"
-                                                                                            ),
-                                                                                        ]),
-                                                                                    ]
-                                                                                ),
-                                                                            ]
-                                                                        )
-                                                                    ),
-                                                                ]),
-                                                                m("tr.d-print-none", []),
+                                                            m("tr", [
+                                                                m(
+                                                                    "th", {
+                                                                        style: {
+                                                                            "background-color": "#a8bed6",
+                                                                        },
+                                                                    },
+                                                                    "Médico Solicitante:"
+                                                                ),
+                                                                m(
+                                                                    "td[colspan='4']", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    PedidoLISA.data.PedidoExameLab
+                                                                    .descPrestadorSolicitante
+                                                                ),
+                                                                m(
+                                                                    "th", {
+                                                                        style: {
+                                                                            "background-color": "#a8bed6",
+                                                                        },
+                                                                    },
+                                                                    "Médico Tratante:"
+                                                                ),
+                                                                m(
+                                                                    "td[colspan='4']", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    Examenes.medico !== null &&
+                                                                    Examenes.medico !== false ? [
+                                                                        m(
+                                                                            "div.d-inline.tx-semibold.tx-danger",
+                                                                            Examenes.medico.PRESTADOR
+                                                                        ),
+                                                                    ] :
+                                                                    PedidoLISA.data.PedidoExameLab
+                                                                    .descPrestadorSolicitante
+                                                                ),
                                                             ]),
                                                         ]),
+                                                        m(
+                                                            "thead",
+
+                                                            m("tr.bg-litecoin.op-9.tx-white", [
+                                                                m(
+                                                                    "th[scope='col'][colspan='10']",
+                                                                    "DATOS DEL PACIENTE:"
+                                                                ),
+                                                            ])
+                                                        ),
+                                                        m("tbody", [
+                                                            m("tr", [
+                                                                m(
+                                                                    "th", {
+                                                                        style: {
+                                                                            "background-color": "#a8bed6",
+                                                                        },
+                                                                    },
+                                                                    "Apellidos y Nombres:"
+                                                                ),
+                                                                m(
+                                                                    "td[colspan='5']", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    PedidoLISA.data.PedidoExameLab.paciente
+                                                                    .nome
+                                                                ),
+                                                                m(
+                                                                    "th", {
+                                                                        style: {
+                                                                            "background-color": "#a8bed6",
+                                                                        },
+                                                                    },
+                                                                    "Edad:"
+                                                                ),
+                                                                m(
+                                                                    "td", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    PedidoLISA.data.PedidoExameLab.paciente
+                                                                    .anios + " Año(s)"
+                                                                ),
+
+                                                                m(
+                                                                    "th", {
+                                                                        style: {
+                                                                            "background-color": "#a8bed6",
+                                                                        },
+                                                                    },
+                                                                    "NHC:"
+                                                                ),
+                                                                m(
+                                                                    "td", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    PedidoLISA.data.PedidoExameLab.paciente
+                                                                    .codigoPaciente
+                                                                ),
+                                                            ]),
+                                                            m("tr", [
+                                                                m(
+                                                                    "th", {
+                                                                        style: {
+                                                                            "background-color": "#a8bed6",
+                                                                        },
+                                                                    },
+                                                                    "N° Atención:"
+                                                                ),
+                                                                m(
+                                                                    "td", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    PedidoLISA.data.PedidoExameLab.atendimento
+                                                                    .codigoAtendimento
+                                                                ),
+                                                                m(
+                                                                    "th", {
+                                                                        style: {
+                                                                            "background-color": "#a8bed6",
+                                                                        },
+                                                                    },
+                                                                    "Sexo:"
+                                                                ),
+                                                                m(
+                                                                    "td", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    PedidoLISA.data.PedidoExameLab.paciente
+                                                                    .sexo == "F" ?
+                                                                    "Femenino" :
+                                                                    "Masculino"
+                                                                ),
+                                                                m(
+                                                                    "th", {
+                                                                        style: {
+                                                                            "background-color": "#a8bed6",
+                                                                        },
+                                                                    },
+                                                                    "F. de Nac.:"
+                                                                ),
+                                                                m(
+                                                                    "td", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    PedidoLISA.data.PedidoExameLab.paciente
+                                                                    .dataNascimento
+                                                                ),
+                                                                m(
+                                                                    "th", {
+                                                                        style: {
+                                                                            "background-color": "#a8bed6",
+                                                                        },
+                                                                    },
+                                                                    "Dg:"
+                                                                ),
+                                                                m(
+                                                                    "td[colspan='3']", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    (PedidoLISA.data.PedidoExameLab
+                                                                        .diagnostico.codigoDiagnostico.length ==
+                                                                        undefined ?
+                                                                        "" :
+                                                                        "CIE: " +
+                                                                        PedidoLISA.data.PedidoExameLab
+                                                                        .diagnostico.codigoDiagnostico) +
+                                                                    (PedidoLISA.data.PedidoExameLab
+                                                                        .diagnostico.dsDiagostico.length ==
+                                                                        undefined ?
+                                                                        "" :
+                                                                        " - " +
+                                                                        PedidoLISA.data.PedidoExameLab
+                                                                        .diagnostico.dsDiagostico)
+                                                                ),
+                                                            ]),
+                                                            m("tr.bg-litecoin.op-9.tx-white", [
+                                                                m(
+                                                                    "th[scope='col'][colspan='10']",
+                                                                    "EXÁMENES:"
+                                                                ),
+                                                            ]),
+                                                            m("tr", [
+                                                                m(
+                                                                    "th", {
+                                                                        style: {
+                                                                            "background-color": "#a8bed6",
+                                                                        },
+                                                                    },
+                                                                    "Exámenes:"
+                                                                ),
+                                                                m(
+                                                                    "td[colspan='9']", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    m(Examenes)
+                                                                ),
+                                                            ]),
+
+                                                            m(
+                                                                "tr.d-print-none.bg-litecoin.op-9.tx-white.", [
+                                                                    m(
+                                                                        "th[scope='col'][colspan='10']",
+                                                                        "EVOLUCIONES Y PRESCRIPCIONES:"
+                                                                    ),
+                                                                ]
+                                                            ),
+                                                            m("tr.d-print-none", [
+                                                                m(
+                                                                    "td[colspan='10']", {
+                                                                        style: {
+                                                                            "background-color": "#eaeff5",
+                                                                        },
+                                                                    },
+                                                                    m(
+                                                                        "ul.nav.nav-tabs[id='myTab'][role='tablist']", {
+                                                                            style: {
+                                                                                "pointer-events": Examenes.data !== null ?
+                                                                                    "auto" : "none",
+                                                                            },
+                                                                        }, [
+                                                                            m(
+                                                                                "li.nav-item",
+                                                                                m(
+                                                                                    "a.nav-link[id='home-tab'][data-toggle='tab'][href='#home'][role='tab'][aria-controls='home'][aria-selected='true']", {
+                                                                                        style: { color: "#476ba3" },
+                                                                                    },
+                                                                                    m(
+                                                                                        "i.fas.fa-file-alt.pd-1.mg-r-2"
+                                                                                    ),
+
+                                                                                    " HOJA 005"
+                                                                                )
+                                                                            ),
+                                                                            m(
+                                                                                "li.nav-item",
+                                                                                m(
+                                                                                    "a.nav-link[id='home-muestra'][data-toggle='tab'][href='#muestra'][role='tab'][aria-controls='muestra']", {
+                                                                                        style: { color: "#476ba3" },
+                                                                                    },
+                                                                                    m("i.fas.fa-edit.pd-1.mg-r-2"),
+
+                                                                                    " TOMA DE MUESTRA "
+                                                                                )
+                                                                            ),
+                                                                            m(
+                                                                                "li.nav-item",
+                                                                                m(
+                                                                                    "a.nav-link[id='home-recep'][data-toggle='tab'][href='#recep'][role='tab'][aria-controls='recep']", {
+                                                                                        style: { color: "#476ba3" },
+                                                                                    },
+                                                                                    m("i.fas.fa-inbox.pd-1.mg-r-2"),
+
+                                                                                    " RECEP. DE MUESTRA "
+                                                                                )
+                                                                            ),
+                                                                            m(
+                                                                                "li.nav-item.d-none",
+                                                                                m(
+                                                                                    "a.nav-link[id='home-facturar'][data-toggle='tab'][href='#facturar'][role='tab'][aria-controls='facturar']", {
+                                                                                        style: { color: "#476ba3" },
+                                                                                    },
+                                                                                    m("i.fas.fa-inbox.pd-1.mg-r-2"),
+
+                                                                                    " FACTURACIÓN "
+                                                                                )
+                                                                            ),
+                                                                            m(
+                                                                                "li.nav-item",
+                                                                                m(
+                                                                                    "a.nav-link[id='home-comment'][data-toggle='tab'][href='#comment'][role='tab'][aria-controls='comment']", {
+                                                                                        style: { color: "#476ba3" },
+                                                                                    },
+                                                                                    m("i.fas.fa-inbox.pd-1.mg-r-2"),
+
+                                                                                    " COMENTARIOS "
+                                                                                )
+                                                                            ),
+                                                                        ]
+                                                                    )
+                                                                ),
+                                                            ]),
+                                                            m("tr.d-print-none", [
+                                                                m(
+                                                                    "td[colspan='10']",
+                                                                    m(
+                                                                        ".tab-content.bd.bd-gray-300.bd-t-0[id='myTab']", [
+                                                                            m(
+                                                                                ".tab-pane.fade[id='home'][role='tabpanel'][aria-labelledby='home-tab']", [m(Evoluciones)]
+                                                                            ),
+                                                                            m(
+                                                                                ".tab-pane.fade[id='muestra'][role='tabpanel'][aria-labelledby='home-muestra']", [m(TomaMuestras)]
+                                                                            ),
+
+                                                                            m(
+                                                                                ".tab-pane.fade[id='recep'][role='tabpanel'][aria-labelledby='home-recep']", [m(RecepMuestras)]
+                                                                            ),
+                                                                            m(
+                                                                                ".tab-pane.fade.d-none[id='facturar'][role='tabpanel'][aria-labelledby='home-facturar']", [m(RecepFacturacion)]
+                                                                            ),
+                                                                            m(
+                                                                                ".tab-pane.fade[id='comment'][role='tabpanel'][aria-labelledby='home-comment']", [
+                                                                                    m("p.mg-5", [
+                                                                                        m(
+                                                                                            "span.badge.badge-light.wd-100p.tx-14",
+                                                                                            "Observaciones"
+                                                                                        ),
+                                                                                        m(
+                                                                                            "textarea.form-control.mg-t-5[rows='5'][placeholder='Observaciones']", {
+                                                                                                oninput: function(e) {
+                                                                                                    Observaciones.observaciones =
+                                                                                                        e.target.value;
+                                                                                                },
+                                                                                                value: Observaciones.observaciones,
+                                                                                            }
+                                                                                        ),
+                                                                                        m(
+                                                                                            "div.mg-0.mg-t-5.text-right", [
+                                                                                                m(
+                                                                                                    "button.btn.btn-xs.btn-primary.mg-l-2.tx-semibold[type='button']", {
+                                                                                                        onclick: function() {
+                                                                                                            if (
+                                                                                                                Observaciones
+                                                                                                                .observaciones
+                                                                                                                .length !== 0
+                                                                                                            ) {
+                                                                                                                Observaciones.sendNotiLab();
+                                                                                                            } else {
+                                                                                                                alert(
+                                                                                                                    "Observaciones es obligatorio."
+                                                                                                                );
+                                                                                                            }
+                                                                                                        },
+                                                                                                    }, [
+                                                                                                        m(
+                                                                                                            "i.fas.fa-paper-plane.mg-r-5"
+                                                                                                        ),
+                                                                                                    ],
+                                                                                                    "Guardar"
+                                                                                                ),
+                                                                                            ]
+                                                                                        ),
+                                                                                        m("hr.wd-100p.mg-t-5.mg-b-5"),
+                                                                                    ]),
+                                                                                    m("p.mg-5", [
+                                                                                        m(
+                                                                                            "span.badge.badge-light.wd-100p.tx-14",
+                                                                                            "Historial de Observaciones"
+                                                                                        ),
+                                                                                        m(
+                                                                                            "table.table.table-sm[id='table-observaciones'][width='100%']"
+                                                                                        ),
+                                                                                    ]),
+                                                                                ]
+                                                                            ),
+                                                                        ]
+                                                                    )
+                                                                ),
+                                                            ]),
+                                                            m("tr.d-print-none", []),
+                                                        ]),
                                                     ]),
-                                                ]
-                                            ),
-                                        ]
-                                    ),
-                                ]),
+                                                ]),
+                                            ]
+                                        ),
+                                    ]
+                                ),
                             ]),
-                        ]
-                    )
-                ),
-            ];
+                        ]),
+                    ]
+                )
+            ),
+        ];
     },
 };
 
