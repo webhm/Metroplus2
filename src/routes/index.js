@@ -838,65 +838,20 @@ const Routes = {
     }, // NeuroPedido
     '/bco-sangre/lisa/pedidos/ingresados': {
         oninit: (_data) => {
-
             App.isAuth('laboratorio', 16);
             document.title = "Recepción de Pedidos | " + App.title;
-
-            if (_data.attrs.idFiltro == undefined && (_data.attrs.fechaDesde == undefined || _data.attrs.fechaHasta == undefined)) {
-                return m.route.set('/bco-sangre/lisa/pedidos/ingresados/', { idFiltro: 6 })
+            // Redirección inicial si no hay parámetros
+            if (!_data.attrs.idFiltro) {
+                return m.route.set('/bco-sangre/lisa/pedidos/ingresados/', { idFiltro: 6 });
             }
-
-            LisaPedidosIngresadosBcoSangre.idFiltro = _data.attrs.idFiltro;
-
-            if (LisaPedidosIngresadosBcoSangre.idFiltro === 6 && LisaPedidosIngresadosBcoSangre.pedidos.length == 0) {
-                LisaPedidosIngresadosBcoSangre.fechaDesde = moment().subtract(1, 'days').format('DD-MM-YYYY');
-                LisaPedidosIngresadosBcoSangre.fechaHasta = moment().format('DD-MM-YYYY');
-                LisaPedidosIngresadosBcoSangre.loader = true;
-                LisaPedidosIngresadosBcoSangre.pedidos = [];
-                LisaPedidosIngresadosBcoSangre.fetchPedidosIngresados();
-            }
-
-            if (LisaPedidosIngresadosBcoSangre.idFiltro !== 6 && LisaPedidosIngresadosBcoSangre.pedidos.length == 0) {
-                LisaPedidosIngresadosBcoSangre.fechaDesde = _data.attrs.fechaDesde;
-                LisaPedidosIngresadosBcoSangre.fechaHasta = _data.attrs.fechaHasta;
-                LisaPedidosIngresadosBcoSangre.loader = true;
-                LisaPedidosIngresadosBcoSangre.pedidos = [];
-                LisaPedidosIngresadosBcoSangre.fetchPedidosIngresados();
-            }
-
-        },
-        onremove: (_data) => {
-            LisaPedidosIngresadosBcoSangre.loader = true;
-            LisaPedidosIngresadosBcoSangre.pedidos = [];
-        },
-        onupdate: (_data) => {
-
-            LisaPedidosIngresadosBcoSangre.idFiltro = _data.attrs.idFiltro;
-
-            if (LisaPedidosIngresadosBcoSangre.idFiltro === 6 && LisaPedidosIngresadosBcoSangre.pedidos.length == 0) {
-                LisaPedidosIngresadosBcoSangre.fechaDesde = moment().subtract(1, 'days').format('DD-MM-YYYY');
-                LisaPedidosIngresadosBcoSangre.fechaHasta = moment().format('DD-MM-YYYY');
-                LisaPedidosIngresadosBcoSangre.loader = true;
-                LisaPedidosIngresadosBcoSangre.pedidos = [];
-                LisaPedidosIngresadosBcoSangre.fetchPedidosIngresados();
-            }
-
-            if (LisaPedidosIngresadosBcoSangre.idFiltro !== 6 && LisaPedidosIngresadosBcoSangre.pedidos.length == 0) {
-                LisaPedidosIngresadosBcoSangre.fechaDesde = _data.attrs.fechaDesde;
-                LisaPedidosIngresadosBcoSangre.fechaHasta = _data.attrs.fechaHasta;
-                LisaPedidosIngresadosBcoSangre.loader = true;
-                LisaPedidosIngresadosBcoSangre.pedidos = [];
-                LisaPedidosIngresadosBcoSangre.fetchPedidosIngresados();
-            }
-
         },
         view: (_data) => {
             return [
                 m(HeaderPrivate, { oncreate: HeaderPrivate.setPage("laboratorio") }),
-                m(LisaPedidosIngresadosBcoSangre),
+                // Pasamos los atributos directamente al componente
+                m(LisaPedidosIngresadosBcoSangre, {..._data.attrs }),
             ];
         },
-
     },
     '/bco-sangre/lisa/pedido/': {
         onmatch: (_data) => {
