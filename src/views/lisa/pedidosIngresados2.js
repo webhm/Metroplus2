@@ -186,16 +186,16 @@ const tablePedidosIngresados = {
                                     m(m.route.Link, {
                                         class: 'dropdown-item',
                                         href: "/laboratorio/lisa/pedidos/ingresados/",
-                                        params: { idFiltro: 6, fechaDesde: PedidosIngresados.fechaDesde, fechaHasta: PedidosIngresados.fechaHasta }
+                                        params: { idFiltro: 8, fechaDesde: PedidosIngresados.fechaDesde, fechaHasta: PedidosIngresados.fechaHasta }
                                     }, [
-                                        "Muestras Pendientes"
+                                        "Pedidos de Lab. a Domicilio"
                                     ]),
                                     m(m.route.Link, {
                                         class: 'dropdown-item',
                                         href: "/laboratorio/lisa/pedidos/ingresados/",
-                                        params: { idFiltro: 8, fechaDesde: PedidosIngresados.fechaDesde, fechaHasta: PedidosIngresados.fechaHasta }
+                                        params: { idFiltro: 6, fechaDesde: PedidosIngresados.fechaDesde, fechaHasta: PedidosIngresados.fechaHasta }
                                     }, [
-                                        "Pedidos de Lab. a Domicilio"
+                                        "Muestras Pendientes"
                                     ]),
                                     m(m.route.Link, {
                                         class: 'dropdown-item',
