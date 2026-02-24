@@ -186,6 +186,13 @@ const tablePedidosIngresados = {
                                     m(m.route.Link, {
                                         class: 'dropdown-item',
                                         href: "/laboratorio/lisa/pedidos/ingresados/",
+                                        params: { idFiltro: 6, fechaDesde: PedidosIngresados.fechaDesde, fechaHasta: PedidosIngresados.fechaHasta }
+                                    }, [
+                                        "Muestras Pendientes"
+                                    ]),
+                                    m(m.route.Link, {
+                                        class: 'dropdown-item',
+                                        href: "/laboratorio/lisa/pedidos/ingresados/",
                                         params: { idFiltro: 8, fechaDesde: PedidosIngresados.fechaDesde, fechaHasta: PedidosIngresados.fechaHasta }
                                     }, [
                                         "Pedidos de Lab. a Domicilio"
@@ -633,6 +640,9 @@ const PedidosIngresados = {
         }
         if (idFiltro == 5) {
             return "Pedidos de Bco. de Sangre";
+        }
+        if (idFiltro == 6) {
+            return "Muestras Pendientes";
         }
         if (idFiltro == 7) {
             return "Reportes";
