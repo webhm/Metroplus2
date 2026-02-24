@@ -11,7 +11,7 @@ import NotificacionesEnviadasLab from '../views/laboratorio/notificaciones/envia
 import LaboratorioPedidos from '../views/laboratorio/flebotomista/flebotomista'
 import LisaPedidosIngresadosBcoSangre from '../views/bcosangre/lisa/pedidosIngresados'
 import LisaPedidoIngresadosBcoSangre from '../views/bcosangre/lisa/pedidoLisa'
-import LisaPedidosIngresados from '../views/lisa/pedidosIngresados'
+import LisaPedidosIngresados from '../views/lisa/pedidosIngresados2'
 import LisaPedido from '../views/lisa/pedidoLisa'
 import LaboratorioFormularios from '../views/laboratorio/formularios/formularios'
 import MiPerfil from '../views/perfil/perfil';
@@ -105,64 +105,20 @@ const Routes = {
     '/laboratorio': Laboratorio, //Laboratorio
     '/laboratorio/lisa/pedidos/ingresados': {
         oninit: (_data) => {
-
             App.isAuth('laboratorio', 16);
             document.title = "Recepción de Pedidos | " + App.title;
-
-            if (_data.attrs.idFiltro == undefined && (_data.attrs.fechaDesde == undefined || _data.attrs.fechaHasta == undefined)) {
-                return m.route.set('/laboratorio/lisa/pedidos/ingresados/', { idFiltro: 1 })
+            // Redirección inicial si no hay parámetros
+            if (!_data.attrs.idFiltro) {
+                return m.route.set('/laboratorio/lisa/pedidos/ingresados/', { idFiltro: 1 });
             }
-
-            LisaPedidosIngresados.idFiltro = _data.attrs.idFiltro;
-
-            if (LisaPedidosIngresados.idFiltro === 1 && LisaPedidosIngresados.pedidos.length == 0) {
-                LisaPedidosIngresados.fechaDesde = moment().subtract(1, 'days').format('DD-MM-YYYY');
-                LisaPedidosIngresados.fechaHasta = moment().format('DD-MM-YYYY');
-                LisaPedidosIngresados.loader = true;
-                LisaPedidosIngresados.pedidos = [];
-                LisaPedidosIngresados.fetchPedidosIngresados();
-            }
-
-            if (LisaPedidosIngresados.idFiltro !== 1 && LisaPedidosIngresados.pedidos.length == 0) {
-                LisaPedidosIngresados.fechaDesde = _data.attrs.fechaDesde;
-                LisaPedidosIngresados.fechaHasta = _data.attrs.fechaHasta;
-                LisaPedidosIngresados.loader = true;
-                LisaPedidosIngresados.pedidos = [];
-                LisaPedidosIngresados.fetchPedidosIngresados();
-            }
-
-        },
-        onremove: (_data) => {
-            LisaPedidosIngresados.loader = true;
-            LisaPedidosIngresados.pedidos = [];
-        },
-        onupdate: (_data) => {
-
-            LisaPedidosIngresados.idFiltro = _data.attrs.idFiltro;
-
-            if (LisaPedidosIngresados.idFiltro === 1 && LisaPedidosIngresados.pedidos.length == 0) {
-                LisaPedidosIngresados.fechaDesde = moment().subtract(1, 'days').format('DD-MM-YYYY');
-                LisaPedidosIngresados.fechaHasta = moment().format('DD-MM-YYYY');
-                LisaPedidosIngresados.loader = true;
-                LisaPedidosIngresados.pedidos = [];
-                LisaPedidosIngresados.fetchPedidosIngresados();
-            }
-
-            if (LisaPedidosIngresados.idFiltro !== 1 && LisaPedidosIngresados.pedidos.length == 0) {
-                LisaPedidosIngresados.fechaDesde = _data.attrs.fechaDesde;
-                LisaPedidosIngresados.fechaHasta = _data.attrs.fechaHasta;
-                LisaPedidosIngresados.loader = true;
-                LisaPedidosIngresados.pedidos = [];
-                LisaPedidosIngresados.fetchPedidosIngresados();
-            }
-
         },
         view: (_data) => {
             return [
                 m(HeaderPrivate, { oncreate: HeaderPrivate.setPage("laboratorio") }),
-                m(LisaPedidosIngresados),
+                // Pasamos los atributos directamente al componente
+                m(LisaPedidosIngresados, {..._data.attrs }),
             ];
-        },
+        }
 
     }, //Laboratorio Lisa Pedidos Ingresados
     '/laboratorio/lisa/pedido/': {
