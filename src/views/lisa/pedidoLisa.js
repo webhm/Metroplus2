@@ -2782,6 +2782,7 @@ const RecepMuestras = {
                                                             "CAJA6",
                                                             "URGENCIAS",
                                                             "METROLAB",
+                                                            "DOMICILIO",
                                                         ].map((x) => m("option", x))
                                                     )
                                                 ),

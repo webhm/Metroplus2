@@ -394,7 +394,7 @@ const PedidosIngresados = {
                     title: "Fecha Recepciòn LISA:",
                 },
                 {
-                    title: "Usario:",
+                    title: "Usuario:",
                 },
 
             ],
