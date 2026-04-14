@@ -336,7 +336,16 @@ const tablePedidosIngresados = {
                                     }, [
                                         "Pedidos de Bco. de Sangre"
                                     ]),
-
+                                    m(m.route.Link, {
+                                        class: 'dropdown-item',
+                                        href: "/laboratorio/lisa/pedidos/ingresados/?idFiltro=6&fechaDesde=" + PedidosIngresados.fechaDesde + "&fechaHasta=" + PedidosIngresados.fechaHasta,
+                                        onclick: () => {
+                                            PedidosIngresados.loader = true;
+                                            PedidosIngresados.pedidos = [];
+                                        }
+                                    }, [
+                                        "Pedidos de Hospital del Día"
+                                    ]),
                                     m(m.route.Link, {
                                         class: 'dropdown-item',
                                         href: "/laboratorio/lisa/pedidos/ingresados/?idFiltro=6&fechaDesde=" + PedidosIngresados.fechaDesde + "&fechaHasta=" + PedidosIngresados.fechaHasta,

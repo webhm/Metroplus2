@@ -186,6 +186,13 @@ const tablePedidosIngresados = {
                                     m(m.route.Link, {
                                         class: 'dropdown-item',
                                         href: "/laboratorio/lisa/pedidos/ingresados/",
+                                        params: { idFiltro: 10, fechaDesde: PedidosIngresados.fechaDesde, fechaHasta: PedidosIngresados.fechaHasta }
+                                    }, [
+                                        "Pedidos de Hospital del Día"
+                                    ]),
+                                    m(m.route.Link, {
+                                        class: 'dropdown-item',
+                                        href: "/laboratorio/lisa/pedidos/ingresados/",
                                         params: { idFiltro: 8, fechaDesde: PedidosIngresados.fechaDesde, fechaHasta: PedidosIngresados.fechaHasta }
                                     }, [
                                         "Pedidos de Lab. a Domicilio"
@@ -652,6 +659,9 @@ const PedidosIngresados = {
         }
         if (idFiltro == 9) {
             return "Todos los Pedidos";
+        }
+        if (idFiltro == 10) {
+            return "Pedidos de Hospital del Día";
         }
     },
 
