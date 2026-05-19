@@ -50,6 +50,7 @@ import EndoPedido from '../views/endoscopia/pedidos/pedido'
 import PedidoFlebotomista from '../views/laboratorio/flebotomista/pedidoFlebotomista'
 import Etiquetas from '../views/admisiones/etiquetas/etiquetas'
 import Recetas from '../views/farmacia/recetas/recetas'
+import RecetasHDIA from '../views/farmacia/recetas/recetasHDIA'
 import RecetaFarmacia from '../views/farmacia/recetas/receta'
 import EtiCajas from '../views/laboratorio/etiquetas/etiCajas'
 import Conta from '../views/conta/conta'
@@ -419,6 +420,64 @@ const Routes = {
             ];
         },
     }, //Recetas Alta
+    '/farmacia/recetas-hdia': {
+        oninit: (_data) => {
+            App.isAuth('farmacia', 5);
+            document.title = "Recetas de Alta | " + App.title;
+            if (_data.attrs.idFiltro == undefined && _data.attrs.fechaDesde == undefined) {
+                return m.route.set('/farmacia/recetas-hdia/', { idFiltro: 1 })
+            }
+            RecetasHDIA.idFiltro = _data.attrs.idFiltro;
+        },
+        onupdate: (_data) => {
+
+            if (_data.attrs.idFiltro !== RecetasHDIA.idFiltro && RecetasHDIA.idFiltro !== 1 && RecetasHDIA.fechaDesde !== undefined) {
+                RecetasHDIA.idFiltro = _data.attrs.idFiltro;
+                RecetasHDIA.fechaDesde = _data.attrs.fechaDesde;
+                RecetasHDIA.fechaHasta = _data.attrs.fechaHasta;
+                RecetasHDIA.loader = true;
+                RecetasHDIA.pedidos = [];
+                RecetasHDIA.fetch();
+            } else {
+
+                if (_data.attrs.idFiltro == 1) {
+
+                    moment.lang("es", {
+                        months: "Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre".split(
+                            "_"
+                        ),
+                        monthsShort: "Enero._Feb._Mar_Abr._May_Jun_Jul._Ago_Sept._Oct._Nov._Dec.".split(
+                            "_"
+                        ),
+                        weekdays: "Domingo_Lunes_Martes_Miércoles_Jueves_Viernes_Sábado".split(
+                            "_"
+                        ),
+                        weekdaysShort: "Dom._Lun._Mar._Mier._Jue._Vier._Sab.".split("_"),
+                        weekdaysMin: "Do_Lu_Ma_Mi_Ju_Vi_Sa".split("_"),
+                    });
+
+                    RecetasHDIA.idFiltro = _data.attrs.idFiltro;
+                    RecetasHDIA.fechaDesde = moment().subtract(1, 'days').format('DD-MM-YYYY');
+                    RecetasHDIA.fechaHasta = moment().format('DD-MM-YYYY');
+                    if (RecetasHDIA.pedidos.length == 0) {
+                        RecetasHDIA.loader = true;
+                        RecetasHDIA.pedidos = [];
+                        RecetasHDIA.fetch();
+                    } else {
+                        RecetasHDIA.loader = false;
+                    }
+                }
+            }
+
+
+        },
+        view: (_data) => {
+            return [
+                m(HeaderPrivate, { oncreate: HeaderPrivate.setPage("laboratorio") }),
+                m(RecetasHDIA),
+            ];
+        },
+    },
     '/farmacia/receta/': {
         onmatch: (_data) => {
             if (_data.numeroReceta !== undefined) {
