@@ -39,10 +39,10 @@ const MenuFarmacia = {
                                     ),
                                     m("div", { "class": "media-body mg-l-15" }, [
                                         m("p", { "class": "tx-18 mg-b-0" },
-                                            "Recetas de Alta - Hospitalización",
+                                            "Recetas de Alta",
                                         ),
                                         m("p", { "class": "mg-b-0 tx-11 tx-color-03 tx-medium tx-spacing-1 tx-sans" },
-                                            "Ir a Recetas",
+                                            "Ir a Recetas de Alta",
                                         )
                                     ])
                                 ]),
@@ -63,10 +63,10 @@ const MenuFarmacia = {
                                     ),
                                     m("div", { "class": "media-body mg-l-15" }, [
                                         m("p", { "class": "tx-18 mg-b-0" },
-                                            "Recetas de Alta - Hospital de Día",
+                                            "Recetas Hospitalización",
                                         ),
                                         m("p", { "class": "mg-b-0 tx-11 tx-color-03 tx-medium tx-spacing-1 tx-sans" },
-                                            "Ir a Recetas",
+                                            "Ir a Recetas Hospitalización",
                                         )
                                     ])
                                 ]),

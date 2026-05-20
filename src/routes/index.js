@@ -52,6 +52,7 @@ import Etiquetas from '../views/admisiones/etiquetas/etiquetas'
 import Recetas from '../views/farmacia/recetas/recetas'
 import RecetasHDIA from '../views/farmacia/recetas/recetasHDIA'
 import RecetaFarmacia from '../views/farmacia/recetas/receta'
+import RecetaFarmaciaPrescripcion from '../views/farmacia/recetas/recetaPres'
 import EtiCajas from '../views/laboratorio/etiquetas/etiCajas'
 import Conta from '../views/conta/conta'
 import AgendaImagen from '../views/imagen/agenda/agenImagen'
@@ -482,6 +483,15 @@ const Routes = {
         onmatch: (_data) => {
             if (_data.numeroReceta !== undefined) {
                 return RecetaFarmacia;
+            } else {
+                return m.route.SKIP;
+            }
+        }
+    },
+    '/farmacia/prescripcion/': {
+        onmatch: (_data) => {
+            if (_data.numeroReceta !== undefined) {
+                return RecetaFarmaciaPrescripcion;
             } else {
                 return m.route.SKIP;
             }

@@ -463,7 +463,7 @@ const Recetas = {
 
                             m("td.tx-center.wd-10p.tx-semibold", {
                                     onclick: () => {
-                                        m.route.set("/farmacia/receta/", {
+                                        m.route.set("/farmacia/prescripcion/", {
                                             numeroHistoriaClinica: aData.CD_PACIENTE,
                                             numeroAtencion: aData.CD_ATENDIMENTO,
                                             numeroReceta: aData.id,
@@ -612,7 +612,7 @@ const Recetas = {
 
                     ]),
                     m("h1.df-title.mg-t-20.mg-b-10",
-                        "Recetas de Alta Hospital de Día:"
+                        "Recetas Hospitalización:"
                     ),
                     m("div.row.animated.fadeInUp", [
 
@@ -702,7 +702,7 @@ const Recetas = {
 
                     ]),
                     m("h1.df-title.mg-t-20.mg-b-10",
-                        "Recetas de Alta Hospital de Día:"
+                        "Recetas Hospitalización:"
                     ),
                     m(tableRecetas)
                 ])
@@ -718,7 +718,7 @@ const Recetas = {
                     m("div.mg-t-10.bg-white",
                         m("div.card-header.pd-t-20.pd-b-0.bd-b-0", [
                             m("h6.lh-5.mg-b-5",
-                                "Recetas de Alta Hospital de Día:"
+                                "Recetas Hospitalización"
                             ),
 
                         ]),
@@ -805,7 +805,7 @@ const Recetas = {
 
                     ]),
                     m("h1.df-title.mg-t-20.mg-b-10",
-                        "Recetas de Alta Hospital de Día:"
+                        "Recetas Hospitalización:"
                     ),
                     m("div.row.animated.fadeInUp", [
 
