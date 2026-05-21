@@ -607,12 +607,12 @@ const Recetas = {
 
                         ),
                         m("li.breadcrumb-item.active[aria-current='page']",
-                            "Recetas de Alta"
+                            "Hospital del Día"
                         ),
 
                     ]),
                     m("h1.df-title.mg-t-20.mg-b-10",
-                        "Recetas Hospitalización:"
+                        "Hospital del Día:"
                     ),
                     m("div.row.animated.fadeInUp", [
 
@@ -659,16 +659,16 @@ const Recetas = {
 
                         ),
                         m("li.breadcrumb-item.active[aria-current='page']",
-                            "Recetas de Alta"
+                            "Hospital del Día"
                         ),
 
                     ]),
                     m("h1.df-title.mg-t-20.mg-b-10",
-                        "Recetas de Alta Hospital de Día:"
+                        "Hospital del Día:"
                     ),
                     m("div.row.animated.fadeInUp", [
 
-                        m('p', 'No existe información.')
+                        m(tableRecetas)
                     ]),
 
 
@@ -697,19 +697,19 @@ const Recetas = {
 
                         ),
                         m("li.breadcrumb-item.active[aria-current='page']",
-                            "Recetas de Alta"
+                            "Hospital del Día"
                         ),
 
                     ]),
                     m("h1.df-title.mg-t-20.mg-b-10",
-                        "Recetas Hospitalización:"
+                        "Hospital del Día:"
                     ),
                     m(tableRecetas)
                 ])
             ),
             m("div.section-nav", [
                 m("label.nav-label",
-                    "Recetas de Alta"
+                    "Hospital del Día"
                 ),
                 m("div.mg-t-10.bg-white", {
 
@@ -718,7 +718,7 @@ const Recetas = {
                     m("div.mg-t-10.bg-white",
                         m("div.card-header.pd-t-20.pd-b-0.bd-b-0", [
                             m("h6.lh-5.mg-b-5",
-                                "Recetas Hospitalización"
+                                "Hospital del Día"
                             ),
 
                         ]),
@@ -800,22 +800,17 @@ const Recetas = {
 
                         ),
                         m("li.breadcrumb-item.active[aria-current='page']",
-                            "Recetas de Alta"
+                            "Hospital del Día"
                         ),
 
                     ]),
                     m("h1.df-title.mg-t-20.mg-b-10",
-                        "Recetas Hospitalización:"
+                        "Hospital del Día:"
                     ),
                     m("div.row.animated.fadeInUp", [
 
                         m("div.col-12", [
-
-                            m(".alert.alert-danger[role='alert']",
-                                "No existe información disponible."
-                            )
-
-
+                            m(tableRecetas)
                         ])
                     ]),
 
@@ -839,18 +834,18 @@ const Recetas = {
                             ])
                         ),
                         m("li.breadcrumb-item",
-                            m(m.route.Link, { href: "/laboratorio" }, [
-                                " Laboratorio "
+                            m(m.route.Link, { href: "/farmacia" }, [
+                                " Farmacia "
                             ])
 
                         ),
                         m("li.breadcrumb-item.active[aria-current='page']",
-                            "Pedidos Ingresados"
+                            "Hospital del Día"
                         ),
 
                     ]),
                     m("h1.df-title.mg-t-20.mg-b-10",
-                        "Pedidos Ingresados:"
+                        "Hospital del Día:"
                     ),
                     m("div.row.animated.fadeInUp", [
 
