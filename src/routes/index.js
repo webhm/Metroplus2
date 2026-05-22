@@ -490,7 +490,7 @@ const Routes = {
     },
     '/farmacia/prescripcion/': {
         onmatch: (_data) => {
-            if (_data.numeroReceta !== undefined) {
+            if (_data.numeroDoc !== undefined) {
                 return RecetaFarmaciaPrescripcion;
             } else {
                 return m.route.SKIP;

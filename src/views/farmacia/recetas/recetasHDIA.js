@@ -469,8 +469,10 @@ const Recetas = {
                                         m.route.set("/farmacia/prescripcion/", {
                                             numeroHistoriaClinica: aData.CD_PACIENTE,
                                             numeroAtencion: aData.CD_ATENDIMENTO,
-                                            numeroReceta: aData.id,
+                                            numeroDoc: aData.CD_DOCUMENTO_CLINICO,
                                             track: "view",
+                                            //numeroReceta: aData.id,
+
                                         });
                                     },
                                     "title": aData.TP_STATUS,

@@ -114,7 +114,7 @@ const Observaciones = {
     fetch: () => {
         m.request({
                 method: "GET",
-                url: "https://api.hospitalmetropolitano.org/t/v1/obs-farmacia/" + RecetaFarmacia.numeroReceta,
+                url: "https://api.hospitalmetropolitano.org/t/v1/obs-farmacia/" + RecetaFarmacia.numeroDoc,
             })
             .then(function(result) {
                 Observaciones.data = result.data;
@@ -126,7 +126,7 @@ const Observaciones = {
     sendObs: () => {
         m.request({
                 method: "POST",
-                url: "https://api.hospitalmetropolitano.org/t/v1/obs-farmacia/" + RecetaFarmacia.numeroReceta,
+                url: "https://api.hospitalmetropolitano.org/t/v1/obs-farmacia/" + RecetaFarmacia.numeroDoc,
                 body: {
                     message: Observaciones.observaciones
                 },
@@ -240,21 +240,22 @@ const RecetaFarmacia = {
     despachoTotal: false,
     error: '',
     numeroReceta: '',
+    numeroDoc: '',
     numeroAtencion: '',
     numeroHistoriaClinica: '',
     oninit: (_data) => {
 
-        if (_data.attrs.numeroReceta !== undefined) {
-            document.title = "Detalle de Receta N°: " + _data.attrs.numeroReceta + " | " + App.title;
+        if (_data.attrs.numeroDoc !== undefined) {
+            document.title = "Detalle de Receta N°: " + _data.attrs.numeroDoc + " | " + App.title;
 
             if (RecetaFarmacia.data !== undefined && RecetaFarmacia.data.length == 0) {
-                RecetaFarmacia.numeroReceta = _data.attrs.numeroReceta;
+                RecetaFarmacia.numeroDoc = _data.attrs.numeroDoc;
                 RecetaFarmacia.numeroAtencion = _data.attrs.numeroAtencion;
                 RecetaFarmacia.numeroHistoriaClinica = _data.attrs.numeroHistoriaClinica;
                 RecetaFarmacia.fetch();
             } else {
-                if (RecetaFarmacia.numeroReceta !== _data.attrs.numeroReceta) {
-                    RecetaFarmacia.numeroReceta = _data.attrs.numeroReceta;
+                if (RecetaFarmacia.numeroDoc !== _data.attrs.numeroDoc) {
+                    RecetaFarmacia.numeroDoc = _data.attrs.numeroDoc;
                     RecetaFarmacia.numeroAtencion = _data.attrs.numeroAtencion;
                     RecetaFarmacia.numeroHistoriaClinica = _data.attrs.numeroHistoriaClinica;
                     RecetaFarmacia.fetch();
@@ -271,7 +272,7 @@ const RecetaFarmacia = {
                 method: "POST",
                 url: "https://api.hospitalmetropolitano.org/t/v1/status-receta-prescripcion",
                 body: {
-                    numeroReceta: RecetaFarmacia.numeroReceta,
+                    numeroReceta: RecetaFarmacia.numeroDoc,
                 },
                 headers: {
                     "Content-Type": "application/json; charset=utf-8",
@@ -302,7 +303,7 @@ const RecetaFarmacia = {
                 url: "https://api.hospitalmetropolitano.org/t/v1/check-receta",
                 body: {
                     numeroAtencion: RecetaFarmacia.numeroAtencion,
-                    numeroReceta: RecetaFarmacia.numeroReceta,
+                    numeroDoc: RecetaFarmacia.numeroDoc,
                     status: (RecetaFarmacia.despachoTotal == true ? 'TOTAL' : (RecetaFarmacia.despachoParcial == true ? 'PARCIAL' : '')),
                     obs: Observaciones.observaciones
                 },
@@ -344,7 +345,7 @@ const RecetaFarmacia = {
 
                     ]),
                     m("h1.df-title.mg-t-20.mg-b-10",
-                        "Detalle de Receta N°: " + RecetaFarmacia.numeroReceta
+                        "Detalle de Receta N°: " + RecetaFarmacia.numeroDoc
                     ),
 
 
