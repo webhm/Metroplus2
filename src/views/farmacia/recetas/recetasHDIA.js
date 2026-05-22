@@ -437,6 +437,7 @@ const Recetas = {
                                 aData.FECHA_RECETA
                             ),
                             m("td.wd-60p", { "style": {} }, [
+
                                     m(".d-inline.tx-semibold.tx-14", 'NHC: '),
                                     m(".d-inline.tx-14", aData.CD_PACIENTE),
                                     m('br'),
@@ -447,7 +448,9 @@ const Recetas = {
                                     m(".d-inline.tx-14", aData.CD_ATENDIMENTO),
                                     m(".d-inline.tx-semibold.tx-14", ' UBICACIÓN: '),
                                     m(".d-inline.tx-14", aData.UBICACION + " - " + aData.DS_UNID_INT),
-
+                                    m('br'),
+                                    m(".d-inline.tx-semibold.tx-14", ' USUARIO: '),
+                                    m(".d-inline.tx-14", aData.CD_USUARIO),
 
                                 ]
 
@@ -470,17 +473,13 @@ const Recetas = {
                                             track: "view",
                                         });
                                     },
-                                    "style": { "background-color": "rgb(168, 190, 214)", "cursor": "pointer" }
+                                    "title": aData.TP_STATUS,
+                                    "style": { "background-color": aData.TP_STATUS === 'CANCELADO' ? "red" : "rgb(168, 190, 214)", "cursor": "pointer" }
                                 },
                                 " Ver ",
                                 m("br"),
                                 " Receta "
-
                             )
-
-
-
-
 
                         ];
                     },
@@ -499,10 +498,6 @@ const Recetas = {
                     } else {
                         Recetas.pendientes++;
                     }
-
-
-
-
 
                 })
 
