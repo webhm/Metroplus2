@@ -217,7 +217,7 @@ const tableRecetas = {
                                             Recetas.loader = true;
                                             Recetas.pedidos = [];
                                             Recetas.fetch();
-                                            m.route.set("/farmacia/recetas/?idFiltro=" + Recetas.idFiltro + "&fechaDesde=" + Recetas.fechaDesde + "&fechaHasta=" + Recetas.fechaHasta);
+                                            m.route.set("/farmacia/recetas-hdia/?idFiltro=" + Recetas.idFiltro + "&fechaDesde=" + Recetas.fechaDesde + "&fechaHasta=" + Recetas.fechaHasta);
                                         },
                                         style: {
                                             "border": "transparent"
@@ -244,7 +244,7 @@ const tableRecetas = {
                                             Recetas.loader = true;
                                             Recetas.pedidos = [];
                                             Recetas.fetch();
-                                            m.route.set("/farmacia/recetas/?idFiltro=" + Recetas.idFiltro + "&fechaDesde=" + Recetas.fechaDesde + "&fechaHasta=" + Recetas.fechaHasta);
+                                            m.route.set("/farmacia/recetas-hdia/?idFiltro=" + Recetas.idFiltro + "&fechaDesde=" + Recetas.fechaDesde + "&fechaHasta=" + Recetas.fechaHasta);
                                         },
                                         style: {
                                             "border": "transparent"
@@ -449,8 +449,8 @@ const Recetas = {
                                     m(".d-inline.tx-semibold.tx-14", ' UBICACIÓN: '),
                                     m(".d-inline.tx-14", aData.UBICACION + " - " + aData.DS_UNID_INT),
                                     m('br'),
-                                    m(".d-inline.tx-semibold.tx-14", ' USUARIO: '),
-                                    m(".d-inline.tx-14", aData.CD_USUARIO),
+                                    m(".d-inline.tx-semibold.tx-14", aData.TP_STATUS === 'CANCELADO' ? ' USUARIO CANCELA: ' : ' USUARIO: '),
+                                    m(".d-inline.tx-14", aData.TP_STATUS === 'CANCELADO' ? aData.CD_USUARIO + '  a las: ' + aData.FECHA_RECETA : aData.CD_USUARIO),
 
                                 ]
 
@@ -476,7 +476,7 @@ const Recetas = {
                                         });
                                     },
                                     "title": aData.TP_STATUS,
-                                    "style": { "background-color": aData.TP_STATUS === 'CANCELADO' ? "red" : "rgb(168, 190, 214)", "cursor": "pointer" }
+                                    "style": { "background-color": aData.TP_STATUS === 'CANCELADO' ? "#f10075" : "rgb(168, 190, 214)", "cursor": "pointer" }
                                 },
                                 " Ver ",
                                 m("br"),
