@@ -246,7 +246,7 @@ const RecetaFarmacia = {
     oninit: (_data) => {
 
         if (_data.attrs.numeroDoc !== undefined) {
-            document.title = "Detalle de Receta N°: " + _data.attrs.numeroDoc + " | " + App.title;
+            document.title = "Detalle de Prescripción N°: " + _data.attrs.numeroDoc + " | " + App.title;
 
             if (RecetaFarmacia.data !== undefined && RecetaFarmacia.data.length == 0) {
                 RecetaFarmacia.numeroDoc = _data.attrs.numeroDoc;
@@ -340,12 +340,12 @@ const RecetaFarmacia = {
 
                         ),
                         m("li.breadcrumb-item.active[aria-current='page']",
-                            "DETALLE DE RECETA"
+                            "DETALLE DE PRESCRIPCIÓN"
                         ),
 
                     ]),
                     m("h1.df-title.mg-t-20.mg-b-10",
-                        "Detalle de Receta N°: " + RecetaFarmacia.numeroDoc
+                        "Detalle de Prescripción N°: " + RecetaFarmacia.numeroDoc
                     ),
 
 
@@ -597,7 +597,7 @@ const RecetaFarmacia = {
                                                                     },
                                                                     m("i.fas.fa-file-alt.pd-1.mg-r-2"),
 
-                                                                    " Ver Receta "
+                                                                    " Ver Prescripción "
                                                                 )
                                                             ),
                                                             m("li.nav-item",

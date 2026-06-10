@@ -478,9 +478,7 @@ const Recetas = {
                                     "title": aData.TP_STATUS,
                                     "style": { "background-color": aData.TP_STATUS === 'CANCELADO' ? "#f10075" : "rgb(168, 190, 214)", "cursor": "pointer" }
                                 },
-                                " Ver ",
-                                m("br"),
-                                " Receta "
+                                " Ver ", m("br"), (aData.TP_STATUS === 'CANCELADO' ? " Prescripción Cancelada " : " Prescripción ")
                             )
 
                         ];
