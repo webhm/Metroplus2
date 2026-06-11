@@ -137,54 +137,54 @@ const tableRecetas = {
                             m("span.badge.badge-primary.tx-semibold.pd-l-10.pd-r-10.mg-l-5.tx-15", {
                                     oncreate: (el) => {
                                         if (Recetas.idFiltro == 1) {
-                                            el.dom.innerHTML = 'Recetas de Hoy';
+                                            el.dom.innerHTML = 'Prescripciones de Hoy';
                                         }
                                         if (Recetas.idFiltro == 2) {
-                                            el.dom.innerHTML = 'Recetas entre Fechas';
+                                            el.dom.innerHTML = 'Prescripciones entre Fechas';
                                         }
                                         if (Recetas.idFiltro == 3) {
-                                            el.dom.innerHTML = 'Recetas de Emergencia';
+                                            el.dom.innerHTML = 'Prescripciones de Emergencia';
                                         }
                                         if (Recetas.idFiltro == 4) {
-                                            el.dom.innerHTML = 'Recetas de Hospitalización';
+                                            el.dom.innerHTML = 'Prescripciones de Hospitalización';
                                         }
                                         if (Recetas.idFiltro == 5) {
-                                            el.dom.innerHTML = 'Recetas de PB';
+                                            el.dom.innerHTML = 'Prescripciones de PB';
                                         }
                                         if (Recetas.idFiltro == 6) {
-                                            el.dom.innerHTML = 'Recetas de H1';
+                                            el.dom.innerHTML = 'Prescripciones de H1';
                                         }
                                         if (Recetas.idFiltro == 7) {
-                                            el.dom.innerHTML = 'Recetas de H2';
+                                            el.dom.innerHTML = 'Prescripciones de H2';
                                         }
                                         if (Recetas.idFiltro == 8) {
-                                            el.dom.innerHTML = 'Recetas de C2';
+                                            el.dom.innerHTML = 'Prescripciones de C2';
                                         }
                                     },
                                     onupdate: (el) => {
                                         if (Recetas.idFiltro == 1) {
-                                            el.dom.innerHTML = 'Recetas de Hoy';
+                                            el.dom.innerHTML = 'Prescripciones de Hoy';
                                         }
                                         if (Recetas.idFiltro == 2) {
-                                            el.dom.innerHTML = 'Recetas entre Fechas';
+                                            el.dom.innerHTML = 'Prescripciones entre Fechas';
                                         }
                                         if (Recetas.idFiltro == 3) {
-                                            el.dom.innerHTML = 'Recetas de Emergencia';
+                                            el.dom.innerHTML = 'Prescripciones de Emergencia';
                                         }
                                         if (Recetas.idFiltro == 4) {
-                                            el.dom.innerHTML = 'Recetas de Hospitalización';
+                                            el.dom.innerHTML = 'Prescripciones de Hospitalización';
                                         }
                                         if (Recetas.idFiltro == 5) {
-                                            el.dom.innerHTML = 'Recetas de PB';
+                                            el.dom.innerHTML = 'Prescripciones de PB';
                                         }
                                         if (Recetas.idFiltro == 6) {
-                                            el.dom.innerHTML = 'Recetas de H1';
+                                            el.dom.innerHTML = 'Prescripciones de H1';
                                         }
                                         if (Recetas.idFiltro == 7) {
-                                            el.dom.innerHTML = 'Recetas de H2';
+                                            el.dom.innerHTML = 'Prescripciones de H2';
                                         }
                                         if (Recetas.idFiltro == 8) {
-                                            el.dom.innerHTML = 'Recetas de C2';
+                                            el.dom.innerHTML = 'Prescripciones de C2';
                                         }
 
                                     }
@@ -264,10 +264,10 @@ const tableRecetas = {
                                         "FILTROS:"
                                     ),
                                     m(m.route.Link, { class: 'dropdown-item', href: "/farmacia/recetas-hdia/?idFiltro=1" }, [
-                                        "Recetas de Hoy"
+                                        "Prescripciones de Hoy"
                                     ]),
                                     m(m.route.Link, { class: 'dropdown-item', href: "/farmacia/recetas-hdia/?idFiltro=2&fechaDesde=" + Recetas.fechaDesde + "&fechaHasta=" + Recetas.fechaHasta }, [
-                                        "Recetas entre Fechas"
+                                        "Prescripciones entre Fechas"
                                     ])
                                 ])
                             ])
@@ -377,7 +377,7 @@ const Recetas = {
             order: false,
             destroy: true,
             columns: [{
-                    title: "Fecha Receta:",
+                    title: "Fecha:",
                 },
                 {
                     title: "Paciente:",
