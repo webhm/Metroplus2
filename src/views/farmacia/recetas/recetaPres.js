@@ -859,6 +859,7 @@ const RecetaFarmacia = {
                     result.data = result.data[0];
                     RecetaFarmacia.loader = false;
                     RecetaFarmacia.data = result.data;
+                    RecetaFarmacia.despachoTotal = (RecetaFarmacia.data.STATUS_DESPACHO == 1 ? true : false);
                     RecetaFarmacia.despacho = (RecetaFarmacia.data.STATUS_DESPACHO == 1 ? true : false);
                     RecetaFarmacia.medicamentos = result.data.DATA;
                     Evoluciones.fetch();
@@ -880,6 +881,7 @@ const RecetaFarmacia = {
                 body: {
                     numeroAtencion: RecetaFarmacia.numeroAtencion,
                     numeroDoc: RecetaFarmacia.numeroDoc,
+                    numeroReceta: RecetaFarmacia.numeroDoc,
                     status: (RecetaFarmacia.despachoTotal == true ? 'TOTAL' : (RecetaFarmacia.despachoParcial == true ? 'PARCIAL' : '')),
                     obs: Observaciones.observaciones
                 },
