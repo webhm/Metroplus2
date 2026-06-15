@@ -449,12 +449,11 @@ const Recetas = {
                                     m(".d-inline.tx-semibold.tx-14", ' UBICACIÓN: '),
                                     m(".d-inline.tx-14", aData.UBICACION + " - " + aData.DS_UNID_INT),
                                     m('br'),
-                                    m(".d-inline.tx-semibold.tx-14", aData.TP_STATUS === 'CANCELADO' ? ' USUARIO CANCELA: ' : ' USUARIO: '),
-                                    m(".d-inline.tx-14", aData.TP_STATUS === 'CANCELADO' ? aData.CD_USUARIO + '  el ' + aData.FECHA_CANCELA : aData.CD_USUARIO),
-                                    m('br'),
                                     m(".tx-semibold.tx-14", { "style": (aData.STATUS_DESPACHO == 0 ? "display: none;" : "display: inline;") }, 'DESPACHO: '),
                                     m(".tx-14", { "style": (aData.STATUS_DESPACHO == 0 ? "display: none;" : "display: inline;") }, aData.FECHA_DESPACHO),
-
+                                    m('br'),
+                                    m(".d-inline.tx-semibold.tx-14", aData.TP_STATUS === 'CANCELADO' ? ' USUARIO CANCELA: ' : ' USUARIO: '),
+                                    m(".d-inline.tx-14", aData.TP_STATUS === 'CANCELADO' ? aData.CD_USUARIO + '  el ' + aData.FECHA_CANCELA : aData.CD_USUARIO),
 
                                 ]
 
