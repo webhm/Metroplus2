@@ -182,13 +182,12 @@ const Medicamentos = {
                                     m("td.tx-semibold.tx-normal", [
                                         _val.MEDICACION,
                                         m('br'),
-                                        (_val.OBS !== null ? m('.d-inline', 'Observaciones:') : ''),
-                                        (_val.OBS !== null ? m('br') : ''),
-                                        (_val.OBS !== null ? m('.d-inline', _val.OBS) : ''),
+                                        m('hr'),
+
                                     ]),
 
                                     m("td.tx-semibold.tx-normal",
-                                        _val.CANT),
+                                        _val.OBS + '\n' + _val.CANT),
                                     m("td.tx-semibold.tx-normal.bg-danger.tx-white",
                                         _val.DESP),
 
@@ -197,6 +196,7 @@ const Medicamentos = {
 
 
                                 ]),
+
                             ]
 
                         } else {
