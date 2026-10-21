@@ -496,7 +496,7 @@ const Recetas = {
                                         track: "view",
                                     });
                                 },
-                                "style": { "background-color": "rgb(168, 190, 214)", "cursor": "pointer" }
+                                "style": { "background-color": aData.TP_STATUS === 'CANCELADO' ? "#f10075" : "rgb(168, 190, 214)", "cursor": "pointer" }
                             },
                                 " Ver ",
                                 m("br"),

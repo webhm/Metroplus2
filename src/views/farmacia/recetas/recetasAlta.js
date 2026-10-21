@@ -629,9 +629,6 @@ function loadRecetasAlta() {
                 m.mount(_i.anCells[4], { view: function () { return m(iPedido, _i._aData) } });
                 m.mount(_i.anCells[5], {
                     view: function () {
-
-
-
                         return [
                             m(m.route.Link, {
                                 id: "receta_" + _i._aData.NUM_PEDIDO_MV,
@@ -648,7 +645,9 @@ function loadRecetasAlta() {
                                     VerReceta.numeroReceta = _i._aData.CD_DOCUMENTO_CLINICO;
                                     VerReceta.data = _i._aData;
                                     StatusReceta.fetch();
-                                }
+                                },
+                                "style": { "background-color": _i.aData.TP_STATUS === 'CANCELADO' ? "#f10075" : "rgb(168, 190, 214)", "cursor": "pointer" }
+
 
 
                             }, [
