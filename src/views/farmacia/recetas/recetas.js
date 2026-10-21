@@ -496,11 +496,15 @@ const Recetas = {
                                         track: "view",
                                     });
                                 },
-                                "style": { "background-color": aData.TP_STATUS === 'CANCELADO' ? "#f10075" : "rgb(168, 190, 214)", "cursor": "pointer" }
+                                "style": {
+                                    "background-color": aData.TP_STATUS === 'CANCELADO' ? "#f10075" : "rgb(168, 190, 214)",
+                                    "cursor": aData.TP_STATUS === 'CANCELADO' ? "not-allowed" : "default",
+                                    "pointer-events": aData.TP_STATUS === 'CANCELADO' ? "none" : "auto",
+
+                                }
                             },
-                                " Ver ",
-                                m("br"),
-                                " Receta "
+                                (aData.TP_STATUS === 'CANCELADO' ? " Receta Cancelada " : " Ver Receta ")
+
 
                             )
 
