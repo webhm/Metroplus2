@@ -557,6 +557,8 @@ const Recetas = {
             _queryString = '?idFiltro=' + Recetas.idFiltro + '&fechaDesde=' + Recetas.fechaDesde + '&fechaHasta=' + Recetas.fechaHasta;
         }
 
+        // Recetas de Alta ajuste Valeria 
+
         m.request({
             method: "GET",
             url: "https://api.hospitalmetropolitano.org/t/v1/recetas-sml" + _queryString,
