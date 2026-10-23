@@ -63,21 +63,21 @@ const Observaciones = {
 
             columns: false,
             aoColumnDefs: [{
-                mRender: function (data, type, row, meta) {
-                    return "";
+                    mRender: function(data, type, row, meta) {
+                        return "";
+                    },
+                    visible: true,
+                    width: "100%",
+                    aTargets: [0],
+                    orderable: false,
                 },
-                visible: true,
-                width: "100%",
-                aTargets: [0],
-                orderable: false,
-            },
 
             ],
-            fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) { },
-            drawCallback: function (settings) {
-                settings.aoData.map(function (_v, _i) {
+            fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {},
+            drawCallback: function(settings) {
+                settings.aoData.map(function(_v, _i) {
                     m.mount(_v.anCells[0], {
-                        view: function () {
+                        view: function() {
                             return m("div.demo-static-toast",
                                 m(".toast[role='alert'][aria-live='assertive'][aria-atomic='true']", {
                                     "style": { "max-width": "none" }
@@ -113,35 +113,35 @@ const Observaciones = {
     },
     fetch: () => {
         m.request({
-            method: "GET",
-            url: "https://api.hospitalmetropolitano.org/t/v1/obs-farmacia/" + RecetaFarmacia.numeroReceta,
-        })
-            .then(function (result) {
+                method: "GET",
+                url: "https://api.hospitalmetropolitano.org/t/v1/obs-farmacia/" + RecetaFarmacia.numeroReceta,
+            })
+            .then(function(result) {
                 Observaciones.data = result.data;
                 Observaciones.loadObservaciones();
             })
-            .catch(function (e) { })
+            .catch(function(e) {})
     },
 
     sendObs: () => {
         m.request({
-            method: "POST",
-            url: "https://api.hospitalmetropolitano.org/t/v1/obs-farmacia/" + RecetaFarmacia.numeroReceta,
-            body: {
-                message: Observaciones.observaciones
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (result) {
+                method: "POST",
+                url: "https://api.hospitalmetropolitano.org/t/v1/obs-farmacia/" + RecetaFarmacia.numeroReceta,
+                body: {
+                    message: Observaciones.observaciones
+                },
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(result) {
                 if (result.status) {
                     Observaciones.observaciones = "";
                     Observaciones.fetch();
                     alert('Observación registrada con éxito.')
                 }
             })
-            .catch(function (e) {
+            .catch(function(e) {
 
             })
 
@@ -172,7 +172,7 @@ const Medicamentos = {
                     ])
                 ),
                 m("tbody", [
-                    RecetaFarmacia.medicamentos.map(function (_val, _i, _contentData) {
+                    RecetaFarmacia.medicamentos.map(function(_val, _i, _contentData) {
 
 
                         if (_val.DESP.includes('SI')) {
@@ -182,9 +182,9 @@ const Medicamentos = {
                                     m("td.tx-semibold.tx-normal", [
                                         _val.MEDICACION,
                                         m('br'),
-                                        (_val.OBS !== null ? m('.d-inline', 'Observaciones:') : ''),
-                                        (_val.OBS !== null ? m('br') : ''),
-                                        (_val.OBS !== null ? m('.d-inline', _val.OBS) : ''),
+                                        (_val.OBS !== null ? m('.d-none', 'Observaciones:') : ''),
+                                        // (_val.OBS !== null ? m('br') : ''),
+                                        (_val.OBS !== null ? m('.d-none', _val.OBS) : ''),
                                     ]),
 
                                     m("td.tx-semibold.tx-normal",
@@ -205,9 +205,9 @@ const Medicamentos = {
                                     m("td.tx-semibold.tx-normal", [
                                         _val.MEDICACION,
                                         m('br'),
-                                        (_val.OBS !== null ? m('.d-inline', 'Observaciones:') : ''),
-                                        (_val.OBS !== null ? m('br') : ''),
-                                        (_val.OBS !== null ? m('.d-inline', _val.OBS) : ''),
+                                        (_val.OBS !== null ? m('.d-none', 'Observaciones:') : ''),
+                                        // (_val.OBS !== null ? m('br') : ''),
+                                        (_val.OBS !== null ? m('.d-none', _val.OBS) : ''),
                                     ]),
                                     m("td.tx-color-03.tx-normal",
                                         _val.CANT),
@@ -268,16 +268,16 @@ const RecetaFarmacia = {
         RecetaFarmacia.data = [];
         RecetaFarmacia.loader = true;
         m.request({
-            method: "POST",
-            url: "https://api.hospitalmetropolitano.org/t/v1/status-receta-sml",
-            body: {
-                numeroReceta: RecetaFarmacia.numeroReceta,
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (result) {
+                method: "POST",
+                url: "https://api.hospitalmetropolitano.org/t/v1/status-receta-sml",
+                body: {
+                    numeroReceta: RecetaFarmacia.numeroReceta,
+                },
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(result) {
                 if (result.status) {
 
                     result.data = result.data[0];
@@ -291,29 +291,29 @@ const RecetaFarmacia = {
                 }
 
             })
-            .catch(function (e) {
+            .catch(function(e) {
 
             })
 
     },
     checkDespacho: () => {
         m.request({
-            method: "POST",
-            url: "https://api.hospitalmetropolitano.org/t/v1/check-receta",
-            body: {
-                numeroAtencion: RecetaFarmacia.numeroAtencion,
-                numeroReceta: RecetaFarmacia.numeroReceta,
-                status: (RecetaFarmacia.despachoTotal == true ? 'TOTAL' : (RecetaFarmacia.despachoParcial == true ? 'PARCIAL' : '')),
-                obs: Observaciones.observaciones
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (result) {
+                method: "POST",
+                url: "https://api.hospitalmetropolitano.org/t/v1/check-receta",
+                body: {
+                    numeroAtencion: RecetaFarmacia.numeroAtencion,
+                    numeroReceta: RecetaFarmacia.numeroReceta,
+                    status: (RecetaFarmacia.despachoTotal == true ? 'TOTAL' : (RecetaFarmacia.despachoParcial == true ? 'PARCIAL' : '')),
+                    obs: Observaciones.observaciones
+                },
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(result) {
                 RecetaFarmacia.data.FECHA_DESPACHO = result.FECHA_DESPACHO;
             })
-            .catch(function (e) {
+            .catch(function(e) {
 
             })
     },
@@ -353,29 +353,29 @@ const RecetaFarmacia = {
                         m("div.col-12", [
 
                             m("div.table-loader.wd-100p", {
-                                oncreate: (el) => {
-                                    if (RecetaFarmacia.loader) {
-                                        el.dom.hidden = false;
-                                    } else {
-                                        el.dom.hidden = true;
+                                    oncreate: (el) => {
+                                        if (RecetaFarmacia.loader) {
+                                            el.dom.hidden = false;
+                                        } else {
+                                            el.dom.hidden = true;
 
+                                        }
+                                    },
+                                    onupdate: (el) => {
+                                        if (RecetaFarmacia.loader) {
+                                            el.dom.hidden = false;
+                                        } else {
+                                            el.dom.hidden = true;
+
+                                        }
                                     }
-                                },
-                                onupdate: (el) => {
-                                    if (RecetaFarmacia.loader) {
-                                        el.dom.hidden = false;
-                                    } else {
-                                        el.dom.hidden = true;
 
-                                    }
-                                }
-
-                            }, [
-                                m("div.placeholder-paragraph", [
-                                    m("div.line"),
-                                    m("div.line")
-                                ])
-                            ]
+                                }, [
+                                    m("div.placeholder-paragraph", [
+                                        m("div.line"),
+                                        m("div.line")
+                                    ])
+                                ]
 
 
                             ),
@@ -416,32 +416,32 @@ const RecetaFarmacia = {
                                     m("h5.tx-right.tx-normal.tx-rubik.tx-color-03.mg-b-0",
                                         m("small.pd-2.tx-20",
                                             m("i.fas.fa-times-circle.pd-2", {
-                                                "style": { "cursor": "pointer" },
-                                                title: "Cerrar",
-                                                onclick: () => {
+                                                    "style": { "cursor": "pointer" },
+                                                    title: "Cerrar",
+                                                    onclick: () => {
 
 
-                                                    if (RecetaFarmacias.idFiltro !== undefined && RecetaFarmacias.idFiltro > 1) {
-                                                        RecetaFarmacias.pedidos = [];
-                                                        m.route.set('/farmacia/recetas/', {
-                                                            idFiltro: RecetaFarmacias.idFiltro,
-                                                            fechaDesde: RecetaFarmacias.fechaDesde,
-                                                            fechaHasta: RecetaFarmacias.fechaHasta,
-                                                        });
+                                                        if (RecetaFarmacias.idFiltro !== undefined && RecetaFarmacias.idFiltro > 1) {
+                                                            RecetaFarmacias.pedidos = [];
+                                                            m.route.set('/farmacia/recetas/', {
+                                                                idFiltro: RecetaFarmacias.idFiltro,
+                                                                fechaDesde: RecetaFarmacias.fechaDesde,
+                                                                fechaHasta: RecetaFarmacias.fechaHasta,
+                                                            });
 
-                                                    } else {
-                                                        RecetaFarmacias.pedidos = [];
-                                                        m.route.set('/farmacia/recetas/', {
-                                                            idFiltro: 1,
-                                                        });
+                                                        } else {
+                                                            RecetaFarmacias.pedidos = [];
+                                                            m.route.set('/farmacia/recetas/', {
+                                                                idFiltro: 1,
+                                                            });
+
+                                                        }
+
+
+
 
                                                     }
-
-
-
-
                                                 }
-                                            }
 
                                             )
 
@@ -468,37 +468,37 @@ const RecetaFarmacia = {
                                             m("tbody", [
                                                 m("tr", [
                                                     m("th", {
-                                                        style: { "background-color": "#a8bed6" }
-                                                    },
+                                                            style: { "background-color": "#a8bed6" }
+                                                        },
                                                         "N° de Receta:"
                                                     ),
                                                     m("td", {
-                                                        style: { "background-color": "#eaeff5" }
+                                                            style: { "background-color": "#eaeff5" }
 
-                                                    },
+                                                        },
                                                         RecetaFarmacia.data.CD_DOCUMENTO_CLINICO
                                                     ),
                                                     m("th", {
-                                                        style: { "background-color": "#a8bed6" }
-                                                    },
+                                                            style: { "background-color": "#a8bed6" }
+                                                        },
                                                         "Fecha:"
                                                     ),
                                                     m("td[colspan='2']", {
-                                                        style: { "background-color": "#eaeff5" }
+                                                            style: { "background-color": "#eaeff5" }
 
-                                                    },
+                                                        },
                                                         RecetaFarmacia.data.DT_ATENDIMENTO
 
                                                     ),
                                                     m("th", {
-                                                        style: { "background-color": "#a8bed6" }
-                                                    },
+                                                            style: { "background-color": "#a8bed6" }
+                                                        },
                                                         "N° de Atención:"
                                                     ),
                                                     m("td[colspan='3']", {
-                                                        style: { "background-color": "#eaeff5" }
+                                                            style: { "background-color": "#eaeff5" }
 
-                                                    },
+                                                        },
                                                         RecetaFarmacia.data.CD_ATENDIMENTO
                                                     ),
 
@@ -518,38 +518,38 @@ const RecetaFarmacia = {
                                             m("tbody", [
                                                 m("tr", [
                                                     m("th", {
-                                                        style: { "background-color": "#a8bed6" }
-                                                    },
+                                                            style: { "background-color": "#a8bed6" }
+                                                        },
                                                         "Apellidos y Nombres:"
                                                     ),
                                                     m("td[colspan='4']", {
-                                                        style: { "background-color": "#eaeff5" }
+                                                            style: { "background-color": "#eaeff5" }
 
-                                                    },
+                                                        },
                                                         RecetaFarmacia.data.NM_PACIENTE
                                                     ),
                                                     m("th", {
-                                                        style: { "background-color": "#a8bed6" }
-                                                    },
+                                                            style: { "background-color": "#a8bed6" }
+                                                        },
                                                         "NHC:"
                                                     ),
                                                     m("td", {
-                                                        style: { "background-color": "#eaeff5" }
+                                                            style: { "background-color": "#eaeff5" }
 
-                                                    },
+                                                        },
                                                         RecetaFarmacia.data.CD_PACIENTE
 
                                                     ),
 
                                                     m("th", {
-                                                        style: { "background-color": "#a8bed6" }
-                                                    },
+                                                            style: { "background-color": "#a8bed6" }
+                                                        },
                                                         "Ubicación:"
                                                     ),
                                                     m("td[colspan='2']", {
-                                                        style: { "background-color": "#eaeff5" }
+                                                            style: { "background-color": "#eaeff5" }
 
-                                                    },
+                                                        },
                                                         RecetaFarmacia.data.UBICACION
                                                     ),
 
@@ -563,14 +563,14 @@ const RecetaFarmacia = {
                                                 ]),
                                                 m("tr", [
                                                     m("th", {
-                                                        style: { "background-color": "#a8bed6" }
-                                                    },
+                                                            style: { "background-color": "#a8bed6" }
+                                                        },
                                                         "Medicamentos:"
                                                     ),
                                                     m("td.pd-0[colspan='8']", {
-                                                        style: { "background-color": "#eaeff5" }
+                                                            style: { "background-color": "#eaeff5" }
 
-                                                    },
+                                                        },
                                                         m(Medicamentos)
                                                     ),
 
@@ -586,14 +586,14 @@ const RecetaFarmacia = {
                                                 m("tr.d-print-none", [
 
                                                     m("td[colspan='9']", {
-                                                        style: { "background-color": "#eaeff5" }
+                                                            style: { "background-color": "#eaeff5" }
 
-                                                    },
+                                                        },
                                                         m("ul.nav.nav-tabs[id='myTab'][role='tablist']", [
                                                             m("li.nav-item",
                                                                 m("a.nav-link[target='_target'][href='" + RecetaFarmacia.data.URL + "']", {
-                                                                    style: { "color": "#476ba3" }
-                                                                },
+                                                                        style: { "color": "#476ba3" }
+                                                                    },
                                                                     m("i.fas.fa-file-alt.pd-1.mg-r-2"),
 
                                                                     " Ver Receta "
@@ -601,8 +601,8 @@ const RecetaFarmacia = {
                                                             ),
                                                             m("li.nav-item",
                                                                 m("a.nav-link[id='home-comment'][data-toggle='tab'][href='#comment'][role='tab'][aria-controls='comment']", {
-                                                                    style: { "color": "#476ba3" }
-                                                                },
+                                                                        style: { "color": "#476ba3" }
+                                                                    },
                                                                     m("i.fas.fa-inbox.pd-1.mg-r-2"),
 
                                                                     " Despacho "
@@ -619,7 +619,7 @@ const RecetaFarmacia = {
 
                                                     m("td[colspan='9']", {
 
-                                                    },
+                                                        },
                                                         m(".tab-content.bd.bd-gray-300.bd-t-0[id='myTab']", [
 
                                                             m(".tab-pane.fade[id='comment'][role='tabpanel'][aria-labelledby='home-comment']", [
@@ -630,10 +630,10 @@ const RecetaFarmacia = {
                                                                     m("tr", [
 
                                                                         m("td.tx-18.tx-medium.text-left", [
-                                                                            "¿Confirmar despacho parcial?:",
-                                                                            m('br'),
-                                                                            "¿Confirmar despacho total?:",
-                                                                        ]
+                                                                                "¿Confirmar despacho parcial?:",
+                                                                                m('br'),
+                                                                                "¿Confirmar despacho total?:",
+                                                                            ]
 
                                                                         ),
 
@@ -641,7 +641,7 @@ const RecetaFarmacia = {
                                                                             m("div.custom-control.custom-checkbox.tx-16", [
                                                                                 m("input.custom-control-input.tx-16[type='checkbox'][id='check_despacho_parcial']", {
                                                                                     checked: RecetaFarmacia.despachoParcial,
-                                                                                    onclick: function (e) {
+                                                                                    onclick: function(e) {
                                                                                         e.preventDefault();
                                                                                         let p = this.checked;
                                                                                         if (p) {
@@ -667,7 +667,7 @@ const RecetaFarmacia = {
                                                                             m("div.custom-control.custom-checkbox.tx-16", [
                                                                                 m("input.custom-control-input.tx-16[type='checkbox'][id='check_despacho_total']", {
                                                                                     checked: RecetaFarmacia.despachoTotal,
-                                                                                    onclick: function (e) {
+                                                                                    onclick: function(e) {
                                                                                         e.preventDefault();
                                                                                         let p = this.checked;
                                                                                         if (p) {
@@ -699,13 +699,13 @@ const RecetaFarmacia = {
                                                                         "Observaciones",
                                                                     ),
                                                                     m("textarea.form-control.mg-t-5[rows='5'][placeholder='Observaciones']", {
-                                                                        oninput: function (e) { Observaciones.observaciones = e.target.value; },
+                                                                        oninput: function(e) { Observaciones.observaciones = e.target.value; },
                                                                         value: Observaciones.observaciones,
                                                                     }),
                                                                     m("div.mg-0.mg-t-5.text-right", [
 
                                                                         m("button.btn.btn-xs.btn-primary.mg-l-2.tx-semibold[type='button']", {
-                                                                            onclick: function () {
+                                                                            onclick: function() {
                                                                                 if (Observaciones.observaciones.length !== 0) {
                                                                                     Observaciones.sendObs();
                                                                                 } else {
@@ -713,7 +713,7 @@ const RecetaFarmacia = {
                                                                                 }
                                                                             },
                                                                         }, [
-                                                                            m("i.fas.fa-save.mg-r-5",)
+                                                                            m("i.fas.fa-save.mg-r-5", )
                                                                         ], "Guardar"),
 
 

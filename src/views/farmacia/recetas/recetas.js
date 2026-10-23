@@ -135,60 +135,60 @@ const tableRecetas = {
                         m("h5.mg-b-0",
                             "Farmacia:",
                             m("span.badge.badge-primary.tx-semibold.pd-l-10.pd-r-10.mg-l-5.tx-15", {
-                                oncreate: (el) => {
-                                    if (Recetas.idFiltro == 1) {
-                                        el.dom.innerHTML = 'Recetas de Hoy';
-                                    }
-                                    if (Recetas.idFiltro == 2) {
-                                        el.dom.innerHTML = 'Recetas entre Fechas';
-                                    }
-                                    if (Recetas.idFiltro == 3) {
-                                        el.dom.innerHTML = 'Recetas de Emergencia';
-                                    }
-                                    if (Recetas.idFiltro == 4) {
-                                        el.dom.innerHTML = 'Recetas de Hospitalización';
-                                    }
-                                    if (Recetas.idFiltro == 5) {
-                                        el.dom.innerHTML = 'Recetas de PB';
-                                    }
-                                    if (Recetas.idFiltro == 6) {
-                                        el.dom.innerHTML = 'Recetas de H1';
-                                    }
-                                    if (Recetas.idFiltro == 7) {
-                                        el.dom.innerHTML = 'Recetas de H2';
-                                    }
-                                    if (Recetas.idFiltro == 8) {
-                                        el.dom.innerHTML = 'Recetas de C2';
-                                    }
-                                },
-                                onupdate: (el) => {
-                                    if (Recetas.idFiltro == 1) {
-                                        el.dom.innerHTML = 'Recetas de Hoy';
-                                    }
-                                    if (Recetas.idFiltro == 2) {
-                                        el.dom.innerHTML = 'Recetas entre Fechas';
-                                    }
-                                    if (Recetas.idFiltro == 3) {
-                                        el.dom.innerHTML = 'Recetas de Emergencia';
-                                    }
-                                    if (Recetas.idFiltro == 4) {
-                                        el.dom.innerHTML = 'Recetas de Hospitalización';
-                                    }
-                                    if (Recetas.idFiltro == 5) {
-                                        el.dom.innerHTML = 'Recetas de PB';
-                                    }
-                                    if (Recetas.idFiltro == 6) {
-                                        el.dom.innerHTML = 'Recetas de H1';
-                                    }
-                                    if (Recetas.idFiltro == 7) {
-                                        el.dom.innerHTML = 'Recetas de H2';
-                                    }
-                                    if (Recetas.idFiltro == 8) {
-                                        el.dom.innerHTML = 'Recetas de C2';
-                                    }
+                                    oncreate: (el) => {
+                                        if (Recetas.idFiltro == 1) {
+                                            el.dom.innerHTML = 'Recetas de Hoy';
+                                        }
+                                        if (Recetas.idFiltro == 2) {
+                                            el.dom.innerHTML = 'Recetas entre Fechas';
+                                        }
+                                        if (Recetas.idFiltro == 3) {
+                                            el.dom.innerHTML = 'Recetas de Emergencia';
+                                        }
+                                        if (Recetas.idFiltro == 4) {
+                                            el.dom.innerHTML = 'Recetas de Hospitalización';
+                                        }
+                                        if (Recetas.idFiltro == 5) {
+                                            el.dom.innerHTML = 'Recetas de PB';
+                                        }
+                                        if (Recetas.idFiltro == 6) {
+                                            el.dom.innerHTML = 'Recetas de H1';
+                                        }
+                                        if (Recetas.idFiltro == 7) {
+                                            el.dom.innerHTML = 'Recetas de H2';
+                                        }
+                                        if (Recetas.idFiltro == 8) {
+                                            el.dom.innerHTML = 'Recetas de C2';
+                                        }
+                                    },
+                                    onupdate: (el) => {
+                                        if (Recetas.idFiltro == 1) {
+                                            el.dom.innerHTML = 'Recetas de Hoy';
+                                        }
+                                        if (Recetas.idFiltro == 2) {
+                                            el.dom.innerHTML = 'Recetas entre Fechas';
+                                        }
+                                        if (Recetas.idFiltro == 3) {
+                                            el.dom.innerHTML = 'Recetas de Emergencia';
+                                        }
+                                        if (Recetas.idFiltro == 4) {
+                                            el.dom.innerHTML = 'Recetas de Hospitalización';
+                                        }
+                                        if (Recetas.idFiltro == 5) {
+                                            el.dom.innerHTML = 'Recetas de PB';
+                                        }
+                                        if (Recetas.idFiltro == 6) {
+                                            el.dom.innerHTML = 'Recetas de H1';
+                                        }
+                                        if (Recetas.idFiltro == 7) {
+                                            el.dom.innerHTML = 'Recetas de H2';
+                                        }
+                                        if (Recetas.idFiltro == 8) {
+                                            el.dom.innerHTML = 'Recetas de C2';
+                                        }
 
+                                    }
                                 }
-                            }
 
                             )
 
@@ -198,16 +198,16 @@ const tableRecetas = {
                                 class: (Recetas.idFiltro == 1 ? 'd-none' : 'd-flex')
                             }, [
                                 m("div.link-03", {
-                                    title: "Desde"
-                                },
+                                        title: "Desde"
+                                    },
                                     m(".tx-10.pd-r-0", {
                                         style: { "padding-top": "10px" }
                                     }, 'Desde:')
                                 ),
                                 m("div.link-03", {
-                                    style: { "cursor": "pointer" },
-                                    title: "Desde"
-                                },
+                                        style: { "cursor": "pointer" },
+                                        title: "Desde"
+                                    },
                                     m("input.tx-light.pd-4[type='date'][id='desde']", {
                                         oncreate: (el) => {
                                             el.dom.value = (Recetas.idFiltro !== 1 ? moment(moment(Recetas.fechaDesde, 'DD-MM-YYYY')).format('YYYY-MM-DD') : '');
@@ -225,16 +225,16 @@ const tableRecetas = {
                                     })
                                 ),
                                 m("div.link-03", {
-                                    title: "Hasta"
-                                },
+                                        title: "Hasta"
+                                    },
                                     m(".tx-10.pd-r-0", {
                                         style: { "padding-top": "10px" }
                                     }, 'Hasta:')
                                 ),
                                 m("div.link-03", {
-                                    style: { "cursor": "pointer" },
-                                    title: "Hasta"
-                                },
+                                        style: { "cursor": "pointer" },
+                                        title: "Hasta"
+                                    },
                                     m("input.tx-light.pd-4[type='date'][id='hasta']", {
                                         oncreate: (el) => {
                                             el.dom.value = (Recetas.idFiltro !== 1 ? moment(moment(Recetas.fechaHasta, 'DD-MM-YYYY')).format('YYYY-MM-DD') : '');
@@ -254,9 +254,9 @@ const tableRecetas = {
                             ]),
                             m("div.d-none.dropdown.dropleft", [
                                 m("div.link-03.lh-0.mg-l-5[id='dropdownMenuButton'][data-toggle='dropdown'][aria-haspopup='true'][aria-expanded='false']", {
-                                    style: { "cursor": "pointer" },
-                                    title: "Filtrar"
-                                },
+                                        style: { "cursor": "pointer" },
+                                        title: "Filtrar"
+                                    },
                                     m("i.fas.fa-filter.tx-18.pd-5.tx-primary"),
                                 ),
                                 m(".dropdown-menu.tx-13[aria-labelledby='dropdownMenuButton']", [
@@ -300,7 +300,7 @@ const tableRecetas = {
                         m("div.search-form",
                             m("input.form-control[type='search'][placeholder='Buscar'][id='searchField']", {
 
-                                oninput: function (e) { Recetas.searchField = e.target.value; },
+                                oninput: function(e) { Recetas.searchField = e.target.value; },
                                 value: Recetas.searchField,
                             })
                         ),
@@ -397,58 +397,58 @@ const Recetas = {
             order: false,
             destroy: true,
             columns: [{
-                title: "Fecha Receta:",
-            },
-            {
-                title: "Paciente:",
-            },
-            {
-                title: "Status Despacho:",
-            },
-            {
-                title: "Opciones:",
-            },
+                    title: "Fecha Receta:",
+                },
+                {
+                    title: "Paciente:",
+                },
+                {
+                    title: "Status Despacho:",
+                },
+                {
+                    title: "Opciones:",
+                },
 
 
             ],
             aoColumnDefs: [{
-                mRender: function (data, type, full) {
-                    return full.FECHA_RECETA;
+                    mRender: function(data, type, full) {
+                        return full.FECHA_RECETA;
+                    },
+                    visible: true,
+                    aTargets: [0],
+                    orderable: false,
                 },
-                visible: true,
-                aTargets: [0],
-                orderable: false,
-            },
-            {
-                mRender: function (data, type, full) {
-                    return full.CD_PACIENTE;
-                },
-                visible: true,
-                aTargets: [1],
-                orderable: false,
+                {
+                    mRender: function(data, type, full) {
+                        return full.CD_PACIENTE;
+                    },
+                    visible: true,
+                    aTargets: [1],
+                    orderable: false,
 
-            },
-            {
-                mRender: function (data, type, full) {
-                    return full.NM_PACIENTE;
                 },
-                visible: true,
-                aTargets: [2],
-                orderable: false,
-            },
-            {
-                mRender: function (data, type, full) {
-                    return 'OPCIONES';
+                {
+                    mRender: function(data, type, full) {
+                        return full.NM_PACIENTE;
+                    },
+                    visible: true,
+                    aTargets: [2],
+                    orderable: false,
                 },
-                visible: true,
-                aTargets: [3],
-                orderable: false,
-            },
+                {
+                    mRender: function(data, type, full) {
+                        return 'OPCIONES';
+                    },
+                    visible: true,
+                    aTargets: [3],
+                    orderable: false,
+                },
 
 
 
             ],
-            fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+            fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
 
                 m.mount(nRow, {
                     view: () => {
@@ -458,51 +458,56 @@ const Recetas = {
                             ),
                             m("td.wd-60p", { "style": {} }, [
 
-                                m(".d-inline.tx-semibold.tx-14", 'NHC: '),
-                                m(".d-inline.tx-14", aData.CD_PACIENTE),
-                                m('br'),
-                                m(".d-inline.tx-semibold.tx-14", 'PTE: '),
-                                m(".d-inline.tx-14", aData.NM_PACIENTE),
-                                m('br'),
-                                m(".d-inline.tx-semibold.tx-14", 'N° ATENCIÓN: '),
-                                m(".d-inline.tx-14", aData.CD_ATENDIMENTO),
-                                m(".d-inline.tx-semibold.tx-14", ' UBICACIÓN: '),
-                                m(".d-inline.tx-14", aData.UBICACION + " - " + aData.DS_UNID_INT),
-                                m('br'),
-                                m(".tx-semibold.tx-14", { "style": (aData.STATUS_DESPACHO == 0 ? "display: none;" : "display: inline;") }, 'DESPACHO: '),
-                                m(".tx-14", { "style": (aData.STATUS_DESPACHO == 0 ? "display: none;" : "display: inline;") }, aData.FECHA_DESPACHO),
-                                m('br'),
-                                m(".d-inline.tx-semibold.tx-14", aData.TP_STATUS === 'CANCELADO' ? ' USUARIO CANCELA: ' : ' USUARIO: '),
-                                m(".d-inline.tx-14", aData.TP_STATUS === 'CANCELADO' ? aData.CD_USUARIO + '  el ' + aData.FECHA_CANCELA : aData.CD_USUARIO),
+                                    m(".d-inline.tx-semibold.tx-14", 'NHC: '),
+                                    m(".d-inline.tx-14", aData.CD_PACIENTE),
+                                    m('br'),
+                                    m(".d-inline.tx-semibold.tx-14", 'PTE: '),
+                                    m(".d-inline.tx-14", aData.NM_PACIENTE),
+                                    m('br'),
+                                    m(".d-inline.tx-semibold.tx-14", 'N° ATENCIÓN: '),
+                                    m(".d-inline.tx-14", aData.CD_ATENDIMENTO),
+                                    m(".d-inline.tx-semibold.tx-14", ' UBICACIÓN: '),
+                                    m(".d-inline.tx-14", aData.UBICACION + " - " + aData.DS_UNID_INT),
+                                    // Usuario Crea
+                                    m('br'),
+                                    m(".d-inline.tx-semibold.tx-14", ' USUARIO CREA: '),
+                                    m(".d-inline.tx-14", aData.USUARIO_CREA),
+                                    m('br'),
+                                    m(".tx-semibold.tx-14", { "style": (aData.STATUS_DESPACHO == 0 ? "display: none;" : "display: inline;") }, 'DESPACHO: '),
+                                    m(".tx-14", { "style": (aData.STATUS_DESPACHO == 0 ? "display: none;" : "display: inline;") }, aData.FECHA_DESPACHO),
+                                    m('br'),
+                                    m(".d-inline.tx-semibold.tx-14", aData.TP_STATUS === 'CANCELADO' ? ' USUARIO CANCELA: ' : '  '),
+                                    m(".d-inline.tx-14", aData.TP_STATUS === 'CANCELADO' ? aData.USUARIO_CANCELA + '  el ' + aData.FECHA_CANCELA : ''),
 
-                            ]
+
+                                ]
 
                             ),
 
 
                             m("td.tx-center.wd-10p.tx-white.tx-semibold", {
 
-                                "style": { "background-color": (aData.STATUS_DESPACHO == 0 ? "#fd7e14" : "#0d9448") }
-                            },
+                                    "style": { "background-color": (aData.STATUS_DESPACHO == 0 ? "#fd7e14" : "#0d9448") }
+                                },
                                 (aData.STATUS_DESPACHO == 0 ? "Pendiente" : "Despachado")
                             ),
 
                             m("td.tx-center.wd-10p.tx-semibold", {
-                                onclick: () => {
-                                    m.route.set("/farmacia/receta/", {
-                                        numeroHistoriaClinica: aData.CD_PACIENTE,
-                                        numeroAtencion: aData.CD_ATENDIMENTO,
-                                        numeroReceta: aData.id,
-                                        track: "view",
-                                    });
-                                },
-                                "style": {
-                                    "background-color": aData.TP_STATUS === 'CANCELADO' ? "#f10075" : "rgb(168, 190, 214)",
-                                    "cursor": aData.TP_STATUS === 'CANCELADO' ? "not-allowed" : "default",
-                                    "pointer-events": aData.TP_STATUS === 'CANCELADO' ? "none" : "auto",
+                                    onclick: () => {
+                                        m.route.set("/farmacia/receta/", {
+                                            numeroHistoriaClinica: aData.CD_PACIENTE,
+                                            numeroAtencion: aData.CD_ATENDIMENTO,
+                                            numeroReceta: aData.id,
+                                            track: "view",
+                                        });
+                                    },
+                                    "style": {
+                                        "background-color": aData.TP_STATUS === 'CANCELADO' ? "#f10075" : "rgb(168, 190, 214)",
+                                        "cursor": aData.TP_STATUS === 'CANCELADO' ? "not-allowed" : "default",
+                                        "pointer-events": aData.TP_STATUS === 'CANCELADO' ? "none" : "auto",
 
-                                }
-                            },
+                                    }
+                                },
                                 (aData.TP_STATUS === 'CANCELADO' ? " Receta Cancelada " : " Ver Receta ")
 
 
@@ -516,13 +521,13 @@ const Recetas = {
                     },
                 });
             },
-            drawCallback: function (settings) {
+            drawCallback: function(settings) {
 
                 Recetas.loader = false;
                 Recetas.despachos = 0;
                 Recetas.pendientes = 0;
 
-                settings.aoData.map(function (_v, _i) {
+                settings.aoData.map(function(_v, _i) {
 
                     if (_v._aData.STATUS_DESPACHO == 1) {
                         Recetas.despachos++;
@@ -544,7 +549,7 @@ const Recetas = {
             minimumResultsForSearch: Infinity
         });
 
-        $('#searchField').keyup(function (e) {
+        $('#searchField').keyup(function(e) {
 
             table.search($('#searchField').val()).draw();
         });
@@ -564,19 +569,19 @@ const Recetas = {
         // Recetas de Alta ajuste Valeria 
 
         m.request({
-            method: "GET",
-            url: "https://api.hospitalmetropolitano.org/t/v1/recetas-sml" + _queryString,
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (result) {
+                method: "GET",
+                url: "https://api.hospitalmetropolitano.org/t/v1/recetas-sml" + _queryString,
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(result) {
                 console.log(result)
                 Recetas.loader = false;
                 Recetas.pedidos = result.data;
             })
-            .catch(function (e) {
-                setTimeout(function () { Recetas.fetch(); }, 2000);
+            .catch(function(e) {
+                setTimeout(function() { Recetas.fetch(); }, 2000);
             });
 
 
@@ -587,19 +592,19 @@ const Recetas = {
 
 
         m.request({
-            method: "GET",
-            url: "https://lisa.hospitalmetropolitano.org/v1/pedidos/send-pedido?sc=" + codigoPedido + "&idTimeRecord=" + idTimeRecord,
-            extract: function (xhr) { return { status: xhr.status, body: xhr.responseText } },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-        })
-            .then(function (response) {
+                method: "GET",
+                url: "https://lisa.hospitalmetropolitano.org/v1/pedidos/send-pedido?sc=" + codigoPedido + "&idTimeRecord=" + idTimeRecord,
+                extract: function(xhr) { return { status: xhr.status, body: xhr.responseText } },
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+            })
+            .then(function(response) {
 
 
                 if (response.status == 200) {
                     alert('Preceso realizado con éxito.')
-                    setTimeout(function () { window.location.reload(); }, 300);
+                    setTimeout(function() { window.location.reload(); }, 300);
                 } else {
                     alert('Error en envío de este mensaje. Reintente nuevamente.');
 
@@ -607,7 +612,7 @@ const Recetas = {
 
 
             })
-            .catch(function (e) {
+            .catch(function(e) {
                 alert('Error en envío de este mensaje. Reintente nuevamente.');
             });
 
@@ -651,11 +656,11 @@ const Recetas = {
                         m("div.col-12", [
 
                             m("div.table-loader.wd-100p", [
-                                m("div.placeholder-paragraph", [
-                                    m("div.line"),
-                                    m("div.line")
-                                ])
-                            ]
+                                    m("div.placeholder-paragraph", [
+                                        m("div.line"),
+                                        m("div.line")
+                                    ])
+                                ]
 
 
                             ),
@@ -745,7 +750,7 @@ const Recetas = {
                 ),
                 m("div.mg-t-10.bg-white", {
 
-                },
+                    },
 
                     m("div.mg-t-10.bg-white",
                         m("div.card-header.pd-t-20.pd-b-0.bd-b-0", [
